@@ -3,6 +3,10 @@ import CoreData
 import UIKit
 
 class ServicesFacade {
+    static let updatedNotification = NSNotification.Name("ServicesUpdated")
+    static let errorNotification = NSNotification.Name("ServicesError")
+    static let noNetworkNotification = NSNotification.Name("ServicesNoNetwork")
+    
     private let model: ServicesModel
     
     init() {
@@ -30,5 +34,32 @@ class ServicesFacade {
         
         let url = URL(string: detailUrl)!
         UIApplication.shared.openURL(url)
+    }
+    
+    var hasServices: Bool {
+        return model.servicesFromStorage().count > 0
+    }
+    
+    var hasInternalServices: Bool {
+        return model.servicesFromStorage(type: .internalService).count > 0
+    }
+    
+    var hasExternalServices: Bool {
+        return model.servicesFromStorage(type: .externalService).count > 0
+    }
+    
+    func updateServices() {
+        model.updateServicesInStorage(onError: onError, onSuccess: onUpdateSuccess)
+    }
+    
+    func onError(error: NetworkError) {
+        switch error {
+        case .fault(_): NotificationCenter.default.post(name: ServicesFacade.errorNotification, object: nil)
+        case .offline: NotificationCenter.default.post(name: ServicesFacade.noNetworkNotification, object: nil)
+        }
+    }
+    
+    func onUpdateSuccess() {
+        NotificationCenter.default.post(name: ServicesFacade.updatedNotification, object: nil)
     }
 }

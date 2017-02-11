@@ -21,8 +21,11 @@ class CoreDataManager {
         return mainContext.fetchedController(entityName: entityName, predicate: predicate, orderBy: orderBy, ascending: ascending)
     }
     
-    func fetch<T: NSFetchRequestResult>(_ entityName: String, from context: NSManagedObjectContext? = nil) -> [T] {
+    func fetch<T: NSFetchRequestResult>(_ entityName: String, predicate: NSPredicate? = nil, from context: NSManagedObjectContext? = nil) -> [T] {
         let request = NSFetchRequest<T>(entityName: entityName)
+        if predicate != nil {
+            request.predicate = predicate
+        }
         return (try? (context ?? mainContext).fetch(request)) ?? []
     }
 }

@@ -47,4 +47,9 @@ class ServicesModel {
     func servicesFromStorage() -> [Service] {
         return CoreDataManager.instance.fetch("Service")
     }
+    
+    func servicesFromStorage(type: Service.ServiceType) -> [Service] {
+        let predicate = NSPredicate(format: "type == %@", type.rawValue)
+        return CoreDataManager.instance.fetch("Service", predicate: predicate)
+    }
 }

@@ -47,4 +47,10 @@ class NotificationsModel {
     func notificationsFromStorage() -> [Notification] {
         return CoreDataManager.instance.fetch("Notification")
     }
+    
+    func hide(notification: Notification) {
+        notification.hidden = true
+        try? notification.managedObjectContext?.saveIfNeeded()
+        try? mainContext.saveIfNeeded()
+    }
 }
