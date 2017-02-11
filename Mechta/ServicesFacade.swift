@@ -34,6 +34,8 @@ class ServicesFacade {
         
         let url = URL(string: detailUrl)!
         UIApplication.shared.openURL(url)
+        
+        model.markViewed(service)
     }
     
     var hasServices: Bool {
@@ -65,9 +67,5 @@ class ServicesFacade {
     
     func onUpdateSuccess() {
         NotificationCenter.default.post(name: ServicesFacade.updatedNotification, object: nil)
-    }
-    
-    func markViewed(_ service: Service) {
-        model.markViewed(service)
     }
 }

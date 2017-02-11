@@ -24,6 +24,8 @@ class ExcursionsFacade {
         
         let url = URL(string: detailUrl)!
         UIApplication.shared.openURL(url)
+        
+        model.markViewed(excursion)
     }
     
     var hasExcursions: Bool {
@@ -47,9 +49,5 @@ class ExcursionsFacade {
     
     func onUpdateSuccess() {
         NotificationCenter.default.post(name: ExcursionsFacade.updatedNotification, object: nil)
-    }
-    
-    func markViewed(_ excursion: Excursion) {
-        model.markViewed(excursion)
     }
 }

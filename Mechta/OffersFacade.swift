@@ -24,6 +24,8 @@ class OffersFacade {
         
         let url = URL(string: detailUrl)!
         UIApplication.shared.openURL(url)
+        
+        model.markViewed(offer)
     }
     
     var hasOffers: Bool {
@@ -47,9 +49,5 @@ class OffersFacade {
     
     func onUpdateSuccess() {
         NotificationCenter.default.post(name: OffersFacade.updatedNotification, object: nil)
-    }
-    
-    func markViewed(_ offer: Offer) {
-        model.markViewed(offer)
     }
 }
