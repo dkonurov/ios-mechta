@@ -30,6 +30,10 @@ class NewsFacade {
         return model.newsFromStorage().count > 0
     }
     
+    var unviewedNewsCount: Int {
+        return model.unviewedNewsFromStorage().count
+    }
+    
     func updateNews() {
         model.updateNewsInStorage(onError: onError, onSuccess: onUpdateSuccess)
     }

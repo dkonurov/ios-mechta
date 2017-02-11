@@ -21,5 +21,6 @@ extension Notification {
     @NSManaged public var timeStamp: NSDate?
     @NSManaged public var typeRaw: String?
     @NSManaged public var hidden: Bool
+    @NSManaged public var viewed: Bool
 
 }

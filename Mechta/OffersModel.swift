@@ -47,4 +47,9 @@ class OffersModel {
     func offersFromStorage() -> [Offer] {
         return CoreDataManager.instance.fetch("Offer")
     }
+    
+    func unviewedOffersFromStorage() -> [Service] {
+        let predicate = NSPredicate(format: "viewed == %d", NSNumber(booleanLiteral: false))
+        return CoreDataManager.instance.fetch("Offer", predicate: predicate)
+    }
 }

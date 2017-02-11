@@ -14,7 +14,7 @@ class NotificationsFacade {
     }
     
     func fetchedResultController() -> NSFetchedResultsController<Notification> {
-        let predicate = NSPredicate(format: "hidden == %@", NSNumber(booleanLiteral: false))
+        let predicate = NSPredicate(format: "hidden == %d", NSNumber(booleanLiteral: false))
         return CoreDataManager.instance.fetchedResultController(entityName: "Notification", predicate: predicate, orderBy: "timeStamp")
     }
     
@@ -24,6 +24,10 @@ class NotificationsFacade {
     
     var hasNotifications: Bool {
         return model.notificationsFromStorage().count > 0
+    }
+    
+    var notificationsCount: Int {
+        return model.notificationsFromStorage().count
     }
     
     func updateNotifications() {

@@ -30,6 +30,10 @@ class ExcursionsFacade {
         return model.excursionsFromStorage().count > 0
     }
     
+    var unviewedExcursionsCount: Int {
+        return model.unviewedExcursionsFromStorage().count
+    }
+    
     func updateExcursions() {
         model.updateExcursionsInStorage(onError: onError, onSuccess: onUpdateSuccess)
     }

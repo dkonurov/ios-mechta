@@ -47,4 +47,9 @@ class NewsModel {
     func newsFromStorage() -> [News] {
         return CoreDataManager.instance.fetch("News")
     }
+    
+    func unviewedNewsFromStorage() -> [Service] {
+        let predicate = NSPredicate(format: "viewed == %d", NSNumber(booleanLiteral: false))
+        return CoreDataManager.instance.fetch("News", predicate: predicate)
+    }
 }

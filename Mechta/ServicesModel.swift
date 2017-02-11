@@ -52,4 +52,9 @@ class ServicesModel {
         let predicate = NSPredicate(format: "type == %@", type.rawValue)
         return CoreDataManager.instance.fetch("Service", predicate: predicate)
     }
+    
+    func unviewedServicesFromStorage() -> [Service] {
+        let predicate = NSPredicate(format: "viewed == %d", NSNumber(booleanLiteral: false))
+        return CoreDataManager.instance.fetch("Service", predicate: predicate)
+    }
 }

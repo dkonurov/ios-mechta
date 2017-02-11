@@ -47,4 +47,9 @@ class ExcursionsModel {
     func excursionsFromStorage() -> [Excursion] {
         return CoreDataManager.instance.fetch("Excursion")
     }
+    
+    func unviewedExcursionsFromStorage() -> [Service] {
+        let predicate = NSPredicate(format: "viewed == %d", NSNumber(booleanLiteral: false))
+        return CoreDataManager.instance.fetch("Excursion", predicate: predicate)
+    }
 }

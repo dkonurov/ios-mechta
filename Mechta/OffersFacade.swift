@@ -30,6 +30,10 @@ class OffersFacade {
         return model.offersFromStorage().count > 0
     }
     
+    var unviewedOffersCount: Int {
+        return model.unviewedOffersFromStorage().count
+    }
+    
     func updateOffers() {
         model.updateOffersInStorage(onError: onError, onSuccess: onUpdateSuccess)
     }

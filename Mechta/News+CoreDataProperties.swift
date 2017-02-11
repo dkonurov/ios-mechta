@@ -22,5 +22,6 @@ extension News {
     @NSManaged public var detailUrl: String?
     @NSManaged public var itemDescription: String?
     @NSManaged public var photo: String?
+    @NSManaged public var viewed: Bool
 
 }

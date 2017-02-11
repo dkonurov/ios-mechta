@@ -48,6 +48,10 @@ class ServicesFacade {
         return model.servicesFromStorage(type: .externalService).count > 0
     }
     
+    var unviewedServicesCount: Int {
+        return model.unviewedServicesFromStorage().count
+    }
+    
     func updateServices() {
         model.updateServicesInStorage(onError: onError, onSuccess: onUpdateSuccess)
     }

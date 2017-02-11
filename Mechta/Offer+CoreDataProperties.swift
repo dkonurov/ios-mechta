@@ -22,5 +22,6 @@ extension Offer {
     @NSManaged public var itemDescription: String?
     @NSManaged public var publishedAt: NSDate?
     @NSManaged public var photo: String?
+    @NSManaged public var viewed: Bool
 
 }

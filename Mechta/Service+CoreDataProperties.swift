@@ -23,5 +23,6 @@ extension Service {
     @NSManaged public var typeRaw: String?
     @NSManaged public var publishedAt: NSDate?
     @NSManaged public var photo: String?
+    @NSManaged public var viewed: Bool
 
 }
