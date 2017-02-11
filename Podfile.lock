@@ -1,0 +1,27 @@
+PODS:
+  - Alamofire (4.3.0)
+  - CoreDataBoilerplate (0.1.0)
+  - SwiftyJSON (3.1.4)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.3)
+  - CoreDataBoilerplate (from `https://github.com/npu3pak/ios-lib-coredata-boilerplate.git`)
+  - SwiftyJSON (~> 3.1)
+
+EXTERNAL SOURCES:
+  CoreDataBoilerplate:
+    :git: https://github.com/npu3pak/ios-lib-coredata-boilerplate.git
+
+CHECKOUT OPTIONS:
+  CoreDataBoilerplate:
+    :commit: 12072966dfd3afa2249049b847714051457463df
+    :git: https://github.com/npu3pak/ios-lib-coredata-boilerplate.git
+
+SPEC CHECKSUMS:
+  Alamofire: 856a113053a7bc9cbe5d6367a555d773fc5cfef7
+  CoreDataBoilerplate: acd829ca46ad460b1f61f1fc9dd5036cc17bb6bb
+  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
+
+PODFILE CHECKSUM: 668219e859ee916d979c7645b809db290bcc61ec
+
+COCOAPODS: 1.1.1
