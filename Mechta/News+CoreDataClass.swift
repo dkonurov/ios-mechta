@@ -24,4 +24,7 @@ public class News: NSManagedObject {
         return news
     }
     
+    public static func ==(left: News, right: News) -> Bool{
+        return left.id == right.id
+    }
 }

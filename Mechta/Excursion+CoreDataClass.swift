@@ -25,4 +25,7 @@ public class Excursion: NSManagedObject {
         return excursion
     }
     
+    public static func ==(left: Excursion, right: Excursion) -> Bool{
+        return left.id == right.id
+    }
 }

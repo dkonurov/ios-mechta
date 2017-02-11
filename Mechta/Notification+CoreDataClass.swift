@@ -31,6 +31,10 @@ public class Notification: NSManagedObject {
         return notification
     }
     
+    public static func ==(left: Notification, right: Notification) -> Bool{
+        return left.id == right.id
+    }
+    
     var type: NotificationType {
         if typeRaw == nil {
             return .unknown

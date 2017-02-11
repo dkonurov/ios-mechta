@@ -2,7 +2,7 @@
 //  Notification+CoreDataProperties.swift
 //  
 //
-//  Created by Евгений Сафронов on 07.02.17.
+//  Created by Evgeniy Safronov on 11.02.17.
 //
 //
 
@@ -20,5 +20,6 @@ extension Notification {
     @NSManaged public var text: String?
     @NSManaged public var timeStamp: NSDate?
     @NSManaged public var typeRaw: String?
+    @NSManaged public var hidden: Bool
 
 }

@@ -10,7 +10,8 @@ class NotificationsFacade {
     }
     
     func fetchedResultController() -> NSFetchedResultsController<Notification> {
-        return CoreDataManager.instance.fetchedResultController(entityName: "Notification", orderBy: "timeStamp")
+        let predicate = NSPredicate(format: "hidden == %@", NSNumber(booleanLiteral: false))
+        return CoreDataManager.instance.fetchedResultController(entityName: "Notification", predicate: predicate, orderBy: "timeStamp")
     }
     
     func delete(notification: Notification) {

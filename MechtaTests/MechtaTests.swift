@@ -32,51 +32,14 @@ class MechtaTests: XCTestCase {
     
     func testNews() {
         let expectation = self.expectation(description: "")
+        
         let model = AppModel.instance.newsModel
-        model.newsFromNetwork(onError: onError) {
-            print($0)
+        model.updateNewsInStorage(onError: onError) {
+            let saved = model.newsFromStorage()
+            _ = saved.map() { print($0.title!) }
             expectation.fulfill()
         }
-        waitForExpectations(timeout: 10, handler: nil)
-    }
-    
-    func testExcursions() {
-        let expectation = self.expectation(description: "")
-        let model = AppModel.instance.excursionsModel
-        model.excursionsFromNetwork(onError: onError) {
-            print($0)
-            expectation.fulfill()
-        }
-        waitForExpectations(timeout: 10, handler: nil)
-    }
-    
-    func testOffers() {
-        let expectation = self.expectation(description: "")
-        let model = AppModel.instance.offersModel
-        model.offersFromNetwork(onError: onError) {
-            print($0)
-            expectation.fulfill()
-        }
-        waitForExpectations(timeout: 10, handler: nil)
-    }
-    
-    func testServices() {
-        let expectation = self.expectation(description: "")
-        let model = AppModel.instance.servicesModel
-        model.servicesFromNetwork(onError: onError) {
-            print($0)
-            expectation.fulfill()
-        }
-        waitForExpectations(timeout: 10, handler: nil)
-    }
-    
-    func testNotifications() {
-        let expectation = self.expectation(description: "")
-        let model = AppModel.instance.notificationsModel
-        model.notificationsFromNetwork(onError: onError) {
-            print($0)
-            expectation.fulfill()
-        }
+        
         waitForExpectations(timeout: 10, handler: nil)
     }
     

@@ -37,6 +37,11 @@
                BlueprintName = "MechtaTests"
                ReferencedContainer = "container:Mechta.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "MechtaTests/testJson()">
+               </Test>
+            </SkippedTests>
          </TestableReference>
       </Testables>
       <MacroExpansion>

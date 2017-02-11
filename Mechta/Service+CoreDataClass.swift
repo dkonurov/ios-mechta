@@ -13,10 +13,9 @@ import SwiftyJSON
 @objc(Service)
 public class Service: NSManagedObject {
     
-    enum ServiceType {
-        case internalService
-        case externalService
-        case unknownService
+    enum ServiceType: String {
+        case internalService = "internal"
+        case externalService = "external"
     }
     
     static func from(json: JSON, context: NSManagedObjectContext) -> Service {
@@ -31,15 +30,19 @@ public class Service: NSManagedObject {
         return service
     }
     
+    public static func ==(left: Service, right: Service) -> Bool{
+        return left.id == right.id
+    }
+    
     var type: ServiceType {
         if typeRaw == nil {
-            return .unknownService
+            return .externalService
         }
         
         switch typeRaw! {
-        case "internal": return .internalService
-        case "external": return .externalService
-        default: return .unknownService
+        case ServiceType.internalService.rawValue: return .internalService
+        case ServiceType.externalService.rawValue: return .externalService
+        default: return .externalService
         }
     }
     
