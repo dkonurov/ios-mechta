@@ -1,11 +1,21 @@
 PODS:
   - Alamofire (4.3.0)
   - CoreDataBoilerplate (0.1.0)
+  - OpenSans (1.0.3)
+  - PagingMenuController (1.4.0)
+  - RESideMenu (4.0.7)
+  - SDWebImage (3.8.2):
+    - SDWebImage/Core (= 3.8.2)
+  - SDWebImage/Core (3.8.2)
   - SwiftyJSON (3.1.4)
 
 DEPENDENCIES:
   - Alamofire (~> 4.3)
   - CoreDataBoilerplate (from `https://github.com/npu3pak/ios-lib-coredata-boilerplate.git`)
+  - OpenSans
+  - PagingMenuController (~> 1.4)
+  - RESideMenu (~> 4.0.7)
+  - SDWebImage (~> 3.7)
   - SwiftyJSON (~> 3.1)
 
 EXTERNAL SOURCES:
@@ -20,8 +30,12 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   Alamofire: 856a113053a7bc9cbe5d6367a555d773fc5cfef7
   CoreDataBoilerplate: acd829ca46ad460b1f61f1fc9dd5036cc17bb6bb
+  OpenSans: 33078846463eae780aa5f82986b51cce085f970d
+  PagingMenuController: 79a9ce7472839d9afd0a6b879af6132822644a47
+  RESideMenu: f24c508404b49c667344c54aba7e590883533958
+  SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 668219e859ee916d979c7645b809db290bcc61ec
+PODFILE CHECKSUM: 266284f3d7c13aa575faa242ae4e2aa297ee84d0
 
 COCOAPODS: 1.1.1

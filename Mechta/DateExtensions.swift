@@ -33,6 +33,22 @@ extension Date {
     }
 }
 
+extension NSDate {
+    
+    //Распространенные форматы
+    func dmyhmsValue() -> String {
+        return (self as Date).dmyhmsValue()
+    }
+    
+    func dmyhmValue() -> String {
+        return (self as Date).dmyhmValue()
+    }
+    
+    func dmyValue() -> String {
+        return (self as Date).dmyValue()
+    }
+}
+
 extension JSON {
     func fromDate(format: String) -> Date? {
         return Date.from(self.string, format: format)

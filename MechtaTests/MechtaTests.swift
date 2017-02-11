@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import SwiftyJSON
 @testable import Mechta
 
 class MechtaTests: XCTestCase {
