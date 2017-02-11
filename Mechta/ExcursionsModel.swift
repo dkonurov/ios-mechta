@@ -52,4 +52,10 @@ class ExcursionsModel {
         let predicate = NSPredicate(format: "viewed == %d", NSNumber(booleanLiteral: false))
         return CoreDataManager.instance.fetch("Excursion", predicate: predicate)
     }
+    
+    func markViewed(_ excursion: Excursion) {
+        excursion.viewed = true
+        try? excursion.managedObjectContext?.saveIfNeeded()
+        try? mainContext.saveIfNeeded()
+    }
 }

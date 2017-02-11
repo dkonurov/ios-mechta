@@ -48,4 +48,8 @@ class ExcursionsFacade {
     func onUpdateSuccess() {
         NotificationCenter.default.post(name: ExcursionsFacade.updatedNotification, object: nil)
     }
+    
+    func markViewed(_ excursion: Excursion) {
+        model.markViewed(excursion)
+    }
 }

@@ -57,4 +57,10 @@ class ServicesModel {
         let predicate = NSPredicate(format: "viewed == %d", NSNumber(booleanLiteral: false))
         return CoreDataManager.instance.fetch("Service", predicate: predicate)
     }
+    
+    func markViewed(_ service: Service) {
+        service.viewed = true
+        try? service.managedObjectContext?.saveIfNeeded()
+        try? mainContext.saveIfNeeded()
+    }
 }

@@ -48,4 +48,8 @@ class NewsFacade {
     func onUpdateSuccess() {
         NotificationCenter.default.post(name: NotificationsFacade.updatedNotification, object: nil)
     }
+    
+    func markViewed(_ news: News) {
+        model.markViewed(news)
+    }
 }

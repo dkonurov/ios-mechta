@@ -52,4 +52,10 @@ class OffersModel {
         let predicate = NSPredicate(format: "viewed == %d", NSNumber(booleanLiteral: false))
         return CoreDataManager.instance.fetch("Offer", predicate: predicate)
     }
+    
+    func markViewed(_ offer: Offer) {
+        offer.viewed = true
+        try? offer.managedObjectContext?.saveIfNeeded()
+        try? mainContext.saveIfNeeded()
+    }
 }

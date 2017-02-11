@@ -66,4 +66,8 @@ class ServicesFacade {
     func onUpdateSuccess() {
         NotificationCenter.default.post(name: ServicesFacade.updatedNotification, object: nil)
     }
+    
+    func markViewed(_ service: Service) {
+        model.markViewed(service)
+    }
 }

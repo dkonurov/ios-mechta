@@ -52,4 +52,10 @@ class NewsModel {
         let predicate = NSPredicate(format: "viewed == %d", NSNumber(booleanLiteral: false))
         return CoreDataManager.instance.fetch("News", predicate: predicate)
     }
+    
+    func markViewed(_ news: News) {
+        news.viewed = true
+        try? news.managedObjectContext?.saveIfNeeded()
+        try? mainContext.saveIfNeeded()
+    }
 }
