@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Связь с диспетчером-->
+        <scene sceneID="Geh-dR-UHU">
+            <objects>
+                <tableViewController storyboardIdentifier="Support" id="fPd-fB-SrF" customClass="SupportListViewController" customModule="Mechta" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="60" sectionHeaderHeight="18" sectionFooterHeight="18" id="aTy-Ln-yXh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SupportCell" rowHeight="60" id="nDJ-TR-5QC" customClass="SupportItemCell" customModule="Mechta" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="56" width="375" height="60"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nDJ-TR-5QC" id="z13-70-4a9">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="59"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SupportPhone" translatesAutoresizingMaskIntoConstraints="NO" id="6bv-Wh-BmY">
+                                            <rect key="frame" x="8" y="15" width="28" height="28"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="28" id="PEJ-fX-TpF"/>
+                                                <constraint firstAttribute="height" constant="28" id="tyS-Wq-7rB"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Позвоить с мобильного" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PGW-DT-iXl">
+                                            <rect key="frame" x="44" y="19" width="323" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="6bv-Wh-BmY" firstAttribute="leading" secondItem="z13-70-4a9" secondAttribute="leading" constant="8" id="6hx-WO-dIJ"/>
+                                        <constraint firstItem="PGW-DT-iXl" firstAttribute="leading" secondItem="6bv-Wh-BmY" secondAttribute="trailing" constant="8" id="Emc-dx-Gq1"/>
+                                        <constraint firstItem="PGW-DT-iXl" firstAttribute="centerY" secondItem="z13-70-4a9" secondAttribute="centerY" id="OZa-B1-iuV"/>
+                                        <constraint firstAttribute="trailing" secondItem="PGW-DT-iXl" secondAttribute="trailing" constant="8" id="Tjc-JF-HsW"/>
+                                        <constraint firstItem="6bv-Wh-BmY" firstAttribute="centerY" secondItem="z13-70-4a9" secondAttribute="centerY" id="qg0-ew-swX"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="iconImageView" destination="6bv-Wh-BmY" id="aCR-4p-58u"/>
+                                    <outlet property="titleLabel" destination="PGW-DT-iXl" id="o1w-ba-WJy"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="fPd-fB-SrF" id="Hyx-5B-5WP"/>
+                            <outlet property="delegate" destination="fPd-fB-SrF" id="cah-Ya-qhv"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Связь с диспетчером" id="Wxe-PM-Hys"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ka3-8j-gAM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-777" y="26"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="SupportPhone" width="50" height="50"/>
+    </resources>
+</document>

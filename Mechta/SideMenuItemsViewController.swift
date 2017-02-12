@@ -13,7 +13,7 @@ class SideMenuItemsViewController: UITableViewController {
 //        items.append(MenuItem(title: "Транспорт", iconName: "MenuTransport", storyboard: "Transport", startId: "Transport"))
         items.append(MenuItem(title: "Уведомления", iconName: "MenuNotifications", storyboard: "Notifications", startId: "Notifications"))
 //        items.append(MenuItem(title: "Настройки", iconName: "MenuSettings", storyboard: "Settings", startId: "Settings"))
-//        items.append(MenuItem(title: "Связь с диспетчером", iconName: "MenuSupport", storyboard: "Support", startId: "Support"))
+        items.append(MenuItem(title: "Связь с диспетчером", iconName: "MenuSupport", storyboard: "Support", startId: "Support"))
     }
     
     override func viewWillAppear(_ animated: Bool) {

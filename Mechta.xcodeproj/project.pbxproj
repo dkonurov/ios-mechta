@@ -55,6 +55,10 @@
 		DBB2ED011E4FAA5400034B8B /* UserServiceListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB2ECFE1E4FAA5400034B8B /* UserServiceListViewController.swift */; };
 		DBB2ED021E4FAA5400034B8B /* UserServices.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBB2ECFF1E4FAA5400034B8B /* UserServices.storyboard */; };
 		DBB2ED041E4FABAE00034B8B /* Notifications.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBB2ED031E4FABAE00034B8B /* Notifications.storyboard */; };
+		DBC6A69B1E50BEE8007203C5 /* SupportFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC6A69A1E50BEE8007203C5 /* SupportFacade.swift */; };
+		DBC6A69D1E50C0E5007203C5 /* Support.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBC6A69C1E50C0E5007203C5 /* Support.storyboard */; };
+		DBC6A6A01E50C0EF007203C5 /* SupportListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC6A69E1E50C0EF007203C5 /* SupportListViewController.swift */; };
+		DBC6A6A11E50C0EF007203C5 /* SupportItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC6A69F1E50C0EF007203C5 /* SupportItemCell.swift */; };
 		DBD693201E4B9826002816D3 /* MechtaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD6931F1E4B9826002816D3 /* MechtaTests.swift */; };
 		DBD6932E1E4BA019002816D3 /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD6932D1E4BA019002816D3 /* NewsModel.swift */; };
 		DBD693301E4BA090002816D3 /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD6932F1E4BA090002816D3 /* AppModel.swift */; };
@@ -132,6 +136,10 @@
 		DBB2ECFE1E4FAA5400034B8B /* UserServiceListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserServiceListViewController.swift; sourceTree = "<group>"; };
 		DBB2ECFF1E4FAA5400034B8B /* UserServices.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserServices.storyboard; sourceTree = "<group>"; };
 		DBB2ED031E4FABAE00034B8B /* Notifications.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Notifications.storyboard; sourceTree = "<group>"; };
+		DBC6A69A1E50BEE8007203C5 /* SupportFacade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportFacade.swift; sourceTree = "<group>"; };
+		DBC6A69C1E50C0E5007203C5 /* Support.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Support.storyboard; sourceTree = "<group>"; };
+		DBC6A69E1E50C0EF007203C5 /* SupportListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportListViewController.swift; sourceTree = "<group>"; };
+		DBC6A69F1E50C0EF007203C5 /* SupportItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportItemCell.swift; sourceTree = "<group>"; };
 		DBD6931D1E4B9826002816D3 /* MechtaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MechtaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBD6931F1E4B9826002816D3 /* MechtaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MechtaTests.swift; sourceTree = "<group>"; };
 		DBD693211E4B9826002816D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -262,6 +270,7 @@
 				DBB2ECC41E4F9E1300034B8B /* News */,
 				DBB2ECC81E4F9E3800034B8B /* Services */,
 				DBB2ECC91E4F9E3E00034B8B /* Notifications */,
+				DBC6A6991E50BE9A007203C5 /* Support */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -377,6 +386,16 @@
 			name = TableViewBackgrounds;
 			sourceTree = "<group>";
 		};
+		DBC6A6991E50BE9A007203C5 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				DBC6A69E1E50C0EF007203C5 /* SupportListViewController.swift */,
+				DBC6A69F1E50C0EF007203C5 /* SupportItemCell.swift */,
+				DBC6A69C1E50C0E5007203C5 /* Support.storyboard */,
+			);
+			name = Support;
+			sourceTree = "<group>";
+		};
 		DBD6931E1E4B9826002816D3 /* MechtaTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -416,6 +435,7 @@
 				DBD693431E4BAC48002816D3 /* NotificationsFacade.swift */,
 				DBD6933F1E4BAC31002816D3 /* OffersFacade.swift */,
 				DBD693411E4BAC3C002816D3 /* ServicesFacade.swift */,
+				DBC6A69A1E50BEE8007203C5 /* SupportFacade.swift */,
 			);
 			name = Facades;
 			sourceTree = "<group>";
@@ -516,6 +536,7 @@
 				DBB2ED021E4FAA5400034B8B /* UserServices.storyboard in Resources */,
 				DBB2ED041E4FABAE00034B8B /* Notifications.storyboard in Resources */,
 				DBB2ECDF1E4FA8D900034B8B /* Menu.storyboard in Resources */,
+				DBC6A69D1E50C0E5007203C5 /* Support.storyboard in Resources */,
 				DBB2ECF11E4FA99000034B8B /* TableViewBackgrounds.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -633,6 +654,7 @@
 				4007C8C81E4A3B54004D5E61 /* Notification+CoreDataProperties.swift in Sources */,
 				DBB2ECCD1E4F9EF100034B8B /* NewsListViewController.swift in Sources */,
 				DBB2ECDA1E4F9F6300034B8B /* NotificationListViewController.swift in Sources */,
+				DBC6A6A01E50C0EF007203C5 /* SupportListViewController.swift in Sources */,
 				DBB2ECCE1E4F9EF100034B8B /* NewsCell.swift in Sources */,
 				4007C8C31E4A3B54004D5E61 /* Offer+CoreDataClass.swift in Sources */,
 				DBB2ECDC1E4F9F7100034B8B /* ServiceCell.swift in Sources */,
@@ -645,6 +667,7 @@
 				DBB2ECEB1E4FA98700034B8B /* PagingViewController.swift in Sources */,
 				4007C8C51E4A3B54004D5E61 /* Service+CoreDataClass.swift in Sources */,
 				DBD693341E4BA144002816D3 /* OffersModel.swift in Sources */,
+				DBC6A6A11E50C0EF007203C5 /* SupportItemCell.swift in Sources */,
 				4007C8BF1E4A3B54004D5E61 /* Excursion+CoreDataClass.swift in Sources */,
 				DBD693321E4BA0FF002816D3 /* ExcursionsModel.swift in Sources */,
 				DBD693441E4BAC48002816D3 /* NotificationsFacade.swift in Sources */,
@@ -670,6 +693,7 @@
 				DBD693361E4BA159002816D3 /* ServicesModel.swift in Sources */,
 				DBD6932E1E4BA019002816D3 /* NewsModel.swift in Sources */,
 				4007C8B31E4A3556004D5E61 /* CoreDataManager.swift in Sources */,
+				DBC6A69B1E50BEE8007203C5 /* SupportFacade.swift in Sources */,
 				40E913451E4A3EEE0024A6FB /* DateExtensions.swift in Sources */,
 				DBB2ECE61E4FA8E500034B8B /* MenuItemCell.swift in Sources */,
 				4007C8C11E4A3B54004D5E61 /* News+CoreDataClass.swift in Sources */,
