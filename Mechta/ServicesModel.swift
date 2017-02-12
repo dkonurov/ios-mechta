@@ -4,36 +4,40 @@ import CoreData
 class ServicesModel {
     let mainContext: NSManagedObjectContext
     
+    private let updateQueue = DispatchQueue(label: "ServicesModelUpdate")
+    
     init(context: NSManagedObjectContext) {
         self.mainContext = context
     }
     
     func updateServicesInStorage(onError: @escaping (NetworkError) -> Void, onSuccess: @escaping () -> Void) {
-        let storageContext = CoreDataManager.instance.concurrentContext()
-        let storedServices: [Service] = CoreDataManager.instance.fetch("Service", from: storageContext)
-        
         let networkContext = CoreDataManager.instance.concurrentContext()
         servicesFromNetwork(context: networkContext, onError: onError) {[unowned self] netServices in
-            //Удаляем новости, которые удалены на сервере
-            for service in storedServices {
-                if !netServices.contains(where: {$0.id == service.id}) {
-                    storageContext.delete(service)
+            self.updateQueue.sync {
+                let storageContext = CoreDataManager.instance.concurrentContext()
+                let storedServices: [Service] = CoreDataManager.instance.fetch("Service", from: storageContext)
+                
+                //Удаляем новости, которые удалены на сервере
+                for service in storedServices {
+                    if !netServices.contains(where: {$0.id == service.id}) {
+                        storageContext.delete(service)
+                    }
                 }
-            }
-            
-            //Удаляем полученные элементы, которые уже есть в хранилище
-            for service in netServices {
-                if storedServices.contains(where: {$0.id == service.id}) {
-                    networkContext.delete(service)
+                
+                //Удаляем полученные элементы, которые уже есть в хранилище
+                for service in netServices {
+                    if storedServices.contains(where: {$0.id == service.id}) {
+                        networkContext.delete(service)
+                    }
                 }
+                
+                //Сохраняем контекст
+                try? networkContext.saveIfNeeded()
+                try? storageContext.saveIfNeeded()
+                try? self.mainContext.saveIfNeeded()
+                
+                onSuccess()
             }
-            
-            //Сохраняем контекст
-            try? networkContext.saveIfNeeded()
-            try? storageContext.saveIfNeeded()
-            try? self.mainContext.saveIfNeeded()
-            
-            onSuccess()
         }
     }
     

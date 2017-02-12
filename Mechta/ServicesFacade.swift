@@ -13,17 +13,29 @@ class ServicesFacade {
         self.model = AppModel.instance.servicesModel
     }
     
-    func fetchedResultControllerAll() -> NSFetchedResultsController<Service> {
+    func fetchedResultController(availableTypes: [Service.ServiceType]) -> NSFetchedResultsController<Service> {
+        if availableTypes.contains(.externalService) && availableTypes.contains(.internalService) {
+            return fetchedResultControllerAll()
+        }
+        
+        if availableTypes.contains(.internalService) {
+            return fetchedResultControllerInternalServices()
+        }
+        
+        return fetchedResultControllerExternalServices()
+    }
+    
+    private func fetchedResultControllerAll() -> NSFetchedResultsController<Service> {
         return CoreDataManager.instance.fetchedResultController(entityName: "Service", orderBy: "publishedAt")
     }
     
-    func fetchedResultControllerInternalServices() -> NSFetchedResultsController<Service> {
-        let predicate = NSPredicate(format: "type == %@", Service.ServiceType.internalService.rawValue)
+    private func fetchedResultControllerInternalServices() -> NSFetchedResultsController<Service> {
+        let predicate = NSPredicate(format: "typeRaw == %@", Service.ServiceType.internalService.rawValue)
         return CoreDataManager.instance.fetchedResultController(entityName: "Service", predicate: predicate, orderBy: "publishedAt")
     }
     
-    func fetchedResultControllerExternalServices() -> NSFetchedResultsController<Service> {
-        let predicate = NSPredicate(format: "type == %@", Service.ServiceType.externalService.rawValue)
+    private func fetchedResultControllerExternalServices() -> NSFetchedResultsController<Service> {
+        let predicate = NSPredicate(format: "typeRaw == %@", Service.ServiceType.externalService.rawValue)
         return CoreDataManager.instance.fetchedResultController(entityName: "Service", predicate: predicate, orderBy: "publishedAt")
     }
     
@@ -36,6 +48,18 @@ class ServicesFacade {
         UIApplication.shared.openURL(url)
         
         model.markViewed(service)
+    }
+    
+    func hasServices(availableTypes: [Service.ServiceType]) -> Bool {
+        if availableTypes.contains(.externalService) && availableTypes.contains(.internalService) {
+            return hasServices
+        }
+        
+        if availableTypes.contains(.internalService) {
+            return hasInternalServices
+        }
+        
+        return hasExternalServices
     }
     
     var hasServices: Bool {

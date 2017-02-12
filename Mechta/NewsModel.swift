@@ -4,36 +4,40 @@ import CoreData
 class NewsModel {
     let mainContext: NSManagedObjectContext
     
+    private let updateQueue = DispatchQueue(label: "NewsModelUpdate")
+    
     init(context: NSManagedObjectContext) {
         self.mainContext = context
     }
     
     func updateNewsInStorage(onError: @escaping (NetworkError) -> Void, onSuccess: @escaping () -> Void) {
-        let storageContext = CoreDataManager.instance.concurrentContext()
-        let storedNews: [News] = CoreDataManager.instance.fetch("News", from: storageContext)
-        
         let networkContext = CoreDataManager.instance.concurrentContext()
         newsFromNetwork(context: networkContext, onError: onError) {[unowned self] netNews in
-            //Удаляем новости, которые удалены на сервере
-            for news in storedNews {
-                if !netNews.contains(where: {$0.id == news.id}) {
-                    storageContext.delete(news)
+            self.updateQueue.sync {
+                let storageContext = CoreDataManager.instance.concurrentContext()
+                let storedNews: [News] = CoreDataManager.instance.fetch("News", from: storageContext)
+                
+                //Удаляем новости, которые удалены на сервере
+                for news in storedNews {
+                    if !netNews.contains(where: {$0.id == news.id}) {
+                        storageContext.delete(news)
+                    }
                 }
-            }
-            
-            //Удаляем полученные элементы, которые уже есть в хранилище
-            for news in netNews {
-                if storedNews.contains(where: {$0.id == news.id}) {
-                    networkContext.delete(news)
+                
+                //Удаляем полученные элементы, которые уже есть в хранилище
+                for news in netNews {
+                    if storedNews.contains(where: {$0.id == news.id}) {
+                        networkContext.delete(news)
+                    }
                 }
+                
+                //Сохраняем контекст
+                try? networkContext.saveIfNeeded()
+                try? storageContext.saveIfNeeded()
+                try? self.mainContext.saveIfNeeded()
+                
+                onSuccess()
             }
-            
-            //Сохраняем контекст
-            try? networkContext.saveIfNeeded()
-            try? storageContext.saveIfNeeded()
-            try? self.mainContext.saveIfNeeded()
-            
-            onSuccess()
         }
     }
     

@@ -4,37 +4,40 @@ import CoreData
 class NotificationsModel {
     let mainContext: NSManagedObjectContext
     
+    private let updateQueue = DispatchQueue(label: "NotificationsModelUpdate")
+    
     init(context: NSManagedObjectContext) {
         self.mainContext = context
     }
     
     func updateNotificationsInStorage(onError: @escaping (NetworkError) -> Void, onSuccess: @escaping () -> Void) {
-        let storageContext = CoreDataManager.instance.concurrentContext()
-        let storedNotifications: [Notification] = CoreDataManager.instance.fetch("Notification", from: storageContext)
-        
         let networkContext = CoreDataManager.instance.concurrentContext()
         notificationsFromNetwork(context: networkContext, onError: onError) {[unowned self] netNotifications in
-            //Удаляем новости, которые удалены на сервере
-            
-            for notification in storedNotifications {
-                if !netNotifications.contains(where: {$0.id == notification.id}) {
-                    storageContext.delete(notification)
+            self.updateQueue.sync {
+                let storageContext = CoreDataManager.instance.concurrentContext()
+                let storedNotifications: [Notification] = CoreDataManager.instance.fetch("Notification", from: storageContext)
+                
+                //Удаляем новости, которые удалены на сервере
+                for notification in storedNotifications {
+                    if !netNotifications.contains(where: {$0.id == notification.id}) {
+                        storageContext.delete(notification)
+                    }
                 }
-            }
-            
-            //Удаляем полученные элементы, которые уже есть в хранилище
-            for notification in netNotifications {
-                if storedNotifications.contains(where: {$0.id == notification.id}) {
-                    networkContext.delete(notification)
+                
+                //Удаляем полученные элементы, которые уже есть в хранилище
+                for notification in netNotifications {
+                    if storedNotifications.contains(where: {$0.id == notification.id}) {
+                        networkContext.delete(notification)
+                    }
                 }
+                
+                //Сохраняем контекст
+                try? networkContext.saveIfNeeded()
+                try? storageContext.saveIfNeeded()
+                try? self.mainContext.saveIfNeeded()
+                
+                onSuccess()
             }
-            
-            //Сохраняем контекст
-            try? networkContext.saveIfNeeded()
-            try? storageContext.saveIfNeeded()
-            try? self.mainContext.saveIfNeeded()
-            
-            onSuccess()
         }
     }
     

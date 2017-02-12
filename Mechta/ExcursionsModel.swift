@@ -4,36 +4,40 @@ import CoreData
 class ExcursionsModel {
     let mainContext: NSManagedObjectContext
     
+    private let updateQueue = DispatchQueue(label: "NewsModelUpdate")
+    
     init(context: NSManagedObjectContext) {
         self.mainContext = context
     }
     
     func updateExcursionsInStorage(onError: @escaping (NetworkError) -> Void, onSuccess: @escaping () -> Void) {
-        let storageContext = CoreDataManager.instance.concurrentContext()
-        let storedExcursions: [Excursion] = CoreDataManager.instance.fetch("Excursion", from: storageContext)
-        
         let networkContext = CoreDataManager.instance.concurrentContext()
         excursionsFromNetwork(context: networkContext, onError: onError) {[unowned self] netExcursions in
-            //Удаляем новости, которые удалены на сервере
-            for excursion in storedExcursions {
-                if !netExcursions.contains(where: {$0.id == excursion.id}) {
-                    storageContext.delete(excursion)
+            self.updateQueue.sync {
+                let storageContext = CoreDataManager.instance.concurrentContext()
+                let storedExcursions: [Excursion] = CoreDataManager.instance.fetch("Excursion", from: storageContext)
+                
+                //Удаляем новости, которые удалены на сервере
+                for excursion in storedExcursions {
+                    if !netExcursions.contains(where: {$0.id == excursion.id}) {
+                        storageContext.delete(excursion)
+                    }
                 }
-            }
-            
-            //Удаляем полученные элементы, которые уже есть в хранилище
-            for excursion in netExcursions {
-                if storedExcursions.contains(where: {$0.id == excursion.id}) {
-                    networkContext.delete(excursion)
+                
+                //Удаляем полученные элементы, которые уже есть в хранилище
+                for excursion in netExcursions {
+                    if storedExcursions.contains(where: {$0.id == excursion.id}) {
+                        networkContext.delete(excursion)
+                    }
                 }
+                
+                //Сохраняем контекст
+                try? networkContext.saveIfNeeded()
+                try? storageContext.saveIfNeeded()
+                try? self.mainContext.saveIfNeeded()
+                
+                onSuccess()
             }
-            
-            //Сохраняем контекст
-            try? networkContext.saveIfNeeded()
-            try? storageContext.saveIfNeeded()
-            try? self.mainContext.saveIfNeeded()
-            
-            onSuccess()
         }
     }
     
