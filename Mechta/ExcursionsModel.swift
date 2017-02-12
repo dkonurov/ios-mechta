@@ -16,14 +16,14 @@ class ExcursionsModel {
         excursionsFromNetwork(context: networkContext, onError: onError) {[unowned self] netExcursions in
             //Удаляем новости, которые удалены на сервере
             for excursion in storedExcursions {
-                if !netExcursions.contains(excursion) {
+                if !netExcursions.contains(where: {$0.id == excursion.id}) {
                     storageContext.delete(excursion)
                 }
             }
             
             //Удаляем полученные элементы, которые уже есть в хранилище
             for excursion in netExcursions {
-                if storedExcursions.contains(excursion) {
+                if storedExcursions.contains(where: {$0.id == excursion.id}) {
                     networkContext.delete(excursion)
                 }
             }
@@ -38,7 +38,7 @@ class ExcursionsModel {
     }
     
     func excursionsFromNetwork(context: NSManagedObjectContext, onError: @escaping (NetworkError) -> Void, onSuccess: @escaping ([Excursion]) -> Void) {
-        NetworkManager.get("excursions", onError: onError) { json in
+        NetworkManager.get("/excursions", onError: onError) { json in
             let excursions = json.arrayValue.map() { Excursion.from(json: $0, context: context) }
             onSuccess(excursions)
         }

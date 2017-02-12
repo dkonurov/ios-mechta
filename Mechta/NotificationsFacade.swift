@@ -14,12 +14,13 @@ class NotificationsFacade {
     }
     
     func fetchedResultController() -> NSFetchedResultsController<Notification> {
-        let predicate = NSPredicate(format: "hidden == %d", NSNumber(booleanLiteral: false))
+        let predicate = NSPredicate(format: "hidden == %@", NSNumber(booleanLiteral: false))
         return CoreDataManager.instance.fetchedResultController(entityName: "Notification", predicate: predicate, orderBy: "timeStamp")
     }
     
     func hide(notification: Notification) {
         model.hide(notification: notification)
+        onUpdateSuccess()
     }
     
     var hasNotifications: Bool {

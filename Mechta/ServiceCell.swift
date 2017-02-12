@@ -9,7 +9,7 @@ class ServiceCell: UITableViewCell {
     
     private weak var service: Service?
     
-    private func show(_ service: Service) {
+    func show(_ service: Service) {
         self.service = service
         
         titleLabel.text = service.title

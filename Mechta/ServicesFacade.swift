@@ -14,17 +14,17 @@ class ServicesFacade {
     }
     
     func fetchedResultControllerAll() -> NSFetchedResultsController<Service> {
-        return CoreDataManager.instance.fetchedResultController(entityName: "Service", orderBy: "published_at")
+        return CoreDataManager.instance.fetchedResultController(entityName: "Service", orderBy: "publishedAt")
     }
     
     func fetchedResultControllerInternalServices() -> NSFetchedResultsController<Service> {
         let predicate = NSPredicate(format: "type == %@", Service.ServiceType.internalService.rawValue)
-        return CoreDataManager.instance.fetchedResultController(entityName: "Service", predicate: predicate, orderBy: "published_at")
+        return CoreDataManager.instance.fetchedResultController(entityName: "Service", predicate: predicate, orderBy: "publishedAt")
     }
     
     func fetchedResultControllerExternalServices() -> NSFetchedResultsController<Service> {
         let predicate = NSPredicate(format: "type == %@", Service.ServiceType.externalService.rawValue)
-        return CoreDataManager.instance.fetchedResultController(entityName: "Service", predicate: predicate, orderBy: "published_at")
+        return CoreDataManager.instance.fetchedResultController(entityName: "Service", predicate: predicate, orderBy: "publishedAt")
     }
     
     func showDetailsPage(service: Service) {

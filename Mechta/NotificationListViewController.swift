@@ -1,33 +1,129 @@
 import UIKit
+import CoreData
 
-class NotificationListViewController: UITableViewController {
+class NotificationListViewController: UITableViewController, NSFetchedResultsControllerDelegate {
+    private let model = NotificationsFacade()
+    private var fetchedResultController: NSFetchedResultsController<Notification>?
+    
+    //MARK: Инициализация
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.estimatedRowHeight = 70
+        tableView.estimatedRowHeight = 60
         tableView.rowHeight = UITableViewAutomaticDimension
         
         refreshControl?.addTarget(self, action: #selector(reload), for: .valueChanged)
+        
+        fetchedResultController = model.fetchedResultController()
+        fetchedResultController?.delegate = self
+    }
+    
+    //MARK: Обработка событий
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(onDataUpdated), name: NotificationsFacade.updatedNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(onUpdateError), name: NotificationsFacade.errorNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(onNoNetworkUpdateError), name: NotificationsFacade.noNetworkNotification, object: nil)
+        
+        try? fetchedResultController?.performFetch()
+        
+        model.updateNotifications()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.removeObserver(self)
     }
     
     func reload() {
-        
+        model.updateNotifications()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    func onDataUpdated() {
+        refreshControl?.endRefreshing()
+        
+        if model.hasNotifications {
+            showContentBackground()
+        } else {
+            showMessageBackground("Новых уведомлений нет", subtitle: "Потяните экран, чтобы обновить")
+        }
     }
+    
+    func onUpdateError() {
+        refreshControl?.endRefreshing()
+        print("Ошибка обновления")
+    }
+    
+    func onNoNetworkUpdateError() {
+        refreshControl?.endRefreshing()
+        print("Нет сети")
+    }
+    
+    //MARK: Отрисовка таблицы
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return fetchedResultController?.sections?.count ?? 0
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return fetchedResultController!.sections![section].numberOfObjects
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "NotificationCell") as! NotificationCell
+        let notification = fetchedResultController!.object(at: indexPath)
+        cell.show(notification)
         return cell
     }
+    
+    //MARK: Удаление элементов
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let notification = fetchedResultController!.object(at: indexPath)
+            model.hide(notification: notification)
+        }
+    }
+    
+    //MARK: Отслеживание изменений
+    
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.beginUpdates()
+    }
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        switch type {
+        case .insert:
+            if let indexPath = newIndexPath {
+                tableView.insertRows(at: [indexPath], with: .automatic)
+            }
+        case .update:
+            if let indexPath = indexPath {
+                let notification = fetchedResultController!.object(at: indexPath)
+                let cell = tableView.cellForRow(at: indexPath) as! NotificationCell
+                cell.show(notification)
+            }
+        case .delete:
+            if let indexPath = indexPath {
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+            }
+        case .move:
+            if let indexPath = indexPath {
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+            }
+            if let indexPath = newIndexPath {
+                tableView.insertRows(at: [indexPath], with: .automatic)
+            }
+        }
+    }
+    
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.endUpdates()
+    }
 }
+

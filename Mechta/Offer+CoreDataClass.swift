@@ -27,9 +27,4 @@ public class Offer: NSManagedObject {
     var photoUrl: String? {
         return photo == nil ? nil : Constants.serviceUrl + photo!
     }
-    
-    public static func ==(left: Offer, right: Offer) -> Bool{
-        return left.id == right.id
-    }
-    
 }

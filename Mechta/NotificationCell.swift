@@ -5,7 +5,7 @@ class NotificationCell: UITableViewCell {
     @IBOutlet weak var dateLabel: UILabel?
     @IBOutlet weak var typeImageView: UIImageView?
     
-    private func show(_ notification: Notification) {
+    func show(_ notification: Notification) {
         notificationTextLabel?.text = notification.text
         dateLabel?.text = notification.timeStamp?.dmyhmsValue()
         typeImageView?.image = UIImage(named: icon(forNotification: notification))

@@ -14,7 +14,7 @@ class OffersFacade {
     }
     
     func fetchedResultController() -> NSFetchedResultsController<Offer> {
-        return CoreDataManager.instance.fetchedResultController(entityName: "Offer", orderBy: "published_at")
+        return CoreDataManager.instance.fetchedResultController(entityName: "Offer", orderBy: "publishedAt")
     }
     
     func showDetailsPage(offer: Offer) {

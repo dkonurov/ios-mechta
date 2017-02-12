@@ -16,14 +16,14 @@ class ServicesModel {
         servicesFromNetwork(context: networkContext, onError: onError) {[unowned self] netServices in
             //Удаляем новости, которые удалены на сервере
             for service in storedServices {
-                if !netServices.contains(service) {
+                if !netServices.contains(where: {$0.id == service.id}) {
                     storageContext.delete(service)
                 }
             }
             
             //Удаляем полученные элементы, которые уже есть в хранилище
             for service in netServices {
-                if storedServices.contains(service) {
+                if storedServices.contains(where: {$0.id == service.id}) {
                     networkContext.delete(service)
                 }
             }
@@ -38,7 +38,7 @@ class ServicesModel {
     }
     
     func servicesFromNetwork(context: NSManagedObjectContext, onError: @escaping (NetworkError) -> Void, onSuccess: @escaping ([Service]) -> Void) {
-        NetworkManager.get("services", onError: onError) { json in
+        NetworkManager.get("/services", onError: onError) { json in
             let services = json.arrayValue.map() { Service.from(json: $0, context: context) }
             onSuccess(services)
         }

@@ -16,14 +16,14 @@ class OffersModel {
         offersFromNetwork(context: networkContext, onError: onError) {[unowned self] netOffers in
             //Удаляем новости, которые удалены на сервере
             for offer in storedOffers {
-                if !netOffers.contains(offer) {
+                if !netOffers.contains(where: {$0.id == offer.id}) {
                     storageContext.delete(offer)
                 }
             }
             
             //Удаляем полученные элементы, которые уже есть в хранилище
             for offer in netOffers {
-                if storedOffers.contains(offer) {
+                if storedOffers.contains(where: {$0.id == offer.id}) {
                     networkContext.delete(offer)
                 }
             }
@@ -38,7 +38,7 @@ class OffersModel {
     }
     
     func offersFromNetwork(context: NSManagedObjectContext, onError: @escaping (NetworkError) -> Void, onSuccess: @escaping ([Offer]) -> Void) {
-        NetworkManager.get("offers", onError: onError) { json in
+        NetworkManager.get("/offers", onError: onError) { json in
             let offers = json.arrayValue.map() { Offer.from(json: $0, context: context) }
             onSuccess(offers)
         }

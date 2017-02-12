@@ -16,14 +16,14 @@ class NewsModel {
         newsFromNetwork(context: networkContext, onError: onError) {[unowned self] netNews in
             //Удаляем новости, которые удалены на сервере
             for news in storedNews {
-                if !netNews.contains(news) {
+                if !netNews.contains(where: {$0.id == news.id}) {
                     storageContext.delete(news)
                 }
             }
             
             //Удаляем полученные элементы, которые уже есть в хранилище
             for news in netNews {
-                if storedNews.contains(news) {
+                if storedNews.contains(where: {$0.id == news.id}) {
                     networkContext.delete(news)
                 }
             }
@@ -38,7 +38,7 @@ class NewsModel {
     }
     
     func newsFromNetwork(context: NSManagedObjectContext, onError: @escaping (NetworkError) -> Void, onSuccess: @escaping ([News]) -> Void) {
-        NetworkManager.get("news", onError: onError) { json in
+        NetworkManager.get("/news", onError: onError) { json in
             let news = json.arrayValue.map() { News.from(json: $0, context: context) }
             onSuccess(news)
         }

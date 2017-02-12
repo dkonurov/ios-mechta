@@ -9,7 +9,7 @@ class ExcursionCell: UITableViewCell {
     
     private weak var excursion: Excursion?
     
-    private func show(_ excursion: Excursion) {
+    func show(_ excursion: Excursion) {
         self.excursion = excursion
         
         titleLabel.text = excursion.title

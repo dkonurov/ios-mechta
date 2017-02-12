@@ -8,7 +8,7 @@ class OfferCell: UITableViewCell {
     
     private weak var offer: Offer?
     
-    private func show(_ offer: Offer) {
+    func show(_ offer: Offer) {
         self.offer = offer
         
         titleLabel.text = offer.title

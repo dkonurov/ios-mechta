@@ -14,7 +14,7 @@ class NewsFacade {
     }
     
     func fetchedResultController() -> NSFetchedResultsController<News> {
-        return CoreDataManager.instance.fetchedResultController(entityName: "News", orderBy: "published_at")
+        return CoreDataManager.instance.fetchedResultController(entityName: "News", orderBy: "publishedAt")
     }
     
     func showDetailsPage(news: News) {
@@ -42,12 +42,12 @@ class NewsFacade {
     
     func onError(error: NetworkError) {
         switch error {
-        case .fault(_): NotificationCenter.default.post(name: NotificationsFacade.errorNotification, object: nil)
-        case .offline: NotificationCenter.default.post(name: NotificationsFacade.noNetworkNotification, object: nil)
+        case .fault(_): NotificationCenter.default.post(name: NewsFacade.errorNotification, object: nil)
+        case .offline: NotificationCenter.default.post(name: NewsFacade.noNetworkNotification, object: nil)
         }
     }
     
     func onUpdateSuccess() {
-        NotificationCenter.default.post(name: NotificationsFacade.updatedNotification, object: nil)
+        NotificationCenter.default.post(name: NewsFacade.updatedNotification, object: nil)
     }
 }

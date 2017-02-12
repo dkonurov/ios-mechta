@@ -28,8 +28,4 @@ public class Excursion: NSManagedObject {
     var photoUrl: String? {
         return photo == nil ? nil : Constants.serviceUrl + photo!
     }
-    
-    public static func ==(left: Excursion, right: Excursion) -> Bool{
-        return left.id == right.id
-    }
 }

@@ -15,15 +15,16 @@ class NotificationsModel {
         let networkContext = CoreDataManager.instance.concurrentContext()
         notificationsFromNetwork(context: networkContext, onError: onError) {[unowned self] netNotifications in
             //Удаляем новости, которые удалены на сервере
+            
             for notification in storedNotifications {
-                if !netNotifications.contains(notification) {
+                if !netNotifications.contains(where: {$0.id == notification.id}) {
                     storageContext.delete(notification)
                 }
             }
             
             //Удаляем полученные элементы, которые уже есть в хранилище
             for notification in netNotifications {
-                if storedNotifications.contains(notification) {
+                if storedNotifications.contains(where: {$0.id == notification.id}) {
                     networkContext.delete(notification)
                 }
             }
@@ -38,14 +39,15 @@ class NotificationsModel {
     }
     
     func notificationsFromNetwork(context: NSManagedObjectContext, onError: @escaping (NetworkError) -> Void, onSuccess: @escaping ([Notification]) -> Void) {
-        NetworkManager.get("notifications", onError: onError) { json in
+        NetworkManager.get("/notifications", onError: onError) { json in
             let notificationsFromNetwork = json.arrayValue.map() { Notification.from(json: $0, context: context) }
             onSuccess(notificationsFromNetwork)
         }
     }
     
     func notificationsFromStorage() -> [Notification] {
-        return CoreDataManager.instance.fetch("Notification")
+        let predicate = NSPredicate(format: "hidden == %@", NSNumber(booleanLiteral: false))
+        return CoreDataManager.instance.fetch("Notification", predicate: predicate)
     }
     
     func hide(notification: Notification) {

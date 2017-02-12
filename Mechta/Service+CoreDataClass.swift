@@ -34,10 +34,6 @@ public class Service: NSManagedObject {
         return photo == nil ? nil : Constants.serviceUrl + photo!
     }
     
-    public static func ==(left: Service, right: Service) -> Bool{
-        return left.id == right.id
-    }
-    
     var type: ServiceType {
         if typeRaw == nil {
             return .externalService

@@ -9,7 +9,7 @@ class NewsCell: UITableViewCell {
     
     private weak var news: News?
     
-    private func show(_ news: News) {
+    func show(_ news: News) {
         self.news = news
         
         titleLabel.text = news.title
