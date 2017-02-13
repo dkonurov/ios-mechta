@@ -3,17 +3,35 @@ import CoreData
 import UIKit
 
 class ServicesFacade {
-    static let updatedNotification = NSNotification.Name("ServicesUpdated")
-    static let errorNotification = NSNotification.Name("ServicesError")
-    static let noNetworkNotification = NSNotification.Name("ServicesNoNetwork")
+    let updatedNotification: NSNotification.Name
+    let errorNotification: NSNotification.Name
+    let noNetworkNotification: NSNotification.Name
     
     private let model: ServicesModel
+    private let availableTypes: [Service.ServiceType]
     
-    init() {
+    init(availableTypes: [Service.ServiceType]) {
         self.model = AppModel.instance.servicesModel
+        self.availableTypes = availableTypes
+        
+        if availableTypes.contains(.externalService) && availableTypes.contains(.internalService) {
+            updatedNotification = NSNotification.Name("ServicesUpdated")
+            errorNotification = NSNotification.Name("ServicesError")
+            noNetworkNotification = NSNotification.Name("ServicesNoNetwork")
+        }
+        else if availableTypes.contains(.internalService) {
+            updatedNotification = NSNotification.Name("InternalServicesUpdated")
+            errorNotification = NSNotification.Name("InternalServicesError")
+            noNetworkNotification = NSNotification.Name("InternalServicesNoNetwork")
+        }
+        else {
+            updatedNotification = NSNotification.Name("ExternalServicesUpdated")
+            errorNotification = NSNotification.Name("ExternalServicesError")
+            noNetworkNotification = NSNotification.Name("ExternalServicesNoNetwork")
+        }
     }
     
-    func fetchedResultController(availableTypes: [Service.ServiceType]) -> NSFetchedResultsController<Service> {
+    func fetchedResultController() -> NSFetchedResultsController<Service> {
         if availableTypes.contains(.externalService) && availableTypes.contains(.internalService) {
             return fetchedResultControllerAll()
         }
@@ -50,9 +68,9 @@ class ServicesFacade {
         model.markViewed(service)
     }
     
-    func hasServices(availableTypes: [Service.ServiceType]) -> Bool {
+    var hasServices: Bool {
         if availableTypes.contains(.externalService) && availableTypes.contains(.internalService) {
-            return hasServices
+            return hasAnyServices
         }
         
         if availableTypes.contains(.internalService) {
@@ -62,15 +80,15 @@ class ServicesFacade {
         return hasExternalServices
     }
     
-    var hasServices: Bool {
+    private var hasAnyServices: Bool {
         return model.servicesFromStorage().count > 0
     }
     
-    var hasInternalServices: Bool {
+    private var hasInternalServices: Bool {
         return model.servicesFromStorage(type: .internalService).count > 0
     }
     
-    var hasExternalServices: Bool {
+    private var hasExternalServices: Bool {
         return model.servicesFromStorage(type: .externalService).count > 0
     }
     
@@ -84,12 +102,12 @@ class ServicesFacade {
     
     func onError(error: NetworkError) {
         switch error {
-        case .fault(_): NotificationCenter.default.post(name: ServicesFacade.errorNotification, object: nil)
-        case .offline: NotificationCenter.default.post(name: ServicesFacade.noNetworkNotification, object: nil)
+        case .fault(_): NotificationCenter.default.post(name: errorNotification, object: nil)
+        case .offline: NotificationCenter.default.post(name: noNetworkNotification, object: nil)
         }
     }
     
     func onUpdateSuccess() {
-        NotificationCenter.default.post(name: ServicesFacade.updatedNotification, object: nil)
+        NotificationCenter.default.post(name: updatedNotification, object: nil)
     }
 }

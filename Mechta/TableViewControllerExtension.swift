@@ -13,9 +13,11 @@ extension UITableViewController {
         tableView.showContentBackground()
     }
     
-    func showMessageAlert(_ message: String, completion: @escaping () -> Void) {
-        let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "Закрыть", style: .cancel, handler: nil))
-        present(alertController, animated: true, completion: completion)
+    func showMessageAlert(_ message: String, completion:  (() -> Void)? = nil) {
+//        DispatchQueue.main.async { [weak self] in
+            let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "Закрыть", style: .cancel, handler: nil))
+            self.present(alertController, animated: true, completion: completion)
+//        }
     }
 }

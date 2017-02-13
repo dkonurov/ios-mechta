@@ -51,13 +51,25 @@ class NotificationListViewController: UITableViewController, NSFetchedResultsCon
     }
     
     func onUpdateError() {
-        refreshControl?.endRefreshing()
-        print("Ошибка обновления")
+        if model.hasNotifications {
+            showMessageAlert("Не удалось загрузить данные") { [weak self] in
+                self?.refreshControl?.endRefreshing()
+            }
+        } else {
+            refreshControl?.endRefreshing()
+            showMessageBackground("Ошибка", subtitle: "Не удалось загрузить новости")
+        }
     }
     
     func onNoNetworkUpdateError() {
-        refreshControl?.endRefreshing()
-        print("Нет сети")
+        if model.hasNotifications {
+            showMessageAlert("Отсутствует подключение к интернету") {  [weak self] in
+                self?.refreshControl?.endRefreshing()
+            }
+        } else {
+            refreshControl?.endRefreshing()
+            showMessageBackground("Ошибка", subtitle: "Отсутствует подключение к интернету")
+        }
     }
     
     //MARK: Отрисовка таблицы

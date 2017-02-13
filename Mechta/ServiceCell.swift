@@ -25,8 +25,8 @@ class ServiceCell: UITableViewCell {
     }
     
     @IBAction func onDetailsButtonClick(_ sender: Any) {
-        if service != nil {
-            ServicesFacade().showDetailsPage(service: service!)
+        if let service = service {
+            ServicesFacade(availableTypes: [service.type]).showDetailsPage(service: service)
         }
     }
 }

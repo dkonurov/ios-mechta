@@ -51,13 +51,25 @@ class NewsListViewController: UITableViewController, NSFetchedResultsControllerD
     }
     
     func onUpdateError() {
-        refreshControl?.endRefreshing()
-        print("Ошибка обновления")
+        if model.hasNews {
+            showMessageAlert("Не удалось загрузить данные") { [weak self] in
+                self?.refreshControl?.endRefreshing()
+            }
+        } else {
+            refreshControl?.endRefreshing()
+            showMessageBackground("Ошибка", subtitle: "Не удалось загрузить новости")
+        }
     }
     
     func onNoNetworkUpdateError() {
-        refreshControl?.endRefreshing()
-        print("Нет сети")
+        if model.hasNews {
+            showMessageAlert("Отсутствует подключение к интернету") {  [weak self] in
+                self?.refreshControl?.endRefreshing()
+            }
+        } else {
+            refreshControl?.endRefreshing()
+            showMessageBackground("Ошибка", subtitle: "Отсутствует подключение к интернету")
+        }
     }
     
     //MARK: Отрисовка таблицы

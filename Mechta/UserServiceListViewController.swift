@@ -2,7 +2,7 @@ import UIKit
 import CoreData
 
 class UserServiceListViewController: UITableViewController, NSFetchedResultsControllerDelegate {
-    private let model = ServicesFacade()
+    private var model: ServicesFacade!
     private var fetchedResultController: NSFetchedResultsController<Service>?
     
     //Из меню настраиваем, какие типы будут доступны в списке
@@ -11,21 +11,23 @@ class UserServiceListViewController: UITableViewController, NSFetchedResultsCont
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        model = ServicesFacade(availableTypes: availableTypes)
+        
         tableView.estimatedRowHeight = 350
         tableView.rowHeight = UITableViewAutomaticDimension
         
         refreshControl?.addTarget(self, action: #selector(reload), for: .valueChanged)
         
-        fetchedResultController = model.fetchedResultController(availableTypes: availableTypes)
+        fetchedResultController = model.fetchedResultController()
         fetchedResultController?.delegate = self
     }
     //MARK: Обработка событий
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(onDataUpdated), name: ServicesFacade.updatedNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(onUpdateError), name: ServicesFacade.errorNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(onNoNetworkUpdateError), name: ServicesFacade.noNetworkNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(onDataUpdated), name: model.updatedNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(onUpdateError), name: model.errorNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(onNoNetworkUpdateError), name: model.noNetworkNotification, object: nil)
         
         try? fetchedResultController?.performFetch()
         
@@ -44,7 +46,7 @@ class UserServiceListViewController: UITableViewController, NSFetchedResultsCont
     func onDataUpdated() {
         refreshControl?.endRefreshing()
         
-        if model.hasServices(availableTypes: availableTypes) {
+        if model.hasServices {
             showContentBackground()
         } else {
             showMessageBackground("Услуг нет", subtitle: "Потяните экран, чтобы обновить")
@@ -52,13 +54,25 @@ class UserServiceListViewController: UITableViewController, NSFetchedResultsCont
     }
     
     func onUpdateError() {
-        refreshControl?.endRefreshing()
-        print("Ошибка обновления")
+        if model.hasServices {
+            showMessageAlert("Не удалось загрузить данные") { [weak self] in
+                self?.refreshControl?.endRefreshing()
+            }
+        } else {
+            refreshControl?.endRefreshing()
+            showMessageBackground("Ошибка", subtitle: "Не удалось загрузить новости")
+        }
     }
     
     func onNoNetworkUpdateError() {
-        refreshControl?.endRefreshing()
-        print("Нет сети")
+        if model.hasServices {
+            showMessageAlert("Отсутствует подключение к интернету") {  [weak self] in
+                self?.refreshControl?.endRefreshing()
+            }
+        } else {
+            refreshControl?.endRefreshing()
+            showMessageBackground("Ошибка", subtitle: "Отсутствует подключение к интернету")
+        }
     }
     
     //MARK: Отрисовка таблицы
