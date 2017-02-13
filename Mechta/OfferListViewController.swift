@@ -83,8 +83,9 @@ class OfferListViewController: UITableViewController, NSFetchedResultsController
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "OfferCell") as! OfferCell
         let offer = fetchedResultController!.object(at: indexPath)
+        let cellId = offer.photoUrl != nil ? "OfferCell" : "OfferCellNoPhoto"
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellId) as! OfferCell
         cell.show(offer)
         return cell
     }

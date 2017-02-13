@@ -83,8 +83,9 @@ class NewsListViewController: UITableViewController, NSFetchedResultsControllerD
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "NewsCell") as! NewsCell
         let news = fetchedResultController!.object(at: indexPath)
+        let cellId = news.photo != nil ? "NewsCell" : "NewsCellNoPhoto"
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellId) as! NewsCell
         cell.show(news)
         return cell
     }

@@ -86,8 +86,9 @@ class ServiceListViewController: UITableViewController, NSFetchedResultsControll
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ServiceCell") as! ServiceCell
         let service = fetchedResultController!.object(at: indexPath)
+        let cellId = service.photoUrl != nil ? "ServiceCell" : "ServiceCellNoPhoto"
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellId) as! ServiceCell
         cell.show(service)
         return cell
     }

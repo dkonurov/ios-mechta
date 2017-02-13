@@ -83,8 +83,9 @@ class ExcursionListViewController: UITableViewController, NSFetchedResultsContro
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ExcursionCell") as! ExcursionCell
         let excursion = fetchedResultController!.object(at: indexPath)
+        let cellId = excursion.photoUrl != nil ? "ExcursionCell" : "ExcursionCellNoPhoto"
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellId) as! ExcursionCell
         cell.show(excursion)
         return cell
     }
