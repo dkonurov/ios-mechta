@@ -51,9 +51,9 @@
 		DBB2ECF81E4FA9DA00034B8B /* TableViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB2ECF61E4FA9DA00034B8B /* TableViewControllerExtension.swift */; };
 		DBB2ECFA1E4FAA2200034B8B /* NewsPagingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB2ECF91E4FAA2200034B8B /* NewsPagingViewController.swift */; };
 		DBB2ECFC1E4FAA2B00034B8B /* News.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBB2ECFB1E4FAA2B00034B8B /* News.storyboard */; };
-		DBB2ED001E4FAA5400034B8B /* UserServicesPagingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB2ECFD1E4FAA5400034B8B /* UserServicesPagingController.swift */; };
-		DBB2ED011E4FAA5400034B8B /* UserServiceListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB2ECFE1E4FAA5400034B8B /* UserServiceListViewController.swift */; };
-		DBB2ED021E4FAA5400034B8B /* UserServices.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBB2ECFF1E4FAA5400034B8B /* UserServices.storyboard */; };
+		DBB2ED001E4FAA5400034B8B /* ServicesPagingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB2ECFD1E4FAA5400034B8B /* ServicesPagingController.swift */; };
+		DBB2ED011E4FAA5400034B8B /* ServiceListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB2ECFE1E4FAA5400034B8B /* ServiceListViewController.swift */; };
+		DBB2ED021E4FAA5400034B8B /* Services.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBB2ECFF1E4FAA5400034B8B /* Services.storyboard */; };
 		DBB2ED041E4FABAE00034B8B /* Notifications.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBB2ED031E4FABAE00034B8B /* Notifications.storyboard */; };
 		DBC6A69B1E50BEE8007203C5 /* SupportFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC6A69A1E50BEE8007203C5 /* SupportFacade.swift */; };
 		DBC6A69D1E50C0E5007203C5 /* Support.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBC6A69C1E50C0E5007203C5 /* Support.storyboard */; };
@@ -132,9 +132,9 @@
 		DBB2ECF61E4FA9DA00034B8B /* TableViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewControllerExtension.swift; sourceTree = "<group>"; };
 		DBB2ECF91E4FAA2200034B8B /* NewsPagingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsPagingViewController.swift; sourceTree = "<group>"; };
 		DBB2ECFB1E4FAA2B00034B8B /* News.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = News.storyboard; sourceTree = "<group>"; };
-		DBB2ECFD1E4FAA5400034B8B /* UserServicesPagingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserServicesPagingController.swift; sourceTree = "<group>"; };
-		DBB2ECFE1E4FAA5400034B8B /* UserServiceListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserServiceListViewController.swift; sourceTree = "<group>"; };
-		DBB2ECFF1E4FAA5400034B8B /* UserServices.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserServices.storyboard; sourceTree = "<group>"; };
+		DBB2ECFD1E4FAA5400034B8B /* ServicesPagingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServicesPagingController.swift; sourceTree = "<group>"; };
+		DBB2ECFE1E4FAA5400034B8B /* ServiceListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceListViewController.swift; sourceTree = "<group>"; };
+		DBB2ECFF1E4FAA5400034B8B /* Services.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Services.storyboard; sourceTree = "<group>"; };
 		DBB2ED031E4FABAE00034B8B /* Notifications.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Notifications.storyboard; sourceTree = "<group>"; };
 		DBC6A69A1E50BEE8007203C5 /* SupportFacade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportFacade.swift; sourceTree = "<group>"; };
 		DBC6A69C1E50C0E5007203C5 /* Support.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Support.storyboard; sourceTree = "<group>"; };
@@ -346,10 +346,10 @@
 		DBB2ECC81E4F9E3800034B8B /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				DBB2ECFD1E4FAA5400034B8B /* UserServicesPagingController.swift */,
-				DBB2ECFE1E4FAA5400034B8B /* UserServiceListViewController.swift */,
+				DBB2ECFD1E4FAA5400034B8B /* ServicesPagingController.swift */,
+				DBB2ECFE1E4FAA5400034B8B /* ServiceListViewController.swift */,
 				DBB2ECDB1E4F9F7100034B8B /* ServiceCell.swift */,
-				DBB2ECFF1E4FAA5400034B8B /* UserServices.storyboard */,
+				DBB2ECFF1E4FAA5400034B8B /* Services.storyboard */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -533,7 +533,7 @@
 				4007C8A71E4A32BA004D5E61 /* LaunchScreen.storyboard in Resources */,
 				4007C8A41E4A32BA004D5E61 /* Assets.xcassets in Resources */,
 				DBB2ECFC1E4FAA2B00034B8B /* News.storyboard in Resources */,
-				DBB2ED021E4FAA5400034B8B /* UserServices.storyboard in Resources */,
+				DBB2ED021E4FAA5400034B8B /* Services.storyboard in Resources */,
 				DBB2ED041E4FABAE00034B8B /* Notifications.storyboard in Resources */,
 				DBB2ECDF1E4FA8D900034B8B /* Menu.storyboard in Resources */,
 				DBC6A69D1E50C0E5007203C5 /* Support.storyboard in Resources */,
@@ -675,7 +675,7 @@
 				DBB2ECD51E4F9F3300034B8B /* ExcursionCell.swift in Sources */,
 				DBB2ECD91E4F9F6300034B8B /* NotificationCell.swift in Sources */,
 				4007C89D1E4A32BA004D5E61 /* AppDelegate.swift in Sources */,
-				DBB2ED001E4FAA5400034B8B /* UserServicesPagingController.swift in Sources */,
+				DBB2ED001E4FAA5400034B8B /* ServicesPagingController.swift in Sources */,
 				DBD6933C1E4BAA97002816D3 /* NewsFacade.swift in Sources */,
 				DBB2ECF71E4FA9DA00034B8B /* ColorExtension.swift in Sources */,
 				DBD693381E4BA16A002816D3 /* NotificationsModel.swift in Sources */,
@@ -683,7 +683,7 @@
 				4007C8C41E4A3B54004D5E61 /* Offer+CoreDataProperties.swift in Sources */,
 				DBB2ECE41E4FA8E500034B8B /* SideMenuCoordinatorViewController.swift in Sources */,
 				DBD693421E4BAC3C002816D3 /* ServicesFacade.swift in Sources */,
-				DBB2ED011E4FAA5400034B8B /* UserServiceListViewController.swift in Sources */,
+				DBB2ED011E4FAA5400034B8B /* ServiceListViewController.swift in Sources */,
 				DBD693301E4BA090002816D3 /* AppModel.swift in Sources */,
 				4007C8C71E4A3B54004D5E61 /* Notification+CoreDataClass.swift in Sources */,
 				DBB2ECF81E4FA9DA00034B8B /* TableViewControllerExtension.swift in Sources */,

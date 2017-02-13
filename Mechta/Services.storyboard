@@ -9,16 +9,16 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--User Service List View Controller-->
+        <!--Service List View Controller-->
         <scene sceneID="8Wg-T1-Rjo">
             <objects>
-                <tableViewController storyboardIdentifier="Services" id="AWo-jI-4WH" customClass="UserServiceListViewController" customModule="Mechta" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="Services" id="AWo-jI-4WH" customClass="ServiceListViewController" customModule="Mechta" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="66" sectionHeaderHeight="18" sectionFooterHeight="18" id="4fb-h1-YzX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="UserServiceCellNoPhoto" rowHeight="127" id="jWd-Cy-8l6" customClass="ServiceCell" customModule="Mechta" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ServiceCellNoPhoto" rowHeight="127" id="jWd-Cy-8l6" customClass="ServiceCell" customModule="Mechta" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="55.5" width="375" height="127"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jWd-Cy-8l6" id="zey-kM-yHy">
@@ -74,7 +74,7 @@
                                     <outlet property="titleLabel" destination="PeY-s1-UPJ" id="vrl-hD-QbV"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="UserServiceCell" rowHeight="350" id="Jsm-fj-YOO" customClass="ServiceCell" customModule="Mechta" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ServiceCell" rowHeight="350" id="Jsm-fj-YOO" customClass="ServiceCell" customModule="Mechta" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="182.5" width="375" height="350"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Jsm-fj-YOO" id="gVU-mv-LnK">
@@ -158,7 +158,7 @@
         <!--Услуги-->
         <scene sceneID="1eY-pV-VZi">
             <objects>
-                <viewController storyboardIdentifier="ServicesPaging" id="Vqu-xw-550" customClass="UserServicesPagingController" customModule="Mechta" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ServicesPaging" id="Vqu-xw-550" customClass="ServicesPagingController" customModule="Mechta" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Uhe-Se-495"/>
                         <viewControllerLayoutGuide type="bottom" id="hqW-jJ-GVr"/>

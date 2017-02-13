@@ -1,7 +1,7 @@
 import UIKit
 import CoreData
 
-class UserServiceListViewController: UITableViewController, NSFetchedResultsControllerDelegate {
+class ServiceListViewController: UITableViewController, NSFetchedResultsControllerDelegate {
     private var model: ServicesFacade!
     private var fetchedResultController: NSFetchedResultsController<Service>?
     
@@ -86,7 +86,7 @@ class UserServiceListViewController: UITableViewController, NSFetchedResultsCont
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "UserServiceCell") as! ServiceCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ServiceCell") as! ServiceCell
         let service = fetchedResultController!.object(at: indexPath)
         cell.show(service)
         return cell

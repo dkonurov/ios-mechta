@@ -9,7 +9,7 @@ class SideMenuItemsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         items.append(MenuItem(title: "Новости", iconName: "MenuNews", storyboard: "News", startId: "NewsPaging"))
-        items.append(MenuItem(title: "Услуги", iconName: "MenuServices", storyboard: "UserServices", startId: "ServicesPaging"))
+        items.append(MenuItem(title: "Услуги", iconName: "MenuServices", storyboard: "Services", startId: "ServicesPaging"))
 //        items.append(MenuItem(title: "Транспорт", iconName: "MenuTransport", storyboard: "Transport", startId: "Transport"))
         items.append(MenuItem(title: "Уведомления", iconName: "MenuNotifications", storyboard: "Notifications", startId: "Notifications"))
 //        items.append(MenuItem(title: "Настройки", iconName: "MenuSettings", storyboard: "Settings", startId: "Settings"))
