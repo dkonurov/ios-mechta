@@ -71,6 +71,15 @@
 		DBD693401E4BAC31002816D3 /* OffersFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD6933F1E4BAC31002816D3 /* OffersFacade.swift */; };
 		DBD693421E4BAC3C002816D3 /* ServicesFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD693411E4BAC3C002816D3 /* ServicesFacade.swift */; };
 		DBD693441E4BAC48002816D3 /* NotificationsFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD693431E4BAC48002816D3 /* NotificationsFacade.swift */; };
+		DBFE875D1E5214B600F6321C /* TransportMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFE87591E5214B600F6321C /* TransportMapViewController.swift */; };
+		DBFE875E1E5214B600F6321C /* TransportScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFE875A1E5214B600F6321C /* TransportScheduleViewController.swift */; };
+		DBFE875F1E5214B600F6321C /* TransportNearestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFE875B1E5214B600F6321C /* TransportNearestViewController.swift */; };
+		DBFE87601E5214B600F6321C /* CourseSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFE875C1E5214B600F6321C /* CourseSelectionViewController.swift */; };
+		DBFE87631E5214C600F6321C /* BusStopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFE87611E5214C600F6321C /* BusStopCell.swift */; };
+		DBFE87641E5214C600F6321C /* BusStopListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFE87621E5214C600F6321C /* BusStopListViewController.swift */; };
+		DBFE87681E5214DA00F6321C /* TransportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFE87651E5214DA00F6321C /* TransportViewController.swift */; };
+		DBFE87691E5214DA00F6321C /* TransportPagingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFE87661E5214DA00F6321C /* TransportPagingViewController.swift */; };
+		DBFE876A1E5214DA00F6321C /* Transport.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBFE87671E5214DA00F6321C /* Transport.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -154,6 +163,15 @@
 		DBD6933F1E4BAC31002816D3 /* OffersFacade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OffersFacade.swift; sourceTree = "<group>"; };
 		DBD693411E4BAC3C002816D3 /* ServicesFacade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServicesFacade.swift; sourceTree = "<group>"; };
 		DBD693431E4BAC48002816D3 /* NotificationsFacade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsFacade.swift; sourceTree = "<group>"; };
+		DBFE87591E5214B600F6321C /* TransportMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransportMapViewController.swift; sourceTree = "<group>"; };
+		DBFE875A1E5214B600F6321C /* TransportScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransportScheduleViewController.swift; sourceTree = "<group>"; };
+		DBFE875B1E5214B600F6321C /* TransportNearestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransportNearestViewController.swift; sourceTree = "<group>"; };
+		DBFE875C1E5214B600F6321C /* CourseSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseSelectionViewController.swift; sourceTree = "<group>"; };
+		DBFE87611E5214C600F6321C /* BusStopCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusStopCell.swift; sourceTree = "<group>"; };
+		DBFE87621E5214C600F6321C /* BusStopListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusStopListViewController.swift; sourceTree = "<group>"; };
+		DBFE87651E5214DA00F6321C /* TransportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransportViewController.swift; sourceTree = "<group>"; };
+		DBFE87661E5214DA00F6321C /* TransportPagingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransportPagingViewController.swift; sourceTree = "<group>"; };
+		DBFE87671E5214DA00F6321C /* Transport.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Transport.storyboard; sourceTree = "<group>"; };
 		F152E5B50BF61CDEFFBF1EF4 /* Pods-MechtaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MechtaTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MechtaTests/Pods-MechtaTests.debug.xcconfig"; sourceTree = "<group>"; };
 		FF624B24E3E8F6ADDD734BF4 /* Pods-Mechta.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mechta.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mechta/Pods-Mechta.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -270,6 +288,7 @@
 				DBB2ECC41E4F9E1300034B8B /* News */,
 				DBB2ECC81E4F9E3800034B8B /* Services */,
 				DBB2ECC91E4F9E3E00034B8B /* Notifications */,
+				DBFE87581E520F6200F6321C /* Transport */,
 				DBC6A6991E50BE9A007203C5 /* Support */,
 			);
 			name = UI;
@@ -440,6 +459,54 @@
 			name = Facades;
 			sourceTree = "<group>";
 		};
+		DBFE87581E520F6200F6321C /* Transport */ = {
+			isa = PBXGroup;
+			children = (
+				DBFE876E1E52151F00F6321C /* CourseSelection */,
+				DBFE876D1E52151300F6321C /* Nearest */,
+				DBFE876C1E52150A00F6321C /* Schedule */,
+				DBFE876B1E52150300F6321C /* Map */,
+				DBFE87651E5214DA00F6321C /* TransportViewController.swift */,
+				DBFE87661E5214DA00F6321C /* TransportPagingViewController.swift */,
+				DBFE87671E5214DA00F6321C /* Transport.storyboard */,
+			);
+			name = Transport;
+			sourceTree = "<group>";
+		};
+		DBFE876B1E52150300F6321C /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				DBFE87591E5214B600F6321C /* TransportMapViewController.swift */,
+			);
+			name = Map;
+			sourceTree = "<group>";
+		};
+		DBFE876C1E52150A00F6321C /* Schedule */ = {
+			isa = PBXGroup;
+			children = (
+				DBFE875A1E5214B600F6321C /* TransportScheduleViewController.swift */,
+			);
+			name = Schedule;
+			sourceTree = "<group>";
+		};
+		DBFE876D1E52151300F6321C /* Nearest */ = {
+			isa = PBXGroup;
+			children = (
+				DBFE875B1E5214B600F6321C /* TransportNearestViewController.swift */,
+			);
+			name = Nearest;
+			sourceTree = "<group>";
+		};
+		DBFE876E1E52151F00F6321C /* CourseSelection */ = {
+			isa = PBXGroup;
+			children = (
+				DBFE875C1E5214B600F6321C /* CourseSelectionViewController.swift */,
+				DBFE87611E5214C600F6321C /* BusStopCell.swift */,
+				DBFE87621E5214C600F6321C /* BusStopListViewController.swift */,
+			);
+			name = CourseSelection;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -531,6 +598,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4007C8A71E4A32BA004D5E61 /* LaunchScreen.storyboard in Resources */,
+				DBFE876A1E5214DA00F6321C /* Transport.storyboard in Resources */,
 				4007C8A41E4A32BA004D5E61 /* Assets.xcassets in Resources */,
 				DBB2ECFC1E4FAA2B00034B8B /* News.storyboard in Resources */,
 				DBB2ED021E4FAA5400034B8B /* Services.storyboard in Resources */,
@@ -650,6 +718,7 @@
 			files = (
 				4007C8C21E4A3B54004D5E61 /* News+CoreDataProperties.swift in Sources */,
 				40E9134C1E4A43D60024A6FB /* Constants.swift in Sources */,
+				DBFE87641E5214C600F6321C /* BusStopListViewController.swift in Sources */,
 				DBB2ECD11E4F9F1A00034B8B /* OfferCell.swift in Sources */,
 				4007C8C81E4A3B54004D5E61 /* Notification+CoreDataProperties.swift in Sources */,
 				DBB2ECCD1E4F9EF100034B8B /* NewsListViewController.swift in Sources */,
@@ -658,13 +727,17 @@
 				DBB2ECCE1E4F9EF100034B8B /* NewsCell.swift in Sources */,
 				4007C8C31E4A3B54004D5E61 /* Offer+CoreDataClass.swift in Sources */,
 				DBB2ECDC1E4F9F7100034B8B /* ServiceCell.swift in Sources */,
+				DBFE875D1E5214B600F6321C /* TransportMapViewController.swift in Sources */,
 				40E9134A1E4A41760024A6FB /* NetworkManager.swift in Sources */,
+				DBFE87631E5214C600F6321C /* BusStopCell.swift in Sources */,
 				DBB2ECF01E4FA99000034B8B /* TableViewMessageBackgroundView.swift in Sources */,
 				DBB2ECFA1E4FAA2200034B8B /* NewsPagingViewController.swift in Sources */,
+				DBFE87681E5214DA00F6321C /* TransportViewController.swift in Sources */,
 				DBB2ECD61E4F9F3300034B8B /* ExcursionListViewController.swift in Sources */,
 				DBB2ECE51E4FA8E500034B8B /* SideMenuItemsViewController.swift in Sources */,
 				DBB2ECEF1E4FA99000034B8B /* TableViewBackgroundsExtension.swift in Sources */,
 				DBB2ECEB1E4FA98700034B8B /* PagingViewController.swift in Sources */,
+				DBFE875E1E5214B600F6321C /* TransportScheduleViewController.swift in Sources */,
 				4007C8C51E4A3B54004D5E61 /* Service+CoreDataClass.swift in Sources */,
 				DBD693341E4BA144002816D3 /* OffersModel.swift in Sources */,
 				DBC6A6A11E50C0EF007203C5 /* SupportItemCell.swift in Sources */,
@@ -673,6 +746,7 @@
 				DBD693441E4BAC48002816D3 /* NotificationsFacade.swift in Sources */,
 				4007C8C01E4A3B54004D5E61 /* Excursion+CoreDataProperties.swift in Sources */,
 				DBB2ECD51E4F9F3300034B8B /* ExcursionCell.swift in Sources */,
+				DBFE87601E5214B600F6321C /* CourseSelectionViewController.swift in Sources */,
 				DBB2ECD91E4F9F6300034B8B /* NotificationCell.swift in Sources */,
 				4007C89D1E4A32BA004D5E61 /* AppDelegate.swift in Sources */,
 				DBB2ED001E4FAA5400034B8B /* ServicesPagingController.swift in Sources */,
@@ -683,6 +757,7 @@
 				4007C8C41E4A3B54004D5E61 /* Offer+CoreDataProperties.swift in Sources */,
 				DBB2ECE41E4FA8E500034B8B /* SideMenuCoordinatorViewController.swift in Sources */,
 				DBD693421E4BAC3C002816D3 /* ServicesFacade.swift in Sources */,
+				DBFE87691E5214DA00F6321C /* TransportPagingViewController.swift in Sources */,
 				DBB2ED011E4FAA5400034B8B /* ServiceListViewController.swift in Sources */,
 				DBD693301E4BA090002816D3 /* AppModel.swift in Sources */,
 				4007C8C71E4A3B54004D5E61 /* Notification+CoreDataClass.swift in Sources */,
@@ -691,6 +766,7 @@
 				DBB2ECE71E4FA8E500034B8B /* MenuItem.swift in Sources */,
 				DBB2ECF41E4FA9BA00034B8B /* Style.swift in Sources */,
 				DBD693361E4BA159002816D3 /* ServicesModel.swift in Sources */,
+				DBFE875F1E5214B600F6321C /* TransportNearestViewController.swift in Sources */,
 				DBD6932E1E4BA019002816D3 /* NewsModel.swift in Sources */,
 				4007C8B31E4A3556004D5E61 /* CoreDataManager.swift in Sources */,
 				DBC6A69B1E50BEE8007203C5 /* SupportFacade.swift in Sources */,

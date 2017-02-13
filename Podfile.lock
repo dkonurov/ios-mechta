@@ -8,6 +8,7 @@ PODS:
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
   - SwiftyJSON (3.1.4)
+  - YandexMapView (0.1.0)
 
 DEPENDENCIES:
   - Alamofire (~> 4.3)
@@ -17,15 +18,21 @@ DEPENDENCIES:
   - RESideMenu (~> 4.0.7)
   - SDWebImage (~> 3.7)
   - SwiftyJSON (~> 3.1)
+  - YandexMapView (from `https://github.com/npu3pak/ios-yandex-map-view.git`)
 
 EXTERNAL SOURCES:
   CoreDataBoilerplate:
     :git: https://github.com/npu3pak/ios-lib-coredata-boilerplate.git
+  YandexMapView:
+    :git: https://github.com/npu3pak/ios-yandex-map-view.git
 
 CHECKOUT OPTIONS:
   CoreDataBoilerplate:
     :commit: 12072966dfd3afa2249049b847714051457463df
     :git: https://github.com/npu3pak/ios-lib-coredata-boilerplate.git
+  YandexMapView:
+    :commit: cb48a3a898021c28db30028926837110f3669011
+    :git: https://github.com/npu3pak/ios-yandex-map-view.git
 
 SPEC CHECKSUMS:
   Alamofire: 856a113053a7bc9cbe5d6367a555d773fc5cfef7
@@ -35,7 +42,8 @@ SPEC CHECKSUMS:
   RESideMenu: f24c508404b49c667344c54aba7e590883533958
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
+  YandexMapView: c778474671554fe018152960f3ff76477d048296
 
-PODFILE CHECKSUM: 266284f3d7c13aa575faa242ae4e2aa297ee84d0
+PODFILE CHECKSUM: 754117bd2947183dc2fca3c33efe9443e5f94b2d
 
 COCOAPODS: 1.1.1

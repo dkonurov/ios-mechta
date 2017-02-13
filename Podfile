@@ -13,6 +13,7 @@ target 'Mechta' do
   pod 'RESideMenu', '~> 4.0.7'
   pod 'OpenSans'
   pod 'SDWebImage', '~>3.7'
+  pod 'YandexMapView', :git => 'https://github.com/npu3pak/ios-yandex-map-view.git'
   
   target 'MechtaTests' do
       inherit! :search_paths
