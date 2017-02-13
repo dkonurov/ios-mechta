@@ -25,6 +25,6 @@ public class Offer: NSManagedObject {
     }
     
     var photoUrl: String? {
-        return photo == nil ? nil : Constants.serviceUrl + photo!
+        return photo == nil ? nil : Constants.imagesUrl + photo!
     }
 }
