@@ -22,8 +22,9 @@ class ExcursionsFacade {
             return
         }
         
-        let url = URL(string: detailUrl)!
-        UIApplication.shared.openURL(url)
+        if let url = URL(string: detailUrl) {
+            UIApplication.shared.openURL(url)
+        }
         
         model.markViewed(excursion)
     }
