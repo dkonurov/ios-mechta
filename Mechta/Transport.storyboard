@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Ofn-mP-6mv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Ofn-mP-6mv">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -280,30 +279,20 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="260" text="Заголовок" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CvK-Xh-v5Y">
-                                            <rect key="frame" x="8" y="8" width="304" height="21"/>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Подробности" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="31N-8m-7LY">
-                                            <rect key="frame" x="8" y="37" width="304" height="20"/>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                            <rect key="frame" x="8" y="8" width="304" height="50"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="bottomMargin" secondItem="31N-8m-7LY" secondAttribute="bottom" id="Psm-A8-okB"/>
-                                        <constraint firstItem="CvK-Xh-v5Y" firstAttribute="top" secondItem="3Wd-Dj-XbM" secondAttribute="topMargin" id="U5y-go-Jnx"/>
-                                        <constraint firstItem="31N-8m-7LY" firstAttribute="trailing" secondItem="3Wd-Dj-XbM" secondAttribute="trailingMargin" id="Vhv-gA-KN2"/>
-                                        <constraint firstItem="31N-8m-7LY" firstAttribute="leading" secondItem="3Wd-Dj-XbM" secondAttribute="leadingMargin" id="bK4-Kw-WA3"/>
-                                        <constraint firstItem="CvK-Xh-v5Y" firstAttribute="trailing" secondItem="3Wd-Dj-XbM" secondAttribute="trailingMargin" id="fxY-ZG-4KU"/>
-                                        <constraint firstItem="31N-8m-7LY" firstAttribute="top" secondItem="CvK-Xh-v5Y" secondAttribute="bottom" constant="8" id="pce-5L-R6L"/>
-                                        <constraint firstItem="CvK-Xh-v5Y" firstAttribute="leading" secondItem="3Wd-Dj-XbM" secondAttribute="leadingMargin" id="smY-Aw-wr4"/>
+                                        <constraint firstItem="CvK-Xh-v5Y" firstAttribute="leading" secondItem="3Wd-Dj-XbM" secondAttribute="leading" constant="8" id="QQB-v1-bGq"/>
+                                        <constraint firstAttribute="bottom" secondItem="CvK-Xh-v5Y" secondAttribute="bottom" constant="8" id="SZo-bA-qoz"/>
+                                        <constraint firstItem="CvK-Xh-v5Y" firstAttribute="top" secondItem="3Wd-Dj-XbM" secondAttribute="top" constant="8" id="ZLE-sI-U6K"/>
+                                        <constraint firstAttribute="trailing" secondItem="CvK-Xh-v5Y" secondAttribute="trailing" constant="8" id="x8Y-xM-HCL"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="descriptionLabel" destination="31N-8m-7LY" id="751-F3-8KK"/>
                                     <outlet property="titleLabel" destination="CvK-Xh-v5Y" id="jwm-xa-EE8"/>
                                 </connections>
                             </tableViewCell>
@@ -321,7 +310,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MSt-Kt-aSE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2252" y="-189"/>
+            <point key="canvasLocation" x="2251.875" y="-189.08450704225353"/>
         </scene>
     </scenes>
 </document>

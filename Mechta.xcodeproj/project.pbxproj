@@ -55,6 +55,10 @@
 		DBB2ED011E4FAA5400034B8B /* ServiceListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB2ECFE1E4FAA5400034B8B /* ServiceListViewController.swift */; };
 		DBB2ED021E4FAA5400034B8B /* Services.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBB2ECFF1E4FAA5400034B8B /* Services.storyboard */; };
 		DBB2ED041E4FABAE00034B8B /* Notifications.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBB2ED031E4FABAE00034B8B /* Notifications.storyboard */; };
+		DBC2BE6A1E5362F10092527D /* BusStop+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC2BE681E5362F10092527D /* BusStop+CoreDataClass.swift */; };
+		DBC2BE6B1E5362F10092527D /* BusStop+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC2BE691E5362F10092527D /* BusStop+CoreDataProperties.swift */; };
+		DBC2BE6D1E53671E0092527D /* BusStopsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC2BE6C1E53671E0092527D /* BusStopsModel.swift */; };
+		DBC2BE6F1E53687F0092527D /* BusStopsFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC2BE6E1E53687F0092527D /* BusStopsFacade.swift */; };
 		DBC6A69B1E50BEE8007203C5 /* SupportFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC6A69A1E50BEE8007203C5 /* SupportFacade.swift */; };
 		DBC6A69D1E50C0E5007203C5 /* Support.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBC6A69C1E50C0E5007203C5 /* Support.storyboard */; };
 		DBC6A6A01E50C0EF007203C5 /* SupportListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC6A69E1E50C0EF007203C5 /* SupportListViewController.swift */; };
@@ -145,6 +149,10 @@
 		DBB2ECFE1E4FAA5400034B8B /* ServiceListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceListViewController.swift; sourceTree = "<group>"; };
 		DBB2ECFF1E4FAA5400034B8B /* Services.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Services.storyboard; sourceTree = "<group>"; };
 		DBB2ED031E4FABAE00034B8B /* Notifications.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Notifications.storyboard; sourceTree = "<group>"; };
+		DBC2BE681E5362F10092527D /* BusStop+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BusStop+CoreDataClass.swift"; sourceTree = "<group>"; };
+		DBC2BE691E5362F10092527D /* BusStop+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BusStop+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		DBC2BE6C1E53671E0092527D /* BusStopsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusStopsModel.swift; sourceTree = "<group>"; };
+		DBC2BE6E1E53687F0092527D /* BusStopsFacade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusStopsFacade.swift; sourceTree = "<group>"; };
 		DBC6A69A1E50BEE8007203C5 /* SupportFacade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportFacade.swift; sourceTree = "<group>"; };
 		DBC6A69C1E50C0E5007203C5 /* Support.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Support.storyboard; sourceTree = "<group>"; };
 		DBC6A69E1E50C0EF007203C5 /* SupportListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportListViewController.swift; sourceTree = "<group>"; };
@@ -253,6 +261,8 @@
 				4007C8BC1E4A3B54004D5E61 /* Service+CoreDataProperties.swift */,
 				4007C8BD1E4A3B54004D5E61 /* Notification+CoreDataClass.swift */,
 				4007C8BE1E4A3B54004D5E61 /* Notification+CoreDataProperties.swift */,
+				DBC2BE681E5362F10092527D /* BusStop+CoreDataClass.swift */,
+				DBC2BE691E5362F10092527D /* BusStop+CoreDataProperties.swift */,
 			);
 			name = ManagedObjects;
 			sourceTree = "<group>";
@@ -433,6 +443,7 @@
 				DBD693371E4BA16A002816D3 /* NotificationsModel.swift */,
 				DBD693331E4BA144002816D3 /* OffersModel.swift */,
 				DBD693351E4BA159002816D3 /* ServicesModel.swift */,
+				DBC2BE6C1E53671E0092527D /* BusStopsModel.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -455,6 +466,7 @@
 				DBD6933F1E4BAC31002816D3 /* OffersFacade.swift */,
 				DBD693411E4BAC3C002816D3 /* ServicesFacade.swift */,
 				DBC6A69A1E50BEE8007203C5 /* SupportFacade.swift */,
+				DBC2BE6E1E53687F0092527D /* BusStopsFacade.swift */,
 			);
 			name = Facades;
 			sourceTree = "<group>";
@@ -716,6 +728,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBC2BE6F1E53687F0092527D /* BusStopsFacade.swift in Sources */,
 				4007C8C21E4A3B54004D5E61 /* News+CoreDataProperties.swift in Sources */,
 				40E9134C1E4A43D60024A6FB /* Constants.swift in Sources */,
 				DBFE87641E5214C600F6321C /* BusStopListViewController.swift in Sources */,
@@ -727,6 +740,7 @@
 				DBB2ECCE1E4F9EF100034B8B /* NewsCell.swift in Sources */,
 				4007C8C31E4A3B54004D5E61 /* Offer+CoreDataClass.swift in Sources */,
 				DBB2ECDC1E4F9F7100034B8B /* ServiceCell.swift in Sources */,
+				DBC2BE6B1E5362F10092527D /* BusStop+CoreDataProperties.swift in Sources */,
 				DBFE875D1E5214B600F6321C /* TransportMapViewController.swift in Sources */,
 				40E9134A1E4A41760024A6FB /* NetworkManager.swift in Sources */,
 				DBFE87631E5214C600F6321C /* BusStopCell.swift in Sources */,
@@ -749,6 +763,7 @@
 				DBFE87601E5214B600F6321C /* CourseSelectionViewController.swift in Sources */,
 				DBB2ECD91E4F9F6300034B8B /* NotificationCell.swift in Sources */,
 				4007C89D1E4A32BA004D5E61 /* AppDelegate.swift in Sources */,
+				DBC2BE6D1E53671E0092527D /* BusStopsModel.swift in Sources */,
 				DBB2ED001E4FAA5400034B8B /* ServicesPagingController.swift in Sources */,
 				DBD6933C1E4BAA97002816D3 /* NewsFacade.swift in Sources */,
 				DBB2ECF71E4FA9DA00034B8B /* ColorExtension.swift in Sources */,
@@ -768,6 +783,7 @@
 				DBD693361E4BA159002816D3 /* ServicesModel.swift in Sources */,
 				DBFE875F1E5214B600F6321C /* TransportNearestViewController.swift in Sources */,
 				DBD6932E1E4BA019002816D3 /* NewsModel.swift in Sources */,
+				DBC2BE6A1E5362F10092527D /* BusStop+CoreDataClass.swift in Sources */,
 				4007C8B31E4A3556004D5E61 /* CoreDataManager.swift in Sources */,
 				DBC6A69B1E50BEE8007203C5 /* SupportFacade.swift in Sources */,
 				40E913451E4A3EEE0024A6FB /* DateExtensions.swift in Sources */,
@@ -908,6 +924,7 @@
 			baseConfigurationReference = D649FFB7BA989386BE5875D9 /* Pods-Mechta.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = M8NLKHKFZX;
 				INFOPLIST_FILE = Mechta/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -923,6 +940,7 @@
 			baseConfigurationReference = FF624B24E3E8F6ADDD734BF4 /* Pods-Mechta.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = M8NLKHKFZX;
 				INFOPLIST_FILE = Mechta/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;

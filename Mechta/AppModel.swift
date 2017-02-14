@@ -8,6 +8,7 @@ class AppModel {
     let offersModel: OffersModel
     let servicesModel: ServicesModel
     let notificationsModel: NotificationsModel
+    let busStopsModel: BusStopsModel
     
     let context = CoreDataManager.instance.mainContext
     
@@ -17,6 +18,7 @@ class AppModel {
         offersModel = OffersModel(context: context)
         servicesModel = ServicesModel(context: context)
         notificationsModel = NotificationsModel(context: context)
+        busStopsModel = BusStopsModel(context: context)
     }
     
     static var instance: AppModel {
