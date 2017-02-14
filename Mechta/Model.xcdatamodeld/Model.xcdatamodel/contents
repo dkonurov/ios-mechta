@@ -1,10 +1,29 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11759" systemVersion="16D32" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="BusRoute" representedClassName="BusRoute" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="flights" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="BusRouteFlight" inverseName="busRoute" inverseEntity="BusRouteFlight" syncable="YES"/>
+    </entity>
+    <entity name="BusRouteFlight" representedClassName="BusRouteFlight" syncable="YES">
+        <attribute name="express" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="weekendAvailability" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="workingDaysAvailability" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="busRoute" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BusRoute" inverseName="flights" inverseEntity="BusRoute" syncable="YES"/>
+        <relationship name="stops" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="BusRouteFlightStop" inverseName="flight" inverseEntity="BusRouteFlightStop" syncable="YES"/>
+    </entity>
+    <entity name="BusRouteFlightStop" representedClassName="BusRouteFlightStop" syncable="YES">
+        <attribute name="stopTime" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="busStop" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BusStop" inverseName="flightStops" inverseEntity="BusStop" syncable="YES"/>
+        <relationship name="flight" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BusRouteFlight" inverseName="stops" inverseEntity="BusRouteFlight" syncable="YES"/>
+    </entity>
     <entity name="BusStop" representedClassName="BusStop" syncable="YES">
         <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="flightStops" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="BusRouteFlightStop" inverseName="busStop" inverseEntity="BusRouteFlightStop" syncable="YES"/>
     </entity>
     <entity name="Excursion" representedClassName="Excursion" syncable="YES">
         <attribute name="detailUrl" optional="YES" attributeType="String" syncable="YES"/>
@@ -53,11 +72,14 @@
         <attribute name="viewed" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Excursion" positionX="-63" positionY="-240" width="128" height="165"/>
-        <element name="News" positionX="-261" positionY="-234" width="128" height="150"/>
-        <element name="Notification" positionX="-263" positionY="-63" width="128" height="120"/>
-        <element name="Offer" positionX="-63" positionY="-45" width="128" height="150"/>
-        <element name="Service" positionX="-261" positionY="75" width="128" height="180"/>
-        <element name="BusStop" positionX="-162" positionY="-90" width="128" height="105"/>
+        <element name="BusStop" positionX="241" positionY="324" width="128" height="118"/>
+        <element name="Excursion" positionX="-72" positionY="-249" width="128" height="165"/>
+        <element name="News" positionX="-270" positionY="-243" width="128" height="150"/>
+        <element name="Notification" positionX="-272" positionY="-72" width="128" height="120"/>
+        <element name="Offer" positionX="-72" positionY="-69" width="128" height="150"/>
+        <element name="Service" positionX="-270" positionY="66" width="128" height="180"/>
+        <element name="BusRouteFlight" positionX="-99" positionY="324" width="128" height="133"/>
+        <element name="BusRoute" positionX="-270" positionY="324" width="128" height="88"/>
+        <element name="BusRouteFlightStop" positionX="70" positionY="324" width="128" height="88"/>
     </elements>
 </model>

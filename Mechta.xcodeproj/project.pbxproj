@@ -55,8 +55,14 @@
 		DBB2ED011E4FAA5400034B8B /* ServiceListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB2ECFE1E4FAA5400034B8B /* ServiceListViewController.swift */; };
 		DBB2ED021E4FAA5400034B8B /* Services.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBB2ECFF1E4FAA5400034B8B /* Services.storyboard */; };
 		DBB2ED041E4FABAE00034B8B /* Notifications.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBB2ED031E4FABAE00034B8B /* Notifications.storyboard */; };
+		DBBBE7981E5395620072961A /* BusStop+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBBE7941E5395620072961A /* BusStop+CoreDataProperties.swift */; };
+		DBBBE79C1E5396460072961A /* BusRouteFlightStop+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBBE7991E5396460072961A /* BusRouteFlightStop+CoreDataProperties.swift */; };
+		DBBBE79D1E5396460072961A /* BusRoute+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBBE79A1E5396460072961A /* BusRoute+CoreDataProperties.swift */; };
+		DBBBE79E1E5396460072961A /* BusRouteFlight+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBBE79B1E5396460072961A /* BusRouteFlight+CoreDataProperties.swift */; };
+		DBBBE7A21E5396A10072961A /* BusRoute+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBBE79F1E5396A10072961A /* BusRoute+CoreDataClass.swift */; };
+		DBBBE7A31E5396A10072961A /* BusRouteFlight+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBBE7A01E5396A10072961A /* BusRouteFlight+CoreDataClass.swift */; };
+		DBBBE7A41E5396A10072961A /* BusRouteFlightStop+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBBE7A11E5396A10072961A /* BusRouteFlightStop+CoreDataClass.swift */; };
 		DBC2BE6A1E5362F10092527D /* BusStop+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC2BE681E5362F10092527D /* BusStop+CoreDataClass.swift */; };
-		DBC2BE6B1E5362F10092527D /* BusStop+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC2BE691E5362F10092527D /* BusStop+CoreDataProperties.swift */; };
 		DBC2BE6D1E53671E0092527D /* BusStopsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC2BE6C1E53671E0092527D /* BusStopsModel.swift */; };
 		DBC2BE6F1E53687F0092527D /* BusStopsFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC2BE6E1E53687F0092527D /* BusStopsFacade.swift */; };
 		DBC6A69B1E50BEE8007203C5 /* SupportFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC6A69A1E50BEE8007203C5 /* SupportFacade.swift */; };
@@ -149,8 +155,14 @@
 		DBB2ECFE1E4FAA5400034B8B /* ServiceListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceListViewController.swift; sourceTree = "<group>"; };
 		DBB2ECFF1E4FAA5400034B8B /* Services.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Services.storyboard; sourceTree = "<group>"; };
 		DBB2ED031E4FABAE00034B8B /* Notifications.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Notifications.storyboard; sourceTree = "<group>"; };
+		DBBBE7941E5395620072961A /* BusStop+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BusStop+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		DBBBE7991E5396460072961A /* BusRouteFlightStop+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BusRouteFlightStop+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		DBBBE79A1E5396460072961A /* BusRoute+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BusRoute+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		DBBBE79B1E5396460072961A /* BusRouteFlight+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BusRouteFlight+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		DBBBE79F1E5396A10072961A /* BusRoute+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BusRoute+CoreDataClass.swift"; sourceTree = "<group>"; };
+		DBBBE7A01E5396A10072961A /* BusRouteFlight+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BusRouteFlight+CoreDataClass.swift"; sourceTree = "<group>"; };
+		DBBBE7A11E5396A10072961A /* BusRouteFlightStop+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BusRouteFlightStop+CoreDataClass.swift"; sourceTree = "<group>"; };
 		DBC2BE681E5362F10092527D /* BusStop+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BusStop+CoreDataClass.swift"; sourceTree = "<group>"; };
-		DBC2BE691E5362F10092527D /* BusStop+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BusStop+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		DBC2BE6C1E53671E0092527D /* BusStopsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusStopsModel.swift; sourceTree = "<group>"; };
 		DBC2BE6E1E53687F0092527D /* BusStopsFacade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusStopsFacade.swift; sourceTree = "<group>"; };
 		DBC6A69A1E50BEE8007203C5 /* SupportFacade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportFacade.swift; sourceTree = "<group>"; };
@@ -251,18 +263,24 @@
 		4007C8B41E4A3B47004D5E61 /* ManagedObjects */ = {
 			isa = PBXGroup;
 			children = (
+				DBBBE79F1E5396A10072961A /* BusRoute+CoreDataClass.swift */,
+				DBBBE79A1E5396460072961A /* BusRoute+CoreDataProperties.swift */,
+				DBBBE7A01E5396A10072961A /* BusRouteFlight+CoreDataClass.swift */,
+				DBBBE79B1E5396460072961A /* BusRouteFlight+CoreDataProperties.swift */,
+				DBBBE7A11E5396A10072961A /* BusRouteFlightStop+CoreDataClass.swift */,
+				DBBBE7991E5396460072961A /* BusRouteFlightStop+CoreDataProperties.swift */,
+				DBC2BE681E5362F10092527D /* BusStop+CoreDataClass.swift */,
+				DBBBE7941E5395620072961A /* BusStop+CoreDataProperties.swift */,
 				4007C8B51E4A3B54004D5E61 /* Excursion+CoreDataClass.swift */,
 				4007C8B61E4A3B54004D5E61 /* Excursion+CoreDataProperties.swift */,
 				4007C8B71E4A3B54004D5E61 /* News+CoreDataClass.swift */,
 				4007C8B81E4A3B54004D5E61 /* News+CoreDataProperties.swift */,
+				4007C8BD1E4A3B54004D5E61 /* Notification+CoreDataClass.swift */,
+				4007C8BE1E4A3B54004D5E61 /* Notification+CoreDataProperties.swift */,
 				4007C8B91E4A3B54004D5E61 /* Offer+CoreDataClass.swift */,
 				4007C8BA1E4A3B54004D5E61 /* Offer+CoreDataProperties.swift */,
 				4007C8BB1E4A3B54004D5E61 /* Service+CoreDataClass.swift */,
 				4007C8BC1E4A3B54004D5E61 /* Service+CoreDataProperties.swift */,
-				4007C8BD1E4A3B54004D5E61 /* Notification+CoreDataClass.swift */,
-				4007C8BE1E4A3B54004D5E61 /* Notification+CoreDataProperties.swift */,
-				DBC2BE681E5362F10092527D /* BusStop+CoreDataClass.swift */,
-				DBC2BE691E5362F10092527D /* BusStop+CoreDataProperties.swift */,
 			);
 			name = ManagedObjects;
 			sourceTree = "<group>";
@@ -740,7 +758,7 @@
 				DBB2ECCE1E4F9EF100034B8B /* NewsCell.swift in Sources */,
 				4007C8C31E4A3B54004D5E61 /* Offer+CoreDataClass.swift in Sources */,
 				DBB2ECDC1E4F9F7100034B8B /* ServiceCell.swift in Sources */,
-				DBC2BE6B1E5362F10092527D /* BusStop+CoreDataProperties.swift in Sources */,
+				DBBBE79C1E5396460072961A /* BusRouteFlightStop+CoreDataProperties.swift in Sources */,
 				DBFE875D1E5214B600F6321C /* TransportMapViewController.swift in Sources */,
 				40E9134A1E4A41760024A6FB /* NetworkManager.swift in Sources */,
 				DBFE87631E5214C600F6321C /* BusStopCell.swift in Sources */,
@@ -748,8 +766,10 @@
 				DBB2ECFA1E4FAA2200034B8B /* NewsPagingViewController.swift in Sources */,
 				DBFE87681E5214DA00F6321C /* TransportViewController.swift in Sources */,
 				DBB2ECD61E4F9F3300034B8B /* ExcursionListViewController.swift in Sources */,
+				DBBBE79E1E5396460072961A /* BusRouteFlight+CoreDataProperties.swift in Sources */,
 				DBB2ECE51E4FA8E500034B8B /* SideMenuItemsViewController.swift in Sources */,
 				DBB2ECEF1E4FA99000034B8B /* TableViewBackgroundsExtension.swift in Sources */,
+				DBBBE7A21E5396A10072961A /* BusRoute+CoreDataClass.swift in Sources */,
 				DBB2ECEB1E4FA98700034B8B /* PagingViewController.swift in Sources */,
 				DBFE875E1E5214B600F6321C /* TransportScheduleViewController.swift in Sources */,
 				4007C8C51E4A3B54004D5E61 /* Service+CoreDataClass.swift in Sources */,
@@ -764,6 +784,7 @@
 				DBB2ECD91E4F9F6300034B8B /* NotificationCell.swift in Sources */,
 				4007C89D1E4A32BA004D5E61 /* AppDelegate.swift in Sources */,
 				DBC2BE6D1E53671E0092527D /* BusStopsModel.swift in Sources */,
+				DBBBE7A31E5396A10072961A /* BusRouteFlight+CoreDataClass.swift in Sources */,
 				DBB2ED001E4FAA5400034B8B /* ServicesPagingController.swift in Sources */,
 				DBD6933C1E4BAA97002816D3 /* NewsFacade.swift in Sources */,
 				DBB2ECF71E4FA9DA00034B8B /* ColorExtension.swift in Sources */,
@@ -777,6 +798,7 @@
 				DBD693301E4BA090002816D3 /* AppModel.swift in Sources */,
 				4007C8C71E4A3B54004D5E61 /* Notification+CoreDataClass.swift in Sources */,
 				DBB2ECF81E4FA9DA00034B8B /* TableViewControllerExtension.swift in Sources */,
+				DBBBE7A41E5396A10072961A /* BusRouteFlightStop+CoreDataClass.swift in Sources */,
 				DBB2ECE91E4FA98100034B8B /* ImageViewWebExtension.swift in Sources */,
 				DBB2ECE71E4FA8E500034B8B /* MenuItem.swift in Sources */,
 				DBB2ECF41E4FA9BA00034B8B /* Style.swift in Sources */,
@@ -787,9 +809,11 @@
 				4007C8B31E4A3556004D5E61 /* CoreDataManager.swift in Sources */,
 				DBC6A69B1E50BEE8007203C5 /* SupportFacade.swift in Sources */,
 				40E913451E4A3EEE0024A6FB /* DateExtensions.swift in Sources */,
+				DBBBE79D1E5396460072961A /* BusRoute+CoreDataProperties.swift in Sources */,
 				DBB2ECE61E4FA8E500034B8B /* MenuItemCell.swift in Sources */,
 				4007C8C11E4A3B54004D5E61 /* News+CoreDataClass.swift in Sources */,
 				DBB2ECD21E4F9F1A00034B8B /* OfferListViewController.swift in Sources */,
+				DBBBE7981E5395620072961A /* BusStop+CoreDataProperties.swift in Sources */,
 				4007C8C61E4A3B54004D5E61 /* Service+CoreDataProperties.swift in Sources */,
 				DBD693401E4BAC31002816D3 /* OffersFacade.swift in Sources */,
 				4007C8B11E4A3539004D5E61 /* Model.xcdatamodeld in Sources */,
