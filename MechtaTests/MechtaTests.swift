@@ -44,6 +44,21 @@ class MechtaTests: XCTestCase {
         waitForExpectations(timeout: 10, handler: nil)
     }
     
+    func testBusRoutes() {
+        
+        let expectation = self.expectation(description: "")
+        
+        let model = AppModel.instance.busRoutesModel
+        
+        model.updateBusRoutesInStorage(onError: onError) {
+            let saved = model.busRoutesFromStorage()
+            _ = saved.map() { print($0.name!) }
+            expectation.fulfill()
+        }
+        
+        waitForExpectations(timeout: 20, handler: nil)
+    }
+    
     func onError(error: NetworkError) {
         print(error)
         XCTFail()

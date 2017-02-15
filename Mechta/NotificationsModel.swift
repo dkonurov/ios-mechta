@@ -17,7 +17,7 @@ class NotificationsModel {
                 let storageContext = CoreDataManager.instance.concurrentContext()
                 let storedNotifications: [Notification] = CoreDataManager.instance.fetch("Notification", from: storageContext)
                 
-                //Удаляем новости, которые удалены на сервере
+                //Удаляем элементы, которые удалены на сервере
                 for notification in storedNotifications {
                     if !netNotifications.contains(where: {$0.id == notification.id}) {
                         storageContext.delete(notification)

@@ -9,6 +9,7 @@ class AppModel {
     let servicesModel: ServicesModel
     let notificationsModel: NotificationsModel
     let busStopsModel: BusStopsModel
+    let busRoutesModel: BusRoutesModel
     
     let context = CoreDataManager.instance.mainContext
     
@@ -19,6 +20,7 @@ class AppModel {
         servicesModel = ServicesModel(context: context)
         notificationsModel = NotificationsModel(context: context)
         busStopsModel = BusStopsModel(context: context)
+        busRoutesModel = BusRoutesModel(context: context, busStopsModel: busStopsModel)
     }
     
     static var instance: AppModel {

@@ -25,7 +25,7 @@ class BusStopsModel {
                 let storageContext = CoreDataManager.instance.concurrentContext()
                 let storedBusStops: [BusStop] = CoreDataManager.instance.fetch("BusStop", from: storageContext)
                 
-                //Удаляем новости, которые удалены на сервере
+                //Удаляем элементы, которые удалены на сервере
                 for busStop in storedBusStops {
                     if !netBusStops.contains(where: {$0.id == busStop.id}) {
                         storageContext.delete(busStop)

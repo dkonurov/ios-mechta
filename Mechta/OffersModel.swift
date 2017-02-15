@@ -17,7 +17,7 @@ class OffersModel {
                 let storageContext = CoreDataManager.instance.concurrentContext()
                 let storedOffers: [Offer] = CoreDataManager.instance.fetch("Offer", from: storageContext)
                 
-                //Удаляем новости, которые удалены на сервере
+                //Удаляем элементы, которые удалены на сервере
                 for offer in storedOffers {
                     if !netOffers.contains(where: {$0.id == offer.id}) {
                         storageContext.delete(offer)

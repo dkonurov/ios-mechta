@@ -17,7 +17,7 @@ class NewsModel {
                 let storageContext = CoreDataManager.instance.concurrentContext()
                 let storedNews: [News] = CoreDataManager.instance.fetch("News", from: storageContext)
                 
-                //Удаляем новости, которые удалены на сервере
+                //Удаляем элементы, которые удалены на сервере
                 for news in storedNews {
                     if !netNews.contains(where: {$0.id == news.id}) {
                         storageContext.delete(news)

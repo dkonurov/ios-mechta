@@ -17,7 +17,7 @@ class ServicesModel {
                 let storageContext = CoreDataManager.instance.concurrentContext()
                 let storedServices: [Service] = CoreDataManager.instance.fetch("Service", from: storageContext)
                 
-                //Удаляем новости, которые удалены на сервере
+                //Удаляем элементы, которые удалены на сервере
                 for service in storedServices {
                     if !netServices.contains(where: {$0.id == service.id}) {
                         storageContext.delete(service)

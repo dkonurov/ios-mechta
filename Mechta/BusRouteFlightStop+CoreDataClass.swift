@@ -9,8 +9,18 @@
 
 import Foundation
 import CoreData
+import SwiftyJSON
 
 @objc(BusRouteFlightStop)
 public class BusRouteFlightStop: NSManagedObject {
-
+    
+    static func from(json: JSON, context: NSManagedObjectContext) -> BusRouteFlightStop {
+        let stop: BusRouteFlightStop = context.inserting(entityName: "BusRouteFlightStop")
+        stop.stopTime = json["stop_time"].string
+        
+        let busStopId = json["bus_stop_id"].int64!
+        stop.busStop = BusStop.fetch(id: busStopId, context: context)
+        
+        return stop  
+    }
 }

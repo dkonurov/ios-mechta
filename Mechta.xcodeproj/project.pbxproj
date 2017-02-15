@@ -27,6 +27,7 @@
 		40E9134C1E4A43D60024A6FB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E9134B1E4A43D60024A6FB /* Constants.swift */; };
 		471525ACA0388D2035B93B6F /* Pods_MechtaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B712FE005635AACD994D7E34 /* Pods_MechtaTests.framework */; };
 		B26F68F138F2427C9DE9AAFF /* Pods_Mechta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49077FB6B78400F0102966E0 /* Pods_Mechta.framework */; };
+		DB081DF21E54170E003C38A9 /* BusRoutesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB081DF11E54170E003C38A9 /* BusRoutesModel.swift */; };
 		DBB2ECCD1E4F9EF100034B8B /* NewsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB2ECCB1E4F9EF100034B8B /* NewsListViewController.swift */; };
 		DBB2ECCE1E4F9EF100034B8B /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB2ECCC1E4F9EF100034B8B /* NewsCell.swift */; };
 		DBB2ECD11E4F9F1A00034B8B /* OfferCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB2ECCF1E4F9F1A00034B8B /* OfferCell.swift */; };
@@ -127,6 +128,7 @@
 		49077FB6B78400F0102966E0 /* Pods_Mechta.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mechta.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B712FE005635AACD994D7E34 /* Pods_MechtaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MechtaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D649FFB7BA989386BE5875D9 /* Pods-Mechta.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mechta.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mechta/Pods-Mechta.debug.xcconfig"; sourceTree = "<group>"; };
+		DB081DF11E54170E003C38A9 /* BusRoutesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusRoutesModel.swift; sourceTree = "<group>"; };
 		DBB2ECCB1E4F9EF100034B8B /* NewsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsListViewController.swift; sourceTree = "<group>"; };
 		DBB2ECCC1E4F9EF100034B8B /* NewsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
 		DBB2ECCF1E4F9F1A00034B8B /* OfferCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfferCell.swift; sourceTree = "<group>"; };
@@ -462,6 +464,7 @@
 				DBD693331E4BA144002816D3 /* OffersModel.swift */,
 				DBD693351E4BA159002816D3 /* ServicesModel.swift */,
 				DBC2BE6C1E53671E0092527D /* BusStopsModel.swift */,
+				DB081DF11E54170E003C38A9 /* BusRoutesModel.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -790,6 +793,7 @@
 				DBB2ECF71E4FA9DA00034B8B /* ColorExtension.swift in Sources */,
 				DBD693381E4BA16A002816D3 /* NotificationsModel.swift in Sources */,
 				DBD6933E1E4BAC16002816D3 /* ExcursionsFacade.swift in Sources */,
+				DB081DF21E54170E003C38A9 /* BusRoutesModel.swift in Sources */,
 				4007C8C41E4A3B54004D5E61 /* Offer+CoreDataProperties.swift in Sources */,
 				DBB2ECE41E4FA8E500034B8B /* SideMenuCoordinatorViewController.swift in Sources */,
 				DBD693421E4BAC3C002816D3 /* ServicesFacade.swift in Sources */,

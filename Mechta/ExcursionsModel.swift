@@ -17,7 +17,7 @@ class ExcursionsModel {
                 let storageContext = CoreDataManager.instance.concurrentContext()
                 let storedExcursions: [Excursion] = CoreDataManager.instance.fetch("Excursion", from: storageContext)
                 
-                //Удаляем новости, которые удалены на сервере
+                //Удаляем элементы, которые удалены на сервере
                 for excursion in storedExcursions {
                     if !netExcursions.contains(where: {$0.id == excursion.id}) {
                         storageContext.delete(excursion)

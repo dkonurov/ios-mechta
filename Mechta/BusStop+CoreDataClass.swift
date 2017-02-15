@@ -20,4 +20,10 @@ public class BusStop: NSManagedObject {
         busStop.longitude = json["longitude"].double ?? 0
         return busStop
     }
+    
+    static func fetch(id: Int64, context: NSManagedObjectContext) -> BusStop? {
+        let request = NSFetchRequest<BusStop>(entityName: "BusStop")
+        request.predicate = NSPredicate(format: "id == %d", id)
+        return (try? context.fetch(request))?.first
+    }
 }
