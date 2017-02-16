@@ -91,4 +91,18 @@ class TransportModel {
         let stopsSlice = stops[startIndex...endIndex]
         return Array(stopsSlice).map(){ $0.busStop! }
     }
+    
+    func schedule(from start: BusStop, to end: BusStop) -> [BusRouteFlightStop] {
+        guard let route = busRoute(from: start, to: end), route.flights != nil else {
+            return []
+        }
+        var schedule = [BusRouteFlightStop]()
+        let flights = route.flights?.array as! [BusRouteFlight]
+        for flight in flights where flight.stops != nil {
+            let stops = flight.stops?.array as! [BusRouteFlightStop]
+            let matched = stops.filter({$0.busStop?.id == start.id})
+            schedule.append(contentsOf: matched)
+        }
+        return schedule
+    }
 }
