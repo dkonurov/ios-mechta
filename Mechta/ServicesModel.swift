@@ -19,14 +19,14 @@ class ServicesModel {
                 
                 //Удаляем элементы, которые удалены на сервере
                 for service in storedServices {
-                    if !netServices.contains(where: {$0.id == service.id}) {
+                    if !netServices.contains(where: {$0 == service}) {
                         storageContext.delete(service)
                     }
                 }
                 
                 //Удаляем полученные элементы, которые уже есть в хранилище
                 for service in netServices {
-                    if storedServices.contains(where: {$0.id == service.id}) {
+                    if storedServices.contains(where: {$0 == service}) {
                         networkContext.delete(service)
                     }
                 }

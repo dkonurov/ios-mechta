@@ -28,3 +28,12 @@ public class News: NSManagedObject {
         return photo == nil ? nil : Constants.imagesUrl + photo!
     }
 }
+
+func == (left: News, right: News) -> Bool {
+    return left.id == right.id &&
+        left.title == right.title &&
+        left.detailUrl == right.detailUrl &&
+        left.itemDescription == right.itemDescription &&
+        left.publishedAt == right.publishedAt &&
+        left.photo == right.photo
+}

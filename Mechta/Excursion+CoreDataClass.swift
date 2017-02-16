@@ -29,3 +29,13 @@ public class Excursion: NSManagedObject {
         return photo == nil ? nil : Constants.imagesUrl + photo!
     }
 }
+
+func == (left: Excursion, right: Excursion) -> Bool {
+    return left.id == right.id &&
+        left.startDate == right.startDate &&
+        left.title == right.title &&
+        left.detailUrl == right.detailUrl &&
+        left.itemDescription == right.itemDescription &&
+        left.publishedAt == right.publishedAt &&
+        left.photo == right.photo
+}

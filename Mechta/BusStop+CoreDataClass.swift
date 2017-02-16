@@ -27,3 +27,10 @@ public class BusStop: NSManagedObject {
         return (try? context.fetch(request))?.first
     }
 }
+
+func == (left: BusStop, right: BusStop) -> Bool {
+    return left.id == right.id &&
+        left.title == right.title &&
+        left.latitude == right.latitude &&
+        left.longitude == right.longitude
+}

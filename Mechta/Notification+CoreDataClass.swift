@@ -47,3 +47,7 @@ public class Notification: NSManagedObject {
     }
     
 }
+
+func == (left: Notification, right: Notification) -> Bool {
+    return left.id == right.id
+}

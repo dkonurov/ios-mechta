@@ -27,14 +27,14 @@ class BusStopsModel {
                 
                 //Удаляем элементы, которые удалены на сервере
                 for busStop in storedBusStops {
-                    if !netBusStops.contains(where: {$0.id == busStop.id}) {
+                    if !netBusStops.contains(where: {$0 == busStop}) {
                         storageContext.delete(busStop)
                     }
                 }
                 
                 //Удаляем полученные элементы, которые уже есть в хранилище
                 for busStop in netBusStops {
-                    if storedBusStops.contains(where: {$0.id == busStop.id}) {
+                    if storedBusStops.contains(where: {$0 == busStop}) {
                         networkContext.delete(busStop)
                     }
                 }

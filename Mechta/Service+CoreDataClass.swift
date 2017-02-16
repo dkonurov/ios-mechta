@@ -47,3 +47,13 @@ public class Service: NSManagedObject {
     }
     
 }
+
+func == (left: Service, right: Service) -> Bool {
+    return left.id == right.id &&
+        left.title == right.title &&
+        left.detailUrl == right.detailUrl &&
+        left.typeRaw == right.typeRaw &&
+        left.itemDescription == right.itemDescription &&
+        left.publishedAt == right.publishedAt &&
+        left.photo == right.photo
+}

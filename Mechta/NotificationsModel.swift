@@ -19,14 +19,14 @@ class NotificationsModel {
                 
                 //Удаляем элементы, которые удалены на сервере
                 for notification in storedNotifications {
-                    if !netNotifications.contains(where: {$0.id == notification.id}) {
+                    if !netNotifications.contains(where: {$0 == notification}) {
                         storageContext.delete(notification)
                     }
                 }
                 
                 //Удаляем полученные элементы, которые уже есть в хранилище
                 for notification in netNotifications {
-                    if storedNotifications.contains(where: {$0.id == notification.id}) {
+                    if storedNotifications.contains(where: {$0 == notification}) {
                         networkContext.delete(notification)
                     }
                 }

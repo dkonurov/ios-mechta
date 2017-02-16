@@ -19,14 +19,14 @@ class OffersModel {
                 
                 //Удаляем элементы, которые удалены на сервере
                 for offer in storedOffers {
-                    if !netOffers.contains(where: {$0.id == offer.id}) {
+                    if !netOffers.contains(where: {$0 == offer}) {
                         storageContext.delete(offer)
                     }
                 }
                 
                 //Удаляем полученные элементы, которые уже есть в хранилище
                 for offer in netOffers {
-                    if storedOffers.contains(where: {$0.id == offer.id}) {
+                    if storedOffers.contains(where: {$0 == offer}) {
                         networkContext.delete(offer)
                     }
                 }

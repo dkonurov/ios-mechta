@@ -24,3 +24,8 @@ public class BusRouteFlightStop: NSManagedObject {
         return stop  
     }
 }
+
+func == (left: BusRouteFlightStop, right: BusRouteFlightStop) -> Bool {
+    return left.stopTime == right.stopTime &&
+        left.busStop == right.busStop
+}

@@ -30,14 +30,14 @@ class BusRoutesModel {
                     
                     //Удаляем элементы, которые удалены на сервере
                     for busRoute in storedBusRoutes {
-                        if !netBusRoutes.contains(where: {$0.id == busRoute.id}) {
+                        if !netBusRoutes.contains(where: {$0 == busRoute}) {
                             storageContext.delete(busRoute)
                         }
                     }
                     
                     //Удаляем полученные элементы, которые уже есть в хранилище
                     for busRoute in netBusRoutes {
-                        if storedBusRoutes.contains(where: {$0.id == busRoute.id}) {
+                        if storedBusRoutes.contains(where: {$0 == busRoute}) {
                             networkContext.delete(busRoute)
                         }
                     }

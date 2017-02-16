@@ -28,3 +28,12 @@ public class BusRouteFlight: NSManagedObject {
         
     }
 }
+
+func == (left: BusRouteFlight, right: BusRouteFlight) -> Bool {
+    return left.id == right.id &&
+        left.express == right.express &&
+        left.weekendAvailability == right.weekendAvailability &&
+        left.workingDaysAvailability == right.workingDaysAvailability &&
+        left.stops?.count == right.stops?.count &&
+        (left.stops?.elementsEqual(right.stops!) {$0 as! BusRouteFlightStop == $1 as! BusRouteFlightStop}) ?? true
+}

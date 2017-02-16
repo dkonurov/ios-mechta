@@ -19,14 +19,14 @@ class NewsModel {
                 
                 //Удаляем элементы, которые удалены на сервере
                 for news in storedNews {
-                    if !netNews.contains(where: {$0.id == news.id}) {
+                    if !netNews.contains(where: {$0 == news}) {
                         storageContext.delete(news)
                     }
                 }
                 
                 //Удаляем полученные элементы, которые уже есть в хранилище
                 for news in netNews {
-                    if storedNews.contains(where: {$0.id == news.id}) {
+                    if storedNews.contains(where: {$0 == news}) {
                         networkContext.delete(news)
                     }
                 }

@@ -19,14 +19,14 @@ class ExcursionsModel {
                 
                 //Удаляем элементы, которые удалены на сервере
                 for excursion in storedExcursions {
-                    if !netExcursions.contains(where: {$0.id == excursion.id}) {
+                    if !netExcursions.contains(where: {$0 == excursion}) {
                         storageContext.delete(excursion)
                     }
                 }
                 
                 //Удаляем полученные элементы, которые уже есть в хранилище
                 for excursion in netExcursions {
-                    if storedExcursions.contains(where: {$0.id == excursion.id}) {
+                    if storedExcursions.contains(where: {$0 == excursion}) {
                         networkContext.delete(excursion)
                     }
                 }
