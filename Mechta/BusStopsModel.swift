@@ -11,49 +11,20 @@ import CoreData
 
 class BusStopsModel {
     let mainContext: NSManagedObjectContext
-    
-    private let updateQueue = DispatchQueue(label: "BusStopsModelUpdate")
+    let networkManager = NetworkManager()
     
     init(context: NSManagedObjectContext) {
         self.mainContext = context
     }
     
     func updateBusStopsInStorage(onError: @escaping (NetworkError) -> Void, onSuccess: @escaping () -> Void) {
-        let networkContext = CoreDataManager.instance.concurrentContext()
-        busStopsFromNetwork(context: networkContext, onError: onError) {[unowned self] netBusStops in
-            self.updateQueue.sync {
-                let storageContext = CoreDataManager.instance.concurrentContext()
-                let storedBusStops: [BusStop] = CoreDataManager.instance.fetch("BusStop", from: storageContext)
-                
-                //Удаляем элементы, которые удалены на сервере
-                for busStop in storedBusStops {
-                    if !netBusStops.contains(where: {$0 == busStop}) {
-                        storageContext.delete(busStop)
-                    }
-                }
-                
-                //Удаляем полученные элементы, которые уже есть в хранилище
-                for busStop in netBusStops {
-                    if storedBusStops.contains(where: {$0 == busStop}) {
-                        networkContext.delete(busStop)
-                    }
-                }
-                
-                //Сохраняем контекст
-                try? networkContext.saveIfNeeded()
-                try? storageContext.saveIfNeeded()
-                try? self.mainContext.saveIfNeeded()
-                
-                onSuccess()
-            }
-        }
-    }
-    
-    func busStopsFromNetwork(context: NSManagedObjectContext, onError: @escaping (NetworkError) -> Void, onSuccess: @escaping ([BusStop]) -> Void) {
-        NetworkManager.get("/bus_stops", onError: onError) { json in
-            let busStops = json.arrayValue.map() { BusStop.from(json: $0, context: context) }
-            onSuccess(busStops)
-        }
+        networkManager.updateItemsInStorage(
+            serviceMethod: "/bus_stops",
+            itemParser: BusStop.from,
+            entityName: "BusStop",
+            comparator: {$0 == $1},
+            onError: onError,
+            onSuccess: onSuccess)
     }
     
     func busStopsFromStorage() -> [BusStop] {

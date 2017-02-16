@@ -3,49 +3,20 @@ import CoreData
 
 class NewsModel {
     let mainContext: NSManagedObjectContext
-    
-    private let updateQueue = DispatchQueue(label: "NewsModelUpdate")
+    let networkManager = NetworkManager()
     
     init(context: NSManagedObjectContext) {
         self.mainContext = context
     }
     
     func updateNewsInStorage(onError: @escaping (NetworkError) -> Void, onSuccess: @escaping () -> Void) {
-        let networkContext = CoreDataManager.instance.concurrentContext()
-        newsFromNetwork(context: networkContext, onError: onError) {[unowned self] netNews in
-            self.updateQueue.sync {
-                let storageContext = CoreDataManager.instance.concurrentContext()
-                let storedNews: [News] = CoreDataManager.instance.fetch("News", from: storageContext)
-                
-                //Удаляем элементы, которые удалены на сервере
-                for news in storedNews {
-                    if !netNews.contains(where: {$0 == news}) {
-                        storageContext.delete(news)
-                    }
-                }
-                
-                //Удаляем полученные элементы, которые уже есть в хранилище
-                for news in netNews {
-                    if storedNews.contains(where: {$0 == news}) {
-                        networkContext.delete(news)
-                    }
-                }
-                
-                //Сохраняем контекст
-                try? networkContext.saveIfNeeded()
-                try? storageContext.saveIfNeeded()
-                try? self.mainContext.saveIfNeeded()
-                
-                onSuccess()
-            }
-        }
-    }
-    
-    func newsFromNetwork(context: NSManagedObjectContext, onError: @escaping (NetworkError) -> Void, onSuccess: @escaping ([News]) -> Void) {
-        NetworkManager.get("/news", onError: onError) { json in
-            let news = json.arrayValue.map() { News.from(json: $0, context: context) }
-            onSuccess(news)
-        }
+        networkManager.updateItemsInStorage(
+            serviceMethod: "/news",
+            itemParser: News.from,
+            entityName: "News",
+            comparator: {$0 == $1},
+            onError: onError,
+            onSuccess: onSuccess)
     }
     
     func newsFromStorage() -> [News] {

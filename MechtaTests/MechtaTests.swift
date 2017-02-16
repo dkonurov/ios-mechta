@@ -24,7 +24,7 @@ class MechtaTests: XCTestCase {
     
     func testJson() {
         let expectation = self.expectation(description: "")
-        NetworkManager.get("/news", onError: onError) {
+        NetworkManager().get("/news", onError: onError) {
             print($0)
             expectation.fulfill()
         }

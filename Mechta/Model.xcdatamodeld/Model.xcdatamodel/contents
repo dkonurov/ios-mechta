@@ -3,27 +3,27 @@
     <entity name="BusRoute" representedClassName="BusRoute" syncable="YES">
         <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="flights" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="BusRouteFlight" inverseName="busRoute" inverseEntity="BusRouteFlight" syncable="YES"/>
+        <relationship name="flights" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="BusRouteFlight" inverseName="busRoute" inverseEntity="BusRouteFlight" syncable="YES"/>
     </entity>
     <entity name="BusRouteFlight" representedClassName="BusRouteFlight" syncable="YES">
         <attribute name="express" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="weekendAvailability" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="workingDaysAvailability" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
-        <relationship name="busRoute" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="BusRoute" inverseName="flights" inverseEntity="BusRoute" syncable="YES"/>
-        <relationship name="stops" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="BusRouteFlightStop" inverseName="flight" inverseEntity="BusRouteFlightStop" syncable="YES"/>
+        <relationship name="busRoute" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BusRoute" inverseName="flights" inverseEntity="BusRoute" syncable="YES"/>
+        <relationship name="stops" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="BusRouteFlightStop" inverseName="flight" inverseEntity="BusRouteFlightStop" syncable="YES"/>
     </entity>
     <entity name="BusRouteFlightStop" representedClassName="BusRouteFlightStop" syncable="YES">
         <attribute name="stopTime" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="busStop" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="BusStop" inverseName="flightStops" inverseEntity="BusStop" syncable="YES"/>
-        <relationship name="flight" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="BusRouteFlight" inverseName="stops" inverseEntity="BusRouteFlight" syncable="YES"/>
+        <relationship name="busStop" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BusStop" inverseName="flightStops" inverseEntity="BusStop" syncable="YES"/>
+        <relationship name="flight" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BusRouteFlight" inverseName="stops" inverseEntity="BusRouteFlight" syncable="YES"/>
     </entity>
     <entity name="BusStop" representedClassName="BusStop" syncable="YES">
         <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="flightStops" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="BusRouteFlightStop" inverseName="busStop" inverseEntity="BusRouteFlightStop" syncable="YES"/>
+        <relationship name="flightStops" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="BusRouteFlightStop" inverseName="busStop" inverseEntity="BusRouteFlightStop" syncable="YES"/>
     </entity>
     <entity name="Excursion" representedClassName="Excursion" syncable="YES">
         <attribute name="detailUrl" optional="YES" attributeType="String" syncable="YES"/>

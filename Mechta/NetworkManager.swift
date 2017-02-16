@@ -16,8 +16,53 @@ enum NetworkError: Error {
     case fault(Error)
 }
 
-class NetworkManager {    
-    static func get(_ method: String, onError: @escaping (NetworkError) -> Void, onSuccess: @escaping (JSON) -> Void) {
+class NetworkManager {
+    private let updateQueue = DispatchQueue(label: "UpdateItemsQueue")
+    
+    func updateItemsInStorage<T: NSManagedObject>(
+        serviceMethod: String,
+        itemParser: @escaping (JSON, NSManagedObjectContext) -> T,
+        entityName: String,
+        comparator: @escaping (T, T) -> Bool,
+        onError: @escaping (NetworkError) -> Void,
+        onSuccess: @escaping () -> Void
+        ) {
+        
+        let networkContext = CoreDataManager.instance.concurrentContext()
+        get(serviceMethod, onError: onError) { json in
+            self.updateQueue.sync {
+                let netItems: [T] = json.arrayValue.map() { itemParser($0, networkContext) }
+                
+                let storageContext = CoreDataManager.instance.concurrentContext()
+                let storedItems: [T] = CoreDataManager.instance.fetch(entityName, from: storageContext)
+                
+                //Удаляем элементы, которые удалены на сервере
+                for item in storedItems {
+                    if !netItems.contains(where: {comparator($0, item)}) {
+                        storageContext.delete(item)
+                    }
+                }
+                
+                //Удаляем полученные элементы, которые уже есть в хранилище
+                for item in netItems {
+                    if storedItems.contains(where: {comparator($0, item)}) {
+                        networkContext.delete(item)
+                    }
+                }
+                
+                //Сохраняем контекст
+                try? networkContext.saveIfNeeded()
+                try? storageContext.saveIfNeeded()
+                try? CoreDataManager.instance.mainContext.saveIfNeeded()
+                
+                DispatchQueue.main.async {
+                    onSuccess()
+                }
+            }
+        }
+    }
+    
+    func get(_ method: String, onError: @escaping (NetworkError) -> Void, onSuccess: @escaping (JSON) -> Void) {
         let address = Constants.serviceUrl + method
         
         if Constants.logingEnabled {
