@@ -2,7 +2,7 @@
 //  Service+CoreDataProperties.swift
 //  
 //
-//  Created by Evgeniy Safronov on 12.02.17.
+//  Created by Evgeniy Safronov on 16.02.17.
 //
 //
 

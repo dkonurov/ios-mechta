@@ -9,7 +9,7 @@
 import Foundation
 
 class TransportScheduleFacade {
-    static let courseChangedNotification = NSNotification.Name("TransportScheduleFacadeСourseChangedNotification")
+    static let updatedNotification = NSNotification.Name("TransportScheduleUpdatedNotification")
     
     private let model: TransportModel
     
@@ -19,6 +19,6 @@ class TransportScheduleFacade {
     }
     
     func onRouteChanged() {
-        NotificationCenter.default.post(name: TransportScheduleFacade.courseChangedNotification, object: nil)
+        NotificationCenter.default.post(name: TransportScheduleFacade.updatedNotification, object: nil)
     }
 }

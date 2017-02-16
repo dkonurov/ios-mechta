@@ -21,7 +21,7 @@ public class BusRoute: NSManagedObject {
         route.name = json["name"].string
         
         let flights = json["flights"].arrayValue.map() {BusRouteFlight.from(json: $0, context: context)}
-        route.flights = NSSet(array: flights)
+        route.flights = NSOrderedSet(array: flights)
         
         return route
         

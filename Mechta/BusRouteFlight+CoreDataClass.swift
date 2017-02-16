@@ -22,7 +22,7 @@ public class BusRouteFlight: NSManagedObject {
         flight.workingDaysAvailability = json["working_days_availability"].bool ?? false
         
         let stops = json["bus_stops"].arrayValue.map() {BusRouteFlightStop.from(json: $0, context: context)}
-        flight.stops = NSSet(array: stops)
+        flight.stops = NSOrderedSet(array: stops)
 
         return flight
         

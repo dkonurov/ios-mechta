@@ -61,4 +61,23 @@ class TransportModel {
     func busRoutesFromStorage() -> [BusRoute] {
         return CoreDataManager.instance.fetch("BusRoute")
     }
+    
+    func findBusRoute(start: BusStop, end: BusStop) -> BusRoute? {
+        let routes = busRoutesFromStorage()
+        for route in routes where route.flights != nil {
+            let flights = route.flights?.array as! [BusRouteFlight]
+            for flight in flights where flight.stops != nil{
+                let stops = flight.stops?.array as! [BusRouteFlightStop]
+                if let startStop = stops.first(where: {$0.busStop?.id == start.id}) {
+                    if let endStop = stops.first(where: {$0.busStop?.id == end.id}){
+                        if stops.index(of: startStop)! < stops.index(of: endStop)! {
+                            return route
+                        }
+                    }
+                }
+                
+            }
+        }
+        return nil
+    }
 }

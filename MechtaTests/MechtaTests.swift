@@ -48,7 +48,7 @@ class MechtaTests: XCTestCase {
         
         let expectation = self.expectation(description: "")
         
-        let model = AppModel.instance.busRoutesModel
+        let model = AppModel.instance.transportModel
         
         model.updateBusRoutesInStorage(onError: onError) {
             let saved = model.busRoutesFromStorage()

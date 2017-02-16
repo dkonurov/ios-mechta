@@ -27,7 +27,7 @@
 		40E9134C1E4A43D60024A6FB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E9134B1E4A43D60024A6FB /* Constants.swift */; };
 		471525ACA0388D2035B93B6F /* Pods_MechtaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B712FE005635AACD994D7E34 /* Pods_MechtaTests.framework */; };
 		B26F68F138F2427C9DE9AAFF /* Pods_Mechta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49077FB6B78400F0102966E0 /* Pods_Mechta.framework */; };
-		DB0768C11E55C3350058185D /* CourseSelectionFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0768C01E55C3350058185D /* CourseSelectionFacade.swift */; };
+		DB0768C11E55C3350058185D /* TransportRouteSelectionFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0768C01E55C3350058185D /* TransportRouteSelectionFacade.swift */; };
 		DB0768C31E55C53F0058185D /* TransportNearestFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0768C21E55C53F0058185D /* TransportNearestFacade.swift */; };
 		DB0768C51E55C5500058185D /* TransportScheduleFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0768C41E55C5500058185D /* TransportScheduleFacade.swift */; };
 		DB0768C71E55C55C0058185D /* TransportMapFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0768C61E55C55C0058185D /* TransportMapFacade.swift */; };
@@ -131,7 +131,7 @@
 		49077FB6B78400F0102966E0 /* Pods_Mechta.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mechta.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B712FE005635AACD994D7E34 /* Pods_MechtaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MechtaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D649FFB7BA989386BE5875D9 /* Pods-Mechta.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mechta.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mechta/Pods-Mechta.debug.xcconfig"; sourceTree = "<group>"; };
-		DB0768C01E55C3350058185D /* CourseSelectionFacade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseSelectionFacade.swift; sourceTree = "<group>"; };
+		DB0768C01E55C3350058185D /* TransportRouteSelectionFacade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransportRouteSelectionFacade.swift; sourceTree = "<group>"; };
 		DB0768C21E55C53F0058185D /* TransportNearestFacade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransportNearestFacade.swift; sourceTree = "<group>"; };
 		DB0768C41E55C5500058185D /* TransportScheduleFacade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransportScheduleFacade.swift; sourceTree = "<group>"; };
 		DB0768C61E55C55C0058185D /* TransportMapFacade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransportMapFacade.swift; sourceTree = "<group>"; };
@@ -493,7 +493,7 @@
 				DBD693411E4BAC3C002816D3 /* ServicesFacade.swift */,
 				DBC6A69A1E50BEE8007203C5 /* SupportFacade.swift */,
 				DBC2BE6E1E53687F0092527D /* BusStopsFacade.swift */,
-				DB0768C01E55C3350058185D /* CourseSelectionFacade.swift */,
+				DB0768C01E55C3350058185D /* TransportRouteSelectionFacade.swift */,
 				DB0768C21E55C53F0058185D /* TransportNearestFacade.swift */,
 				DB0768C41E55C5500058185D /* TransportScheduleFacade.swift */,
 				DB0768C61E55C55C0058185D /* TransportMapFacade.swift */,
@@ -818,7 +818,7 @@
 				DBB2ECE71E4FA8E500034B8B /* MenuItem.swift in Sources */,
 				DBB2ECF41E4FA9BA00034B8B /* Style.swift in Sources */,
 				DBD693361E4BA159002816D3 /* ServicesModel.swift in Sources */,
-				DB0768C11E55C3350058185D /* CourseSelectionFacade.swift in Sources */,
+				DB0768C11E55C3350058185D /* TransportRouteSelectionFacade.swift in Sources */,
 				DBFE875F1E5214B600F6321C /* TransportNearestViewController.swift in Sources */,
 				DBD6932E1E4BA019002816D3 /* NewsModel.swift in Sources */,
 				DBC2BE6A1E5362F10092527D /* BusStop+CoreDataClass.swift in Sources */,

@@ -3,7 +3,7 @@
     <entity name="BusRoute" representedClassName="BusRoute" syncable="YES">
         <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="flights" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="BusRouteFlight" inverseName="busRoute" inverseEntity="BusRouteFlight" syncable="YES"/>
+        <relationship name="flights" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="BusRouteFlight" inverseName="busRoute" inverseEntity="BusRouteFlight" syncable="YES"/>
     </entity>
     <entity name="BusRouteFlight" representedClassName="BusRouteFlight" syncable="YES">
         <attribute name="express" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
@@ -11,7 +11,7 @@
         <attribute name="weekendAvailability" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="workingDaysAvailability" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="busRoute" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BusRoute" inverseName="flights" inverseEntity="BusRoute" syncable="YES"/>
-        <relationship name="stops" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="BusRouteFlightStop" inverseName="flight" inverseEntity="BusRouteFlightStop" syncable="YES"/>
+        <relationship name="stops" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="BusRouteFlightStop" inverseName="flight" inverseEntity="BusRouteFlightStop" syncable="YES"/>
     </entity>
     <entity name="BusRouteFlightStop" representedClassName="BusRouteFlightStop" syncable="YES">
         <attribute name="stopTime" optional="YES" attributeType="String" syncable="YES"/>

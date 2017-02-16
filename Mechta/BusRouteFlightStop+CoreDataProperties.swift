@@ -2,7 +2,7 @@
 //  BusRouteFlightStop+CoreDataProperties.swift
 //  
 //
-//  Created by Evgeniy Safronov on 14.02.17.
+//  Created by Evgeniy Safronov on 16.02.17.
 //
 //
 
