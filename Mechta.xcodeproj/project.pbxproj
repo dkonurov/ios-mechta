@@ -27,7 +27,11 @@
 		40E9134C1E4A43D60024A6FB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E9134B1E4A43D60024A6FB /* Constants.swift */; };
 		471525ACA0388D2035B93B6F /* Pods_MechtaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B712FE005635AACD994D7E34 /* Pods_MechtaTests.framework */; };
 		B26F68F138F2427C9DE9AAFF /* Pods_Mechta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49077FB6B78400F0102966E0 /* Pods_Mechta.framework */; };
-		DB081DF21E54170E003C38A9 /* BusRoutesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB081DF11E54170E003C38A9 /* BusRoutesModel.swift */; };
+		DB0768C11E55C3350058185D /* CourseSelectionFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0768C01E55C3350058185D /* CourseSelectionFacade.swift */; };
+		DB0768C31E55C53F0058185D /* TransportNearestFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0768C21E55C53F0058185D /* TransportNearestFacade.swift */; };
+		DB0768C51E55C5500058185D /* TransportScheduleFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0768C41E55C5500058185D /* TransportScheduleFacade.swift */; };
+		DB0768C71E55C55C0058185D /* TransportMapFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0768C61E55C55C0058185D /* TransportMapFacade.swift */; };
+		DB081DF21E54170E003C38A9 /* TransportModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB081DF11E54170E003C38A9 /* TransportModel.swift */; };
 		DBB2ECCD1E4F9EF100034B8B /* NewsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB2ECCB1E4F9EF100034B8B /* NewsListViewController.swift */; };
 		DBB2ECCE1E4F9EF100034B8B /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB2ECCC1E4F9EF100034B8B /* NewsCell.swift */; };
 		DBB2ECD11E4F9F1A00034B8B /* OfferCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB2ECCF1E4F9F1A00034B8B /* OfferCell.swift */; };
@@ -64,7 +68,6 @@
 		DBBBE7A31E5396A10072961A /* BusRouteFlight+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBBE7A01E5396A10072961A /* BusRouteFlight+CoreDataClass.swift */; };
 		DBBBE7A41E5396A10072961A /* BusRouteFlightStop+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBBE7A11E5396A10072961A /* BusRouteFlightStop+CoreDataClass.swift */; };
 		DBC2BE6A1E5362F10092527D /* BusStop+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC2BE681E5362F10092527D /* BusStop+CoreDataClass.swift */; };
-		DBC2BE6D1E53671E0092527D /* BusStopsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC2BE6C1E53671E0092527D /* BusStopsModel.swift */; };
 		DBC2BE6F1E53687F0092527D /* BusStopsFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC2BE6E1E53687F0092527D /* BusStopsFacade.swift */; };
 		DBC6A69B1E50BEE8007203C5 /* SupportFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC6A69A1E50BEE8007203C5 /* SupportFacade.swift */; };
 		DBC6A69D1E50C0E5007203C5 /* Support.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBC6A69C1E50C0E5007203C5 /* Support.storyboard */; };
@@ -128,7 +131,11 @@
 		49077FB6B78400F0102966E0 /* Pods_Mechta.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mechta.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B712FE005635AACD994D7E34 /* Pods_MechtaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MechtaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D649FFB7BA989386BE5875D9 /* Pods-Mechta.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mechta.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mechta/Pods-Mechta.debug.xcconfig"; sourceTree = "<group>"; };
-		DB081DF11E54170E003C38A9 /* BusRoutesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusRoutesModel.swift; sourceTree = "<group>"; };
+		DB0768C01E55C3350058185D /* CourseSelectionFacade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseSelectionFacade.swift; sourceTree = "<group>"; };
+		DB0768C21E55C53F0058185D /* TransportNearestFacade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransportNearestFacade.swift; sourceTree = "<group>"; };
+		DB0768C41E55C5500058185D /* TransportScheduleFacade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransportScheduleFacade.swift; sourceTree = "<group>"; };
+		DB0768C61E55C55C0058185D /* TransportMapFacade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransportMapFacade.swift; sourceTree = "<group>"; };
+		DB081DF11E54170E003C38A9 /* TransportModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransportModel.swift; sourceTree = "<group>"; };
 		DBB2ECCB1E4F9EF100034B8B /* NewsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsListViewController.swift; sourceTree = "<group>"; };
 		DBB2ECCC1E4F9EF100034B8B /* NewsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
 		DBB2ECCF1E4F9F1A00034B8B /* OfferCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfferCell.swift; sourceTree = "<group>"; };
@@ -165,7 +172,6 @@
 		DBBBE7A01E5396A10072961A /* BusRouteFlight+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BusRouteFlight+CoreDataClass.swift"; sourceTree = "<group>"; };
 		DBBBE7A11E5396A10072961A /* BusRouteFlightStop+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BusRouteFlightStop+CoreDataClass.swift"; sourceTree = "<group>"; };
 		DBC2BE681E5362F10092527D /* BusStop+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BusStop+CoreDataClass.swift"; sourceTree = "<group>"; };
-		DBC2BE6C1E53671E0092527D /* BusStopsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusStopsModel.swift; sourceTree = "<group>"; };
 		DBC2BE6E1E53687F0092527D /* BusStopsFacade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusStopsFacade.swift; sourceTree = "<group>"; };
 		DBC6A69A1E50BEE8007203C5 /* SupportFacade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportFacade.swift; sourceTree = "<group>"; };
 		DBC6A69C1E50C0E5007203C5 /* Support.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Support.storyboard; sourceTree = "<group>"; };
@@ -463,8 +469,7 @@
 				DBD693371E4BA16A002816D3 /* NotificationsModel.swift */,
 				DBD693331E4BA144002816D3 /* OffersModel.swift */,
 				DBD693351E4BA159002816D3 /* ServicesModel.swift */,
-				DBC2BE6C1E53671E0092527D /* BusStopsModel.swift */,
-				DB081DF11E54170E003C38A9 /* BusRoutesModel.swift */,
+				DB081DF11E54170E003C38A9 /* TransportModel.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -488,6 +493,10 @@
 				DBD693411E4BAC3C002816D3 /* ServicesFacade.swift */,
 				DBC6A69A1E50BEE8007203C5 /* SupportFacade.swift */,
 				DBC2BE6E1E53687F0092527D /* BusStopsFacade.swift */,
+				DB0768C01E55C3350058185D /* CourseSelectionFacade.swift */,
+				DB0768C21E55C53F0058185D /* TransportNearestFacade.swift */,
+				DB0768C41E55C5500058185D /* TransportScheduleFacade.swift */,
+				DB0768C61E55C55C0058185D /* TransportMapFacade.swift */,
 			);
 			name = Facades;
 			sourceTree = "<group>";
@@ -756,9 +765,11 @@
 				DBB2ECD11E4F9F1A00034B8B /* OfferCell.swift in Sources */,
 				4007C8C81E4A3B54004D5E61 /* Notification+CoreDataProperties.swift in Sources */,
 				DBB2ECCD1E4F9EF100034B8B /* NewsListViewController.swift in Sources */,
+				DB0768C71E55C55C0058185D /* TransportMapFacade.swift in Sources */,
 				DBB2ECDA1E4F9F6300034B8B /* NotificationListViewController.swift in Sources */,
 				DBC6A6A01E50C0EF007203C5 /* SupportListViewController.swift in Sources */,
 				DBB2ECCE1E4F9EF100034B8B /* NewsCell.swift in Sources */,
+				DB0768C51E55C5500058185D /* TransportScheduleFacade.swift in Sources */,
 				4007C8C31E4A3B54004D5E61 /* Offer+CoreDataClass.swift in Sources */,
 				DBB2ECDC1E4F9F7100034B8B /* ServiceCell.swift in Sources */,
 				DBBBE79C1E5396460072961A /* BusRouteFlightStop+CoreDataProperties.swift in Sources */,
@@ -786,14 +797,13 @@
 				DBFE87601E5214B600F6321C /* CourseSelectionViewController.swift in Sources */,
 				DBB2ECD91E4F9F6300034B8B /* NotificationCell.swift in Sources */,
 				4007C89D1E4A32BA004D5E61 /* AppDelegate.swift in Sources */,
-				DBC2BE6D1E53671E0092527D /* BusStopsModel.swift in Sources */,
 				DBBBE7A31E5396A10072961A /* BusRouteFlight+CoreDataClass.swift in Sources */,
 				DBB2ED001E4FAA5400034B8B /* ServicesPagingController.swift in Sources */,
 				DBD6933C1E4BAA97002816D3 /* NewsFacade.swift in Sources */,
 				DBB2ECF71E4FA9DA00034B8B /* ColorExtension.swift in Sources */,
 				DBD693381E4BA16A002816D3 /* NotificationsModel.swift in Sources */,
 				DBD6933E1E4BAC16002816D3 /* ExcursionsFacade.swift in Sources */,
-				DB081DF21E54170E003C38A9 /* BusRoutesModel.swift in Sources */,
+				DB081DF21E54170E003C38A9 /* TransportModel.swift in Sources */,
 				4007C8C41E4A3B54004D5E61 /* Offer+CoreDataProperties.swift in Sources */,
 				DBB2ECE41E4FA8E500034B8B /* SideMenuCoordinatorViewController.swift in Sources */,
 				DBD693421E4BAC3C002816D3 /* ServicesFacade.swift in Sources */,
@@ -804,9 +814,11 @@
 				DBB2ECF81E4FA9DA00034B8B /* TableViewControllerExtension.swift in Sources */,
 				DBBBE7A41E5396A10072961A /* BusRouteFlightStop+CoreDataClass.swift in Sources */,
 				DBB2ECE91E4FA98100034B8B /* ImageViewWebExtension.swift in Sources */,
+				DB0768C31E55C53F0058185D /* TransportNearestFacade.swift in Sources */,
 				DBB2ECE71E4FA8E500034B8B /* MenuItem.swift in Sources */,
 				DBB2ECF41E4FA9BA00034B8B /* Style.swift in Sources */,
 				DBD693361E4BA159002816D3 /* ServicesModel.swift in Sources */,
+				DB0768C11E55C3350058185D /* CourseSelectionFacade.swift in Sources */,
 				DBFE875F1E5214B600F6321C /* TransportNearestViewController.swift in Sources */,
 				DBD6932E1E4BA019002816D3 /* NewsModel.swift in Sources */,
 				DBC2BE6A1E5362F10092527D /* BusStop+CoreDataClass.swift in Sources */,

@@ -15,10 +15,10 @@ class BusStopsFacade {
     static let errorNotification = NSNotification.Name("BusStopsError")
     static let noNetworkNotification = NSNotification.Name("BusStopsNoNetwork")
     
-    private let model: BusStopsModel
+    private let model: TransportModel
     
     init() {
-        self.model = AppModel.instance.busStopsModel
+        self.model = AppModel.instance.transportModel
     }
     
     func fetchedResultController() -> NSFetchedResultsController<BusStop> {
