@@ -16,9 +16,14 @@ class TransportNearestFacade {
     init() {
         model = AppModel.instance.transportModel
         model.onRouteChanged = onRouteChanged
+        model.onRoutesUpdated = onRoutesUpdated
     }
     
     func onRouteChanged() {
+        NotificationCenter.default.post(name: TransportNearestFacade.updatedNotification, object: nil)
+    }
+    
+    func onRoutesUpdated() {
         NotificationCenter.default.post(name: TransportNearestFacade.updatedNotification, object: nil)
     }
     
@@ -39,5 +44,15 @@ class TransportNearestFacade {
             let leftTime = ""
             return (startTime, endTime, leftTime)
         }
+    }
+    
+    //todo доделать
+    func startAutoUpdate() {
+        
+    }
+    
+    //todo доделать
+    func stopAutoUpdate() {
+        
     }
 }

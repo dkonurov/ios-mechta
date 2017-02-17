@@ -10,6 +10,8 @@ import Foundation
 
 class TransportScheduleFacade {
     static let updatedNotification = NSNotification.Name("TransportScheduleUpdatedNotification")
+    static let errorNotification = NSNotification.Name("TransportScheduleError")
+    static let noNetworkNotification = NSNotification.Name("TransportScheduleNoNetwork")
     
     private let model: TransportModel
     
@@ -31,5 +33,20 @@ class TransportScheduleFacade {
         }
         
         return model.schedule(from: start, to: end).map(){ ($0, $0.flight!) }
+    }
+    
+    func updateSchedule() {
+        model.updateBusRoutesInStorage(onError: onError, onSuccess: onUpdateSuccess)
+    }
+    
+    func onError(error: NetworkError) {
+        switch error {
+        case .fault(_): NotificationCenter.default.post(name: TransportScheduleFacade.errorNotification, object: nil)
+        case .offline: NotificationCenter.default.post(name: TransportScheduleFacade.noNetworkNotification, object: nil)
+        }
+    }
+    
+    func onUpdateSuccess() {
+        NotificationCenter.default.post(name: TransportScheduleFacade.updatedNotification, object: nil)
     }
 }

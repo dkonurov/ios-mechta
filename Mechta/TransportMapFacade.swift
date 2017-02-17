@@ -16,9 +16,14 @@ class TransportMapFacade {
     init() {
         model = AppModel.instance.transportModel
         model.onRouteChanged = onRouteChanged
+        model.onRoutesUpdated = onRoutesUpdated
     }
     
     func onRouteChanged() {
+        NotificationCenter.default.post(name: TransportMapFacade.updatedNotification, object: nil)
+    }
+    
+    func onRoutesUpdated() {
         NotificationCenter.default.post(name: TransportMapFacade.updatedNotification, object: nil)
     }
     

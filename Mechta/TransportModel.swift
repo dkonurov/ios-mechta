@@ -11,6 +11,7 @@ import CoreData
 
 class TransportModel {
     var onRouteChanged: (() -> Void)?
+    var onRoutesUpdated: (() -> Void)?
     
     let mainContext: NSManagedObjectContext
     
@@ -55,8 +56,11 @@ class TransportModel {
                 itemParser: BusRoute.from,
                 entityName: "BusRoute",
                 comparator: {$0 == $1},
-                onError: onError,
-                onSuccess: onSuccess)
+                onError: onError) {
+                    [unowned self] in
+                    self.onRoutesUpdated?()
+                    onSuccess()
+            }
         }
     }
     
