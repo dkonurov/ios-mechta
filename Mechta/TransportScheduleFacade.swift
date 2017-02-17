@@ -21,4 +21,15 @@ class TransportScheduleFacade {
     func onRouteChanged() {
         NotificationCenter.default.post(name: TransportScheduleFacade.updatedNotification, object: nil)
     }
+    
+    var schedule: [(BusRouteFlightStop, BusRouteFlight)] {
+        guard let start = model.startBusStop else {
+            return []
+        }
+        guard let end = model.endBusStop else {
+            return []
+        }
+        
+        return model.schedule(from: start, to: end).map(){ ($0, $0.flight!) }
+    }
 }
