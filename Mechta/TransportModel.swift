@@ -17,12 +17,14 @@ class TransportModel {
     var startBusStop: BusStop? {
         didSet {
             onRouteChanged?()
+            savePrefs()
         }
     }
     
     var endBusStop: BusStop? {
         didSet {
             onRouteChanged?()
+            savePrefs()
         }
     }
     
@@ -129,6 +131,26 @@ class TransportModel {
         }
         
         return nearest
+    }
+    
+    private func savePrefs() {
+        let prefs = PreferencesStorage.load()
+        prefs.startBusStopId = startBusStop?.id
+        prefs.endBusStopId = endBusStop?.id
+        prefs.save()
+    }
+    
+    private func loadPrefs() {
+        let prefs = PreferencesStorage.load()
+        let context = CoreDataManager.instance.mainContext
+        
+        if let startId = prefs.startBusStopId {
+            startBusStop = BusStop.fetch(id: startId, context: context)
+        }
+        
+        if let endId = prefs.endBusStopId {
+            endBusStop = BusStop.fetch(id: endId, context: context)
+        }
     }
 }
 

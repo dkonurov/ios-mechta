@@ -85,6 +85,7 @@
 		DBD693401E4BAC31002816D3 /* OffersFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD6933F1E4BAC31002816D3 /* OffersFacade.swift */; };
 		DBD693421E4BAC3C002816D3 /* ServicesFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD693411E4BAC3C002816D3 /* ServicesFacade.swift */; };
 		DBD693441E4BAC48002816D3 /* NotificationsFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD693431E4BAC48002816D3 /* NotificationsFacade.swift */; };
+		DBD7D5D71E56BAE2000715CD /* PreferencesStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD7D5D61E56BAE2000715CD /* PreferencesStorage.swift */; };
 		DBFE875D1E5214B600F6321C /* TransportMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFE87591E5214B600F6321C /* TransportMapViewController.swift */; };
 		DBFE875E1E5214B600F6321C /* TransportScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFE875A1E5214B600F6321C /* TransportScheduleViewController.swift */; };
 		DBFE875F1E5214B600F6321C /* TransportNearestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFE875B1E5214B600F6321C /* TransportNearestViewController.swift */; };
@@ -191,6 +192,7 @@
 		DBD6933F1E4BAC31002816D3 /* OffersFacade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OffersFacade.swift; sourceTree = "<group>"; };
 		DBD693411E4BAC3C002816D3 /* ServicesFacade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServicesFacade.swift; sourceTree = "<group>"; };
 		DBD693431E4BAC48002816D3 /* NotificationsFacade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsFacade.swift; sourceTree = "<group>"; };
+		DBD7D5D61E56BAE2000715CD /* PreferencesStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesStorage.swift; sourceTree = "<group>"; };
 		DBFE87591E5214B600F6321C /* TransportMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransportMapViewController.swift; sourceTree = "<group>"; };
 		DBFE875A1E5214B600F6321C /* TransportScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransportScheduleViewController.swift; sourceTree = "<group>"; };
 		DBFE875B1E5214B600F6321C /* TransportNearestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransportNearestViewController.swift; sourceTree = "<group>"; };
@@ -335,6 +337,7 @@
 			children = (
 				40E913491E4A41760024A6FB /* NetworkManager.swift */,
 				4007C8B21E4A3556004D5E61 /* CoreDataManager.swift */,
+				DBD7D5D61E56BAE2000715CD /* PreferencesStorage.swift */,
 			);
 			name = Framework;
 			sourceTree = "<group>";
@@ -774,6 +777,7 @@
 				DBB2ECDC1E4F9F7100034B8B /* ServiceCell.swift in Sources */,
 				DBBBE79C1E5396460072961A /* BusRouteFlightStop+CoreDataProperties.swift in Sources */,
 				DBFE875D1E5214B600F6321C /* TransportMapViewController.swift in Sources */,
+				DBD7D5D71E56BAE2000715CD /* PreferencesStorage.swift in Sources */,
 				40E9134A1E4A41760024A6FB /* NetworkManager.swift in Sources */,
 				DBFE87631E5214C600F6321C /* BusStopCell.swift in Sources */,
 				DBB2ECF01E4FA99000034B8B /* TableViewMessageBackgroundView.swift in Sources */,
