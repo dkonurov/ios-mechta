@@ -18,6 +18,10 @@ class RouteSelectionFacade {
         model.onRouteChanged = onRouteChanged
     }
     
+    func onRouteChanged() {
+        NotificationCenter.default.post(name: RouteSelectionFacade.updatedNotification, object: nil)
+    }
+    
     var startBusStop: BusStop? {
         set {
             model.startBusStop = newValue
@@ -34,9 +38,5 @@ class RouteSelectionFacade {
         get {
             return model.endBusStop
         }
-    }
-    
-    func onRouteChanged() {
-        NotificationCenter.default.post(name: RouteSelectionFacade.updatedNotification, object: nil)
     }
 }

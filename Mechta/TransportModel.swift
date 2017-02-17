@@ -82,6 +82,14 @@ class TransportModel {
         return nil
     }
     
+    func busStops(from start: BusStop, to end: BusStop) -> [BusStop] {
+        guard let route = busRoute(from: start, to: end) else {
+            return []
+        }
+        let flights = route.flights?.array as! [BusRouteFlight]
+        return stops(flight: flights.first!, from: start, to: end).map(){ $0.busStop! }
+    }
+    
     func busStops(flight: BusRouteFlight, from start: BusStop, to end: BusStop) -> [BusStop] {
         return stops(flight: flight, from: start, to: end).map(){ $0.busStop! }
     }

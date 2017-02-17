@@ -21,4 +21,15 @@ class TransportMapFacade {
     func onRouteChanged() {
         NotificationCenter.default.post(name: TransportMapFacade.updatedNotification, object: nil)
     }
+    
+    var busStops: [BusStop] {
+        guard let start = model.startBusStop else {
+            return []
+        }
+        guard let end = model.endBusStop else {
+            return []
+        }
+        
+        return model.busStops(from: start, to: end)
+    }
 }
