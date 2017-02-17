@@ -7,6 +7,7 @@ PODS:
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
+  - SwiftDate (4.0.12)
   - SwiftyJSON (3.1.4)
   - YandexMapView (0.1.0)
 
@@ -17,6 +18,7 @@ DEPENDENCIES:
   - PagingMenuController (~> 1.4)
   - RESideMenu (~> 4.0.7)
   - SDWebImage (~> 3.7)
+  - SwiftDate (~> 4.0)
   - SwiftyJSON (~> 3.1)
   - YandexMapView (from `https://github.com/npu3pak/ios-yandex-map-view.git`)
 
@@ -41,9 +43,10 @@ SPEC CHECKSUMS:
   PagingMenuController: 79a9ce7472839d9afd0a6b879af6132822644a47
   RESideMenu: f24c508404b49c667344c54aba7e590883533958
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
+  SwiftDate: 9a50045abc7b3515ede0fbed94705907279177b5
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
   YandexMapView: c778474671554fe018152960f3ff76477d048296
 
-PODFILE CHECKSUM: 754117bd2947183dc2fca3c33efe9443e5f94b2d
+PODFILE CHECKSUM: 30d59f530fe3801906cb498a78116729dbff1d0c
 
 COCOAPODS: 1.1.1
