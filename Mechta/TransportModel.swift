@@ -81,6 +81,10 @@ class TransportModel {
     }
     
     func busStops(flight: BusRouteFlight, from start: BusStop, to end: BusStop) -> [BusStop] {
+        return stops(flight: flight, from: start, to: end).map(){ $0.busStop! }
+    }
+    
+    func stops(flight: BusRouteFlight, from start: BusStop, to end: BusStop) -> [BusRouteFlightStop] {
         let stops = flight.stops?.array as! [BusRouteFlightStop]
         let startStop = stops.first(where: { $0.busStop?.id == start.id })!
         let endStop = stops.first(where: { $0.busStop?.id == end.id })!
@@ -89,20 +93,45 @@ class TransportModel {
         let endIndex = stops.index(of: endStop)!
         
         let stopsSlice = stops[startIndex...endIndex]
-        return Array(stopsSlice).map(){ $0.busStop! }
+        return Array(stopsSlice)
     }
     
     func schedule(from start: BusStop, to end: BusStop) -> [BusRouteFlightStop] {
-        guard let route = busRoute(from: start, to: end), route.flights != nil else {
+        guard let route = busRoute(from: start, to: end) else {
             return []
         }
         var schedule = [BusRouteFlightStop]()
         let flights = route.flights?.array as! [BusRouteFlight]
-        for flight in flights where flight.stops != nil {
+        for flight in flights {
             let stops = flight.stops?.array as! [BusRouteFlightStop]
             let matched = stops.filter({$0.busStop?.id == start.id})
             schedule.append(contentsOf: matched)
         }
         return schedule
     }
+    
+    func nearest(from start: BusStop, to end: BusStop) -> [(BusRouteFlightStop, BusRouteFlightStop)] {
+        guard let route = busRoute(from: start, to: end) else {
+            return []
+        }
+        
+        var nearest = [(BusRouteFlightStop, BusRouteFlightStop)]()
+        let flights = route.flights?.array as! [BusRouteFlight]
+        
+        for flight in flights {
+            let stops = flight.stops?.array as! [BusRouteFlightStop]
+            let startStop = stops.first(where: { $0.busStop?.id == start.id })
+            let endStop = stops.first(where: { $0.busStop?.id == end.id })
+            
+            if startStop != nil && endStop != nil {
+                nearest.append((startStop!, endStop!))
+            }
+        }
+        
+        return nearest
+    }
 }
+
+
+
+
