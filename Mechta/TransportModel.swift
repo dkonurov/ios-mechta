@@ -33,6 +33,7 @@ class TransportModel {
     
     init(context: NSManagedObjectContext) {
         self.mainContext = context
+        loadPrefs()
     }
     
     func updateBusStopsInStorage(onError: @escaping (NetworkError) -> Void, onSuccess: @escaping () -> Void) {

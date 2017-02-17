@@ -2,6 +2,8 @@ import UIKit
 import CoreData
 
 class BusStopListViewController: UITableViewController, NSFetchedResultsControllerDelegate {
+    var onBusStopSelected: ((BusStop) -> Void)?
+    
     private let model = BusStopsFacade()
     private var fetchedResultController: NSFetchedResultsController<BusStop>?
     
@@ -86,6 +88,13 @@ class BusStopListViewController: UITableViewController, NSFetchedResultsControll
         let cell = tableView.dequeueReusableCell(withIdentifier: "BusStopCell") as! BusStopCell
         cell.show(busStop: busStop)
         return cell
+    }
+    
+    //MARK: Выбор элемента
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let busStop = fetchedResultController!.object(at: indexPath)
+        onBusStopSelected?(busStop)
     }
     
     //MARK: Отслеживание изменений

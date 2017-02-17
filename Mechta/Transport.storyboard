@@ -83,40 +83,40 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ynm-ss-LS4">
-                                <rect key="frame" x="36" y="46.5" width="284" height="1"/>
+                                <rect key="frame" x="49" y="46.5" width="271" height="1"/>
                                 <color key="backgroundColor" red="0.83372336629999999" green="0.85775917769999999" blue="0.88829869029999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="eSd-jl-HfC"/>
                                 </constraints>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UAj-HD-nge">
-                                <rect key="frame" x="8" y="16" width="20" height="62"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TransportSwap" translatesAutoresizingMaskIntoConstraints="NO" id="UAj-HD-nge">
+                                <rect key="frame" x="8" y="16" width="33" height="62"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="20" id="iBG-fc-fID"/>
+                                    <constraint firstAttribute="width" constant="33" id="iBG-fc-fID"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Начальная остановка" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rIT-ZE-EfB">
-                                <rect key="frame" x="36" y="4" width="260" height="38.5"/>
+                                <rect key="frame" x="49" y="4" width="247" height="38.5"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                 <color key="textColor" red="0.26812827589999999" green="0.37376368049999997" blue="0.4395350516" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Конечная остановка" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Tr-az-udH">
-                                <rect key="frame" x="36" y="51.5" width="260" height="38.5"/>
+                                <rect key="frame" x="49" y="51.5" width="247" height="38.5"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                 <color key="textColor" red="0.26812827589999999" green="0.37376368049999997" blue="0.4395350516" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cko-YR-xhu">
-                                <rect key="frame" x="300" y="0.0" width="20" height="46.5"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ArrowForward" translatesAutoresizingMaskIntoConstraints="NO" id="cko-YR-xhu">
+                                <rect key="frame" x="300" y="0.0" width="16" height="46.5"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="20" id="yzl-pn-xlm"/>
+                                    <constraint firstAttribute="width" constant="16" id="yzl-pn-xlm"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="B5n-XQ-SWk">
-                                <rect key="frame" x="300" y="47.5" width="20" height="46.5"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ArrowForward" translatesAutoresizingMaskIntoConstraints="NO" id="B5n-XQ-SWk">
+                                <rect key="frame" x="300" y="47.5" width="16" height="46.5"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="20" id="5vj-f4-d5A"/>
+                                    <constraint firstAttribute="width" constant="16" id="5vj-f4-d5A"/>
                                 </constraints>
                             </imageView>
                         </subviews>
@@ -131,14 +131,14 @@
                             <constraint firstAttribute="trailing" secondItem="ynm-ss-LS4" secondAttribute="trailing" id="Djv-kz-Ze0"/>
                             <constraint firstItem="B5n-XQ-SWk" firstAttribute="top" secondItem="ynm-ss-LS4" secondAttribute="bottom" id="GMk-7m-iFG"/>
                             <constraint firstAttribute="bottom" secondItem="4Tr-az-udH" secondAttribute="bottom" constant="4" id="Hil-6c-25Q"/>
-                            <constraint firstAttribute="trailing" secondItem="B5n-XQ-SWk" secondAttribute="trailing" id="Ocw-97-s1E"/>
+                            <constraint firstAttribute="trailing" secondItem="B5n-XQ-SWk" secondAttribute="trailing" constant="4" id="Ocw-97-s1E"/>
                             <constraint firstItem="4Tr-az-udH" firstAttribute="top" secondItem="ynm-ss-LS4" secondAttribute="bottom" constant="4" id="PR0-KK-SQI"/>
                             <constraint firstItem="cko-YR-xhu" firstAttribute="top" secondItem="CbA-Vj-VMi" secondAttribute="top" id="RoX-zU-MMx"/>
                             <constraint firstItem="cko-YR-xhu" firstAttribute="leading" secondItem="rIT-ZE-EfB" secondAttribute="trailing" constant="4" id="Slb-YG-yGx"/>
                             <constraint firstItem="B5n-XQ-SWk" firstAttribute="leading" secondItem="4Tr-az-udH" secondAttribute="trailing" constant="4" id="V5z-SM-S9A"/>
                             <constraint firstAttribute="bottom" secondItem="B5n-XQ-SWk" secondAttribute="bottom" id="WKl-Di-idL"/>
                             <constraint firstItem="UAj-HD-nge" firstAttribute="leading" secondItem="CbA-Vj-VMi" secondAttribute="leading" constant="8" id="c0B-do-Y6a"/>
-                            <constraint firstAttribute="trailing" secondItem="cko-YR-xhu" secondAttribute="trailing" id="jyc-vz-WGJ"/>
+                            <constraint firstAttribute="trailing" secondItem="cko-YR-xhu" secondAttribute="trailing" constant="4" id="jyc-vz-WGJ"/>
                             <constraint firstItem="ynm-ss-LS4" firstAttribute="top" secondItem="cko-YR-xhu" secondAttribute="bottom" id="kr2-8t-Lki"/>
                             <constraint firstAttribute="bottom" secondItem="UAj-HD-nge" secondAttribute="bottom" constant="16" id="oLb-UN-T6p"/>
                             <constraint firstItem="UAj-HD-nge" firstAttribute="top" secondItem="CbA-Vj-VMi" secondAttribute="top" constant="16" id="pEd-UO-Mej"/>
@@ -313,4 +313,8 @@
             <point key="canvasLocation" x="2251.875" y="-189.08450704225353"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ArrowForward" width="33" height="33"/>
+        <image name="TransportSwap" width="33" height="33"/>
+    </resources>
 </document>
