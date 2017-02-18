@@ -10,6 +10,8 @@ import Foundation
 
 class TransportNearestFacade {
     var onUpdate: (() -> Void)?
+    var onError: (() -> Void)?
+    var onNoNetwork: (() -> Void)?
     
     private let model: TransportModel
     
@@ -28,6 +30,21 @@ class TransportNearestFacade {
     }
     
     @objc func onRoutesUpdated() {
+        onUpdate?()
+    }
+    
+    func updateNearest() {
+        model.updateBusRoutesInStorage(onError: onError, onSuccess: onUpdateSuccess)
+    }
+    
+    func onError(error: NetworkError) {
+        switch error {
+        case .fault(_): onError?()
+        case .offline: onNoNetwork?()
+        }
+    }
+    
+    func onUpdateSuccess() {
         onUpdate?()
     }
     

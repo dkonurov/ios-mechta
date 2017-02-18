@@ -18,14 +18,17 @@ class TransportMapViewController: UIViewController {
     }
     
     func updateData() {
-        for busStop in model.busStops {
-            print(busStop.title!)
-            print(busStop.latitude)
-            print(busStop.longitude)
+        mapView.clear()
+        let busStops = model.busStops
+        for busStop in busStops {
             mapView.showMarker(id: Int(busStop.id),
                                latitude: busStop.latitude,
                                longitude: busStop.longitude,
                                title: busStop.title ?? "Остановка")
+        }
+        if busStops.count > 0 {
+            mapView.setZoom(zoom: 15)
+            mapView.setCenter(latitude: busStops[0].latitude, longitude: busStops[0].longitude)
         }
     }
 }

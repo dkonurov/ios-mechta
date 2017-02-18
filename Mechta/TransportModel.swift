@@ -58,7 +58,6 @@ class TransportModel {
                 entityName: "BusRoute",
                 comparator: {$0 == $1},
                 onError: onError) {
-                    [unowned self] in
                     NotificationCenter.default.post(name: TransportModel.updatedNotification, object: nil)
                     onSuccess()
             }
