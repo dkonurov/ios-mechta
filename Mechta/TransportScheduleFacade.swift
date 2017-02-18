@@ -45,6 +45,27 @@ class TransportScheduleFacade {
         return model.schedule(from: start, to: end).map(){ ($0, $0.flight!) }
     }
     
+    var scheduleItems: [ScheduleItem] {
+        let schedule = self.schedule
+        
+        var items = [ScheduleItem]()
+        for (stop, _) in schedule {
+            if let time = stop.stopTime {
+                let hour = time.components(separatedBy: ":")[0]
+                let minute = time.components(separatedBy: ":")[1]
+                let workingDaysOnly = stop.flight?.weekendAvailability == false
+                
+                if let i = items.index(where: {$0.hour == hour}) {
+                    items[i].minutes.append((minute, workingDaysOnly))
+                } else {
+                    items.append(ScheduleItem(hour: hour, minutes: [(minute, workingDaysOnly)]))
+                }
+            }
+        }
+        
+        return items
+    }
+    
     func updateSchedule() {
         model.updateBusRoutesInStorage(onError: onError, onSuccess: onUpdateSuccess)
     }
