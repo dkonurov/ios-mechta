@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -177,18 +178,62 @@
         <scene sceneID="wdS-2m-yGB">
             <objects>
                 <tableViewController storyboardIdentifier="Nearest" id="HOU-y4-dcE" customClass="TransportNearestViewController" customModule="Mechta" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="nAD-x4-Dha">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="1" sectionFooterHeight="1" id="nAD-x4-Dha">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="wg0-2o-WwW">
-                                <rect key="frame" x="0.0" y="56" width="320" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="NearestCell" rowHeight="50" id="wg0-2o-WwW" customClass="TransportNearestCell" customModule="Mechta" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="56" width="320" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wg0-2o-WwW" id="Shj-w9-Ybv">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="16:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="67O-4O-8eb">
+                                            <rect key="frame" x="16" y="6" width="78" height="36"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="16:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3UG-vl-cdt">
+                                            <rect key="frame" x="108" y="7" width="78" height="36"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tL4-rv-5gj">
+                                            <rect key="frame" x="94" y="7" width="14" height="36"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Через 5 минут" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fe7-AD-Nvc">
+                                            <rect key="frame" x="211.5" y="8" width="92.5" height="33.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="3UG-vl-cdt" firstAttribute="centerY" secondItem="Shj-w9-Ybv" secondAttribute="centerY" id="0ww-gC-G79"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Fe7-AD-Nvc" secondAttribute="trailing" constant="8" id="PMF-fc-mNQ"/>
+                                        <constraint firstItem="tL4-rv-5gj" firstAttribute="centerY" secondItem="Shj-w9-Ybv" secondAttribute="centerY" id="Qaq-mB-3d8"/>
+                                        <constraint firstItem="67O-4O-8eb" firstAttribute="leading" secondItem="Shj-w9-Ybv" secondAttribute="leading" constant="16" id="Rib-8M-pIa"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="Fe7-AD-Nvc" secondAttribute="bottom" id="aNt-gF-9yW"/>
+                                        <constraint firstItem="67O-4O-8eb" firstAttribute="centerY" secondItem="Shj-w9-Ybv" secondAttribute="centerY" id="dxs-4z-sQO"/>
+                                        <constraint firstItem="Fe7-AD-Nvc" firstAttribute="top" secondItem="Shj-w9-Ybv" secondAttribute="topMargin" id="j7k-Kp-16i"/>
+                                        <constraint firstItem="tL4-rv-5gj" firstAttribute="leading" secondItem="67O-4O-8eb" secondAttribute="trailing" id="tRn-5m-Dfc"/>
+                                        <constraint firstItem="3UG-vl-cdt" firstAttribute="leading" secondItem="tL4-rv-5gj" secondAttribute="trailing" id="vEY-H2-mBQ"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="endTimeLabel" destination="3UG-vl-cdt" id="tzY-qm-vZz"/>
+                                    <outlet property="leftTimeLabel" destination="Fe7-AD-Nvc" id="5If-OO-SAB"/>
+                                    <outlet property="separatorLabel" destination="tL4-rv-5gj" id="SeH-gh-3Da"/>
+                                    <outlet property="startTimeLabel" destination="67O-4O-8eb" id="zhN-au-2Jj"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -197,6 +242,7 @@
                         </connections>
                     </tableView>
                     <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="ciA-BH-Oxo">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </refreshControl>
                 </tableViewController>
@@ -273,6 +319,7 @@
                         </connections>
                     </tableView>
                     <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="lcM-7T-hcl">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </refreshControl>
                 </tableViewController>

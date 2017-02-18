@@ -33,6 +33,7 @@
 		DB0768C51E55C5500058185D /* TransportScheduleFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0768C41E55C5500058185D /* TransportScheduleFacade.swift */; };
 		DB0768C71E55C55C0058185D /* TransportMapFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0768C61E55C55C0058185D /* TransportMapFacade.swift */; };
 		DB081DF21E54170E003C38A9 /* TransportModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB081DF11E54170E003C38A9 /* TransportModel.swift */; };
+		DBB12D2B1E58A76E00AE90F7 /* TransportNearestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB12D2A1E58A76E00AE90F7 /* TransportNearestCell.swift */; };
 		DBB2ECCD1E4F9EF100034B8B /* NewsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB2ECCB1E4F9EF100034B8B /* NewsListViewController.swift */; };
 		DBB2ECCE1E4F9EF100034B8B /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB2ECCC1E4F9EF100034B8B /* NewsCell.swift */; };
 		DBB2ECD11E4F9F1A00034B8B /* OfferCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB2ECCF1E4F9F1A00034B8B /* OfferCell.swift */; };
@@ -139,6 +140,7 @@
 		DB0768C41E55C5500058185D /* TransportScheduleFacade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransportScheduleFacade.swift; sourceTree = "<group>"; };
 		DB0768C61E55C55C0058185D /* TransportMapFacade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransportMapFacade.swift; sourceTree = "<group>"; };
 		DB081DF11E54170E003C38A9 /* TransportModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransportModel.swift; sourceTree = "<group>"; };
+		DBB12D2A1E58A76E00AE90F7 /* TransportNearestCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransportNearestCell.swift; sourceTree = "<group>"; };
 		DBB2ECCB1E4F9EF100034B8B /* NewsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsListViewController.swift; sourceTree = "<group>"; };
 		DBB2ECCC1E4F9EF100034B8B /* NewsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
 		DBB2ECCF1E4F9F1A00034B8B /* OfferCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfferCell.swift; sourceTree = "<group>"; };
@@ -541,6 +543,7 @@
 			isa = PBXGroup;
 			children = (
 				DBFE875B1E5214B600F6321C /* TransportNearestViewController.swift */,
+				DBB12D2A1E58A76E00AE90F7 /* TransportNearestCell.swift */,
 			);
 			name = Nearest;
 			sourceTree = "<group>";
@@ -822,6 +825,7 @@
 				DBB2ECF81E4FA9DA00034B8B /* TableViewControllerExtension.swift in Sources */,
 				DBBBE7A41E5396A10072961A /* BusRouteFlightStop+CoreDataClass.swift in Sources */,
 				DBB2ECE91E4FA98100034B8B /* ImageViewWebExtension.swift in Sources */,
+				DBB12D2B1E58A76E00AE90F7 /* TransportNearestCell.swift in Sources */,
 				DB0768C31E55C53F0058185D /* TransportNearestFacade.swift in Sources */,
 				DBB2ECE71E4FA8E500034B8B /* MenuItem.swift in Sources */,
 				DBB2ECF41E4FA9BA00034B8B /* Style.swift in Sources */,

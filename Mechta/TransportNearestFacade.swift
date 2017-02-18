@@ -8,6 +8,11 @@
 
 import Foundation
 
+struct NearestTransportItem {
+    let startTime: String
+    let endTime: String
+}
+
 class TransportNearestFacade {
     var onUpdate: (() -> Void)?
     var onError: (() -> Void)?
@@ -65,6 +70,14 @@ class TransportNearestFacade {
             let leftTime = ""
             return (startTime, endTime, leftTime)
         }
+    }
+    
+    var nearestItems: [NearestTransportItem] {
+        return [
+            NearestTransportItem(startTime: "10:00", endTime: "11:00"),
+            NearestTransportItem(startTime: "10:30", endTime: "11:30"),
+            NearestTransportItem(startTime: "11:50", endTime: "12:50"),
+        ]
     }
     
     //todo доделать

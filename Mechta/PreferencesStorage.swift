@@ -9,7 +9,6 @@ class PreferencesStorage {
     
     private init() {}
     
-    //Загрузка
     static func load() -> PreferencesStorage {
         let defaults = UserDefaults.standard
         let storage = PreferencesStorage()
