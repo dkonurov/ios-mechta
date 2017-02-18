@@ -3,9 +3,9 @@ import CoreData
 import UIKit
 
 class ServicesFacade {
-    let updatedNotification: NSNotification.Name
-    let errorNotification: NSNotification.Name
-    let noNetworkNotification: NSNotification.Name
+    var onUpdate: (() -> Void)?
+    var onError: (() -> Void)?
+    var onNoNetwork: (() -> Void)?
     
     private let model: ServicesModel
     private let availableTypes: [Service.ServiceType]
@@ -13,22 +13,6 @@ class ServicesFacade {
     init(availableTypes: [Service.ServiceType]) {
         self.model = AppModel.instance.servicesModel
         self.availableTypes = availableTypes
-        
-        if availableTypes.contains(.externalService) && availableTypes.contains(.internalService) {
-            updatedNotification = NSNotification.Name("ServicesUpdated")
-            errorNotification = NSNotification.Name("ServicesError")
-            noNetworkNotification = NSNotification.Name("ServicesNoNetwork")
-        }
-        else if availableTypes.contains(.internalService) {
-            updatedNotification = NSNotification.Name("InternalServicesUpdated")
-            errorNotification = NSNotification.Name("InternalServicesError")
-            noNetworkNotification = NSNotification.Name("InternalServicesNoNetwork")
-        }
-        else {
-            updatedNotification = NSNotification.Name("ExternalServicesUpdated")
-            errorNotification = NSNotification.Name("ExternalServicesError")
-            noNetworkNotification = NSNotification.Name("ExternalServicesNoNetwork")
-        }
     }
     
     func fetchedResultController() -> NSFetchedResultsController<Service> {
@@ -103,12 +87,12 @@ class ServicesFacade {
     
     func onError(error: NetworkError) {
         switch error {
-        case .fault(_): NotificationCenter.default.post(name: errorNotification, object: nil)
-        case .offline: NotificationCenter.default.post(name: noNetworkNotification, object: nil)
+        case .fault(_): onError?()
+        case .offline: onNoNetwork?()
         }
     }
     
     func onUpdateSuccess() {
-        NotificationCenter.default.post(name: updatedNotification, object: nil)
+        onUpdate?()
     }
 }

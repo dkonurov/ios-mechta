@@ -16,8 +16,9 @@ public class BusStop: NSManagedObject {
         let busStop: BusStop = context.inserting(entityName: "BusStop")
         busStop.id = json["id"].int64!
         busStop.title = json["title"].string
-        busStop.latitude = json["latitude"].double ?? 0
-        busStop.longitude = json["longitude"].double ?? 0
+        
+        busStop.latitude = Double(json["latitude"].string ?? "0.0") ?? 0
+        busStop.longitude = Double(json["longitude"].string ?? "0.0") ?? 0
         return busStop
     }
     

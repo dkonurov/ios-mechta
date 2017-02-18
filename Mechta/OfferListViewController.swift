@@ -14,26 +14,15 @@ class OfferListViewController: UITableViewController, NSFetchedResultsController
         
         refreshControl?.addTarget(self, action: #selector(reload), for: .valueChanged)
         
-        fetchedResultController = model.fetchedResultController()
-        fetchedResultController?.delegate = self
-    }
-    
-    //MARK: Обработка событий
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(onDataUpdated), name: OffersFacade.updatedNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(onUpdateError), name: OffersFacade.errorNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(onNoNetworkUpdateError), name: OffersFacade.noNetworkNotification, object: nil)
-        
-        try? fetchedResultController?.performFetch()
+        model.onNoNetwork = onNoNetworkUpdateError
+        model.onUpdate = onDataUpdated
+        model.onError = onUpdateError
         
         model.updateOffers()
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        NotificationCenter.default.removeObserver(self)
+        
+        fetchedResultController = model.fetchedResultController()
+        fetchedResultController?.delegate = self
+        try? fetchedResultController?.performFetch()
     }
     
     func reload() {

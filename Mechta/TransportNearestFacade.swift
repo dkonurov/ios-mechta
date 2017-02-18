@@ -9,22 +9,26 @@
 import Foundation
 
 class TransportNearestFacade {
-    static let updatedNotification = NSNotification.Name("TransportNearestUpdatedNotification")
+    var onUpdate: (() -> Void)?
     
     private let model: TransportModel
     
     init() {
         model = AppModel.instance.transportModel
-        model.onRouteChanged = onRouteChanged
-        model.onRoutesUpdated = onRoutesUpdated
+        NotificationCenter.default.addObserver(self, selector: #selector(onRouteChanged), name: TransportModel.selectedRouteChangedNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(onRoutesUpdated), name: TransportModel.updatedNotification, object: nil)
     }
     
-    func onRouteChanged() {
-        NotificationCenter.default.post(name: TransportNearestFacade.updatedNotification, object: nil)
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
-    func onRoutesUpdated() {
-        NotificationCenter.default.post(name: TransportNearestFacade.updatedNotification, object: nil)
+    @objc func onRouteChanged() {
+        onUpdate?()
+    }
+    
+    @objc func onRoutesUpdated() {
+        onUpdate?()
     }
     
     //todo учитывать доступность рейса в будний/выходной

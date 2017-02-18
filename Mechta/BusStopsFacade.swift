@@ -10,10 +10,9 @@ import Foundation
 import CoreData
 
 class BusStopsFacade {
-    
-    static let updatedNotification = NSNotification.Name("BusStopsUpdated")
-    static let errorNotification = NSNotification.Name("BusStopsError")
-    static let noNetworkNotification = NSNotification.Name("BusStopsNoNetwork")
+    var onUpdate: (() -> Void)?
+    var onError: (() -> Void)?
+    var onNoNetwork: (() -> Void)?
     
     private let model: TransportModel
     
@@ -35,12 +34,12 @@ class BusStopsFacade {
     
     func onError(error: NetworkError) {
         switch error {
-        case .fault(_): NotificationCenter.default.post(name: BusStopsFacade.errorNotification, object: nil)
-        case .offline: NotificationCenter.default.post(name: BusStopsFacade.noNetworkNotification, object: nil)
+        case .fault(_): onError?()
+        case .offline: onNoNetwork?()
         }
     }
     
     func onUpdateSuccess() {
-        NotificationCenter.default.post(name: BusStopsFacade.updatedNotification, object: nil)
+        onUpdate?()
     }
 }

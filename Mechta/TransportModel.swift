@@ -10,21 +10,21 @@ import Foundation
 import CoreData
 
 class TransportModel {
-    var onRouteChanged: (() -> Void)?
-    var onRoutesUpdated: (() -> Void)?
+    static let updatedNotification = NSNotification.Name("TransportUpdated")
+    static let selectedRouteChangedNotification = NSNotification.Name("TransportRouteChanged")
     
     let mainContext: NSManagedObjectContext
     
     var startBusStop: BusStop? {
         didSet {
-            onRouteChanged?()
+            NotificationCenter.default.post(name: TransportModel.selectedRouteChangedNotification, object: nil)
             savePrefs()
         }
     }
     
     var endBusStop: BusStop? {
         didSet {
-            onRouteChanged?()
+            NotificationCenter.default.post(name: TransportModel.selectedRouteChangedNotification, object: nil)
             savePrefs()
         }
     }
@@ -59,7 +59,7 @@ class TransportModel {
                 comparator: {$0 == $1},
                 onError: onError) {
                     [unowned self] in
-                    self.onRoutesUpdated?()
+                    NotificationCenter.default.post(name: TransportModel.updatedNotification, object: nil)
                     onSuccess()
             }
         }

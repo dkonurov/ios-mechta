@@ -14,27 +14,18 @@ class NotificationListViewController: UITableViewController, NSFetchedResultsCon
         
         refreshControl?.addTarget(self, action: #selector(reload), for: .valueChanged)
         
+        model.onNoNetwork = onNoNetworkUpdateError
+        model.onUpdate = onDataUpdated
+        model.onError = onUpdateError
+        
+        model.updateNotifications()
+        
         fetchedResultController = model.fetchedResultController()
         fetchedResultController?.delegate = self
+        try? fetchedResultController?.performFetch()
     }
     
     //MARK: Обработка событий
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(onDataUpdated), name: NotificationsFacade.updatedNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(onUpdateError), name: NotificationsFacade.errorNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(onNoNetworkUpdateError), name: NotificationsFacade.noNetworkNotification, object: nil)
-        
-        try? fetchedResultController?.performFetch()
-        
-        model.updateNotifications()
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        NotificationCenter.default.removeObserver(self)
-    }
     
     func reload() {
         model.updateNotifications()

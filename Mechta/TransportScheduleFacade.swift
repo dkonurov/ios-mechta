@@ -9,19 +9,24 @@
 import Foundation
 
 class TransportScheduleFacade {
-    static let updatedNotification = NSNotification.Name("TransportScheduleUpdatedNotification")
-    static let errorNotification = NSNotification.Name("TransportScheduleError")
-    static let noNetworkNotification = NSNotification.Name("TransportScheduleNoNetwork")
+    var onUpdate: (() -> Void)?
+    var onError: (() -> Void)?
+    var onNoNetwork: (() -> Void)?
     
     private let model: TransportModel
     
     init() {
         model = AppModel.instance.transportModel
-        model.onRouteChanged = onRouteChanged
+        NotificationCenter.default.addObserver(self, selector: #selector(onRouteChanged), name: TransportModel.selectedRouteChangedNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(onRouteChanged), name: TransportModel.updatedNotification, object: nil)
     }
     
-    func onRouteChanged() {
-        NotificationCenter.default.post(name: TransportScheduleFacade.updatedNotification, object: nil)
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    @objc func onRouteChanged() {
+        onUpdate?()
     }
     
     var schedule: [(BusRouteFlightStop, BusRouteFlight)] {
@@ -41,12 +46,12 @@ class TransportScheduleFacade {
     
     func onError(error: NetworkError) {
         switch error {
-        case .fault(_): NotificationCenter.default.post(name: TransportScheduleFacade.errorNotification, object: nil)
-        case .offline: NotificationCenter.default.post(name: TransportScheduleFacade.noNetworkNotification, object: nil)
+        case .fault(_): onError?()
+        case .offline: onNoNetwork?()
         }
     }
     
     func onUpdateSuccess() {
-        NotificationCenter.default.post(name: TransportScheduleFacade.updatedNotification, object: nil)
+        onUpdate?()
     }
 }

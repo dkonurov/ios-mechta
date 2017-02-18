@@ -22,6 +22,9 @@ class CourseSelectionViewController: UIViewController {
         let swapTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(swapBusStops))
         swapDirectionsImageView.isUserInteractionEnabled = true
         swapDirectionsImageView.addGestureRecognizer(swapTapRecognizer)
+        
+        model.onUpdate = updateData
+        updateData()
     }
     
     func onStartClick() {
@@ -60,18 +63,6 @@ class CourseSelectionViewController: UIViewController {
         let startBusStop = model.startBusStop
         model.startBusStop = model.endBusStop
         model.endBusStop = startBusStop
-    }
-    
-    //MARK: Обработка событий
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        NotificationCenter.default.addObserver(self, selector: #selector(updateData), name: RouteSelectionFacade.updatedNotification, object: nil)
-        updateData()
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        NotificationCenter.default.removeObserver(self)
     }
     
     func updateData() {

@@ -3,9 +3,9 @@ import CoreData
 import UIKit
 
 class OffersFacade {
-    static let updatedNotification = NSNotification.Name("OffersUpdated")
-    static let errorNotification = NSNotification.Name("OffersError")
-    static let noNetworkNotification = NSNotification.Name("OffersNoNetwork")
+    var onUpdate: (() -> Void)?
+    var onError: (() -> Void)?
+    var onNoNetwork: (() -> Void)?
     
     private let model: OffersModel
     
@@ -43,12 +43,12 @@ class OffersFacade {
     
     func onError(error: NetworkError) {
         switch error {
-        case .fault(_): NotificationCenter.default.post(name: OffersFacade.errorNotification, object: nil)
-        case .offline: NotificationCenter.default.post(name: OffersFacade.noNetworkNotification, object: nil)
+        case .fault(_): onError?()
+        case .offline: onNoNetwork?()
         }
     }
     
     func onUpdateSuccess() {
-        NotificationCenter.default.post(name: OffersFacade.updatedNotification, object: nil)
+        onUpdate?()
     }
 }
