@@ -8,6 +8,11 @@
 
 import Foundation
 
+struct ScheduleItem {
+    var hour: String
+    var minutes: [(minute: String, workingDaysOnly: Bool)]
+}
+
 class TransportScheduleFacade {
     var onUpdate: (() -> Void)?
     var onError: (() -> Void)?

@@ -205,18 +205,63 @@
         <scene sceneID="352-uL-qFk">
             <objects>
                 <tableViewController storyboardIdentifier="Schedule" id="zWQ-XN-Bmd" customClass="TransportScheduleViewController" customModule="Mechta" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="TgE-Ik-J11">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="1" sectionFooterHeight="1" id="TgE-Ik-J11">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="Z2p-x0-eVM">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="48"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="* Рейсы в это время осуществляются только по будним дням" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dx3-iV-fU6">
+                                    <rect key="frame" x="16" y="0.0" width="288" height="48"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="Dx3-iV-fU6" secondAttribute="bottom" id="LUL-BP-K7S"/>
+                                <constraint firstAttribute="trailing" secondItem="Dx3-iV-fU6" secondAttribute="trailing" constant="16" id="MUI-GW-cMk"/>
+                                <constraint firstItem="Dx3-iV-fU6" firstAttribute="leading" secondItem="Z2p-x0-eVM" secondAttribute="leading" constant="16" id="XBL-rR-GRZ"/>
+                                <constraint firstItem="Dx3-iV-fU6" firstAttribute="top" secondItem="Z2p-x0-eVM" secondAttribute="top" id="csa-6g-aFC"/>
+                            </constraints>
+                        </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="awg-5Z-fOL">
-                                <rect key="frame" x="0.0" y="56" width="320" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ScheduleCell" rowHeight="48" id="awg-5Z-fOL" customClass="TransportScheduleCell" customModule="Mechta" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="104" width="320" height="48"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="awg-5Z-fOL" id="iDj-et-VdG">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="47"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="16" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WOz-97-nfR">
+                                            <rect key="frame" x="16" y="6" width="32" height="36"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dpj-Zf-cjQ">
+                                            <rect key="frame" x="56" y="14" width="248" height="20"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="20" id="CyB-v7-Ylf"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="dpj-Zf-cjQ" firstAttribute="centerY" secondItem="iDj-et-VdG" secondAttribute="centerY" id="53c-Va-maS"/>
+                                        <constraint firstAttribute="trailing" secondItem="dpj-Zf-cjQ" secondAttribute="trailing" constant="16" id="aqd-fH-4zi"/>
+                                        <constraint firstItem="dpj-Zf-cjQ" firstAttribute="leading" secondItem="WOz-97-nfR" secondAttribute="trailing" constant="8" id="hnj-TW-Gqe"/>
+                                        <constraint firstItem="WOz-97-nfR" firstAttribute="leading" secondItem="iDj-et-VdG" secondAttribute="leading" constant="16" id="rLh-SP-qgh"/>
+                                        <constraint firstItem="WOz-97-nfR" firstAttribute="centerY" secondItem="iDj-et-VdG" secondAttribute="centerY" id="sux-uv-q7B"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="hourLabel" destination="WOz-97-nfR" id="dWG-oV-hGt"/>
+                                    <outlet property="minutesView" destination="dpj-Zf-cjQ" id="c5f-Mt-dDy"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -227,7 +272,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CQi-Ht-a51" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1305" y="641"/>
+            <point key="canvasLocation" x="1305" y="640.14084507042253"/>
         </scene>
         <!--Transport Map View Controller-->
         <scene sceneID="Jrg-Ng-2aL">
@@ -279,7 +324,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="260" text="Заголовок" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CvK-Xh-v5Y">
-                                            <rect key="frame" x="8" y="8" width="304" height="50"/>
+                                            <rect key="frame" x="8" y="8" width="304" height="49"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>

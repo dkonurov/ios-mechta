@@ -27,6 +27,7 @@
 		40E9134C1E4A43D60024A6FB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E9134B1E4A43D60024A6FB /* Constants.swift */; };
 		471525ACA0388D2035B93B6F /* Pods_MechtaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B712FE005635AACD994D7E34 /* Pods_MechtaTests.framework */; };
 		B26F68F138F2427C9DE9AAFF /* Pods_Mechta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49077FB6B78400F0102966E0 /* Pods_Mechta.framework */; };
+		DB008E481E5857900045E07B /* TransportScheduleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB008E471E5857900045E07B /* TransportScheduleCell.swift */; };
 		DB0768C11E55C3350058185D /* TransportRouteSelectionFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0768C01E55C3350058185D /* TransportRouteSelectionFacade.swift */; };
 		DB0768C31E55C53F0058185D /* TransportNearestFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0768C21E55C53F0058185D /* TransportNearestFacade.swift */; };
 		DB0768C51E55C5500058185D /* TransportScheduleFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0768C41E55C5500058185D /* TransportScheduleFacade.swift */; };
@@ -132,6 +133,7 @@
 		49077FB6B78400F0102966E0 /* Pods_Mechta.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mechta.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B712FE005635AACD994D7E34 /* Pods_MechtaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MechtaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D649FFB7BA989386BE5875D9 /* Pods-Mechta.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mechta.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mechta/Pods-Mechta.debug.xcconfig"; sourceTree = "<group>"; };
+		DB008E471E5857900045E07B /* TransportScheduleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransportScheduleCell.swift; sourceTree = "<group>"; };
 		DB0768C01E55C3350058185D /* TransportRouteSelectionFacade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransportRouteSelectionFacade.swift; sourceTree = "<group>"; };
 		DB0768C21E55C53F0058185D /* TransportNearestFacade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransportNearestFacade.swift; sourceTree = "<group>"; };
 		DB0768C41E55C5500058185D /* TransportScheduleFacade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransportScheduleFacade.swift; sourceTree = "<group>"; };
@@ -530,6 +532,7 @@
 			isa = PBXGroup;
 			children = (
 				DBFE875A1E5214B600F6321C /* TransportScheduleViewController.swift */,
+				DB008E471E5857900045E07B /* TransportScheduleCell.swift */,
 			);
 			name = Schedule;
 			sourceTree = "<group>";
@@ -792,6 +795,7 @@
 				DBFE875E1E5214B600F6321C /* TransportScheduleViewController.swift in Sources */,
 				4007C8C51E4A3B54004D5E61 /* Service+CoreDataClass.swift in Sources */,
 				DBD693341E4BA144002816D3 /* OffersModel.swift in Sources */,
+				DB008E481E5857900045E07B /* TransportScheduleCell.swift in Sources */,
 				DBC6A6A11E50C0EF007203C5 /* SupportItemCell.swift in Sources */,
 				4007C8BF1E4A3B54004D5E61 /* Excursion+CoreDataClass.swift in Sources */,
 				DBD693321E4BA0FF002816D3 /* ExcursionsModel.swift in Sources */,
