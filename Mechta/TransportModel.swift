@@ -124,7 +124,7 @@ class TransportModel {
         return schedule
     }
     
-    func nearest(from start: BusStop, to end: BusStop) -> [(BusRouteFlightStop, BusRouteFlightStop)] {
+    func flightEnds(start: BusStop, end: BusStop) -> [(BusRouteFlightStop, BusRouteFlightStop)] {
         guard let route = busRoute(from: start, to: end) else {
             return []
         }

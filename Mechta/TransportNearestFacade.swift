@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftDate
 
 struct NearestTransportItem {
     let startTime: String
@@ -53,9 +54,7 @@ class TransportNearestFacade {
         onUpdate?()
     }
     
-    //todo учитывать доступность рейса в будний/выходной
-    //todo добавить расчет времени до начала рейса
-    var nearest: [(startTime: String, endTime: String, left: String)] {
+    var nearestItems: [NearestTransportItem] {
         guard let start = model.startBusStop else {
             return []
         }
@@ -63,21 +62,41 @@ class TransportNearestFacade {
             return []
         }
         
-        let nearest = model.nearest(from: start, to: end)
-        return nearest.map() { start, end in
-            let startTime = start.stopTime ?? ""
-            let endTime = end.stopTime ?? ""
-            let leftTime = ""
-            return (startTime, endTime, leftTime)
+        //TODO Унести в инициализацию приложения
+        let moscow = Region(tz: TimeZoneName.europeMoscow, cal: CalendarName.gregorian, loc: LocaleName.russianRussia)
+        Date.setDefaultRegion(moscow)
+        
+        let flightEnds = model.flightEnds(start: start, end: end)
+        
+        var nearestEnds = [(BusRouteFlightStop, BusRouteFlightStop)]()
+        
+        //Добавляем оставшиеся сегодняшние рейсы
+        let now = Date()
+        let todayEnds = flightEnds.filter() { start, _ in
+            let flight = start.flight
+            let availableDay = flight?.weekendAvailability == true && now.isWeekend() || flight?.workingDaysAvailability == true && now.isWorkingDay()
+            
+            let currentTime = now.hmValue()
+            let availableTime = currentTime < start.stopTime!
+            
+            return availableDay && availableTime
         }
-    }
-    
-    var nearestItems: [NearestTransportItem] {
-        return [
-            NearestTransportItem(startTime: "10:00", endTime: "11:00"),
-            NearestTransportItem(startTime: "10:30", endTime: "11:30"),
-            NearestTransportItem(startTime: "11:50", endTime: "12:50"),
-        ]
+        nearestEnds.append(contentsOf: todayEnds)
+        
+        //Добавляем рейсы, которые будут завтра
+        let tomorrow = 1.days.fromNow()!
+        let tomorrowEnds = flightEnds.filter() { start, _ in
+            let flight = start.flight
+            return flight?.weekendAvailability == true && tomorrow.isWeekend() || flight?.workingDaysAvailability == true && tomorrow.isWorkingDay()
+        }
+        nearestEnds.append(contentsOf: tomorrowEnds)
+        
+        //Преобразуем в строки, вычисляем оставшееся время
+        return nearestEnds.map() { start, end in
+            let startTimeStr = start.stopTime!
+            let endTimeStr = end.stopTime!            
+            return NearestTransportItem(startTime: startTimeStr, endTime: endTimeStr)
+        }
     }
     
     //todo доделать

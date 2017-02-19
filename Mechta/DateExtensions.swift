@@ -13,6 +13,11 @@ extension Date {
         }
     }
     
+    static func fromHm(_ stringValue: String?) -> Date? {
+        let date = from(startTimeStr, format: "HH:mm")
+        return date
+    }
+    
     private func toString(format: String) -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = format
@@ -30,6 +35,19 @@ extension Date {
     
     func dmyValue() -> String {
         return toString(format: "dd.MM.yyyy")
+    }
+    
+    func hmValue() -> String {
+        return toString(format: "HH:mm")
+    }
+    
+    func isWorkingDay() -> Bool {
+        return !isWeekend()
+    }
+    
+    func isWeekend() -> Bool {
+        let day = self.weekday
+        return day == 1 || day == 7
     }
 }
 
