@@ -6,6 +6,7 @@ class Style {
     static let darkColor = UIColor.fromRgbString("#4E6A79")
     static let brightColor = UIColor.fromRgbString("#00A5DC")
     static let additionalColor = UIColor.fromRgbString("#52BE5A")
+    static let greenColor = UIColor.fromRgbString("#8DC374")
     
     static func apply() {
         //Таблицы

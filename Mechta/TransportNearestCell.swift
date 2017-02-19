@@ -15,11 +15,32 @@ class TransportNearestCell: UITableViewCell {
     @IBOutlet var leftTimeLabel: UILabel?
     
     func show(_ item: NearestTransportItem) {
-        startTimeLabel?.text = item.startTime
-        endTimeLabel?.text = item.endTime
-        leftTimeLabel?.text = "Через\n5 минут"
         separatorLabel?.textColor = UIColor.lightGray
         endTimeLabel?.textColor = UIColor.lightGray
+        
+        startTimeLabel?.text = item.startTime.hmValue()
+        endTimeLabel?.text = item.endTime.hmValue()
+        
+        if item.startTime.isToday {
+            let seconds = lround(item.interval)
+            let hours = seconds / 3600
+            let minutes = (seconds % 3600) / 60
+            if hours == 0 {
+                leftTimeLabel?.text = "Через\n\(minutes) мин."
+                if minutes < 30 {
+                    leftTimeLabel?.textColor = Style.greenColor
+                } else {
+                    leftTimeLabel?.textColor = UIColor.darkText
+                }
+            } else {
+                leftTimeLabel?.text = "Через\n\(hours) ч. \(minutes) мин."
+                leftTimeLabel?.textColor = UIColor.lightGray
+            }
+            
+        } else if item.startTime.isTomorrow {
+            leftTimeLabel?.text = "Завтра"
+            leftTimeLabel?.textColor = UIColor.lightGray
+        }
     }
 
 }
