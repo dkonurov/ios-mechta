@@ -13,6 +13,22 @@ extension Date {
         }
     }
     
+    static func fromHm(_ timeString: String, day: Date) -> Date? {
+        guard let date = from(timeString, format: "HH:mm") else {
+            return nil
+        }
+        
+        let calendar = NSCalendar.current
+        var components = NSCalendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: date)
+        components.day = day.day
+        components.month = day.month
+        components.year = day.year
+        components.hour = date.hour
+        components.minute = date.minute
+        
+        return calendar.date(from: components)
+    }
+    
     private func toString(format: String) -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = format

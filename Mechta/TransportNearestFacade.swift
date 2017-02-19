@@ -12,6 +12,7 @@ import SwiftDate
 struct NearestTransportItem {
     let startTime: String
     let endTime: String
+    let leftInterval: TimeInterval
 }
 
 class TransportNearestFacade {
@@ -95,7 +96,12 @@ class TransportNearestFacade {
         return nearestEnds.map() { start, end in
             let startTimeStr = start.stopTime!
             let endTimeStr = end.stopTime!
-            return NearestTransportItem(startTime: startTimeStr, endTime: endTimeStr)
+            
+            //TODO День не всегда сегодняшний
+            let startDate = Date.fromHm(startTimeStr, day: now)
+            let interval = startDate!.timeIntervalSince(now)
+            
+            return NearestTransportItem(startTime: startTimeStr, endTime: endTimeStr, leftInterval: interval)
         }
     }
     
