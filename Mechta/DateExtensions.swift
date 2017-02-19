@@ -13,11 +13,6 @@ extension Date {
         }
     }
     
-    static func fromHm(_ stringValue: String?) -> Date? {
-        let date = from(startTimeStr, format: "HH:mm")
-        return date
-    }
-    
     private func toString(format: String) -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = format

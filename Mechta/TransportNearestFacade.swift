@@ -94,7 +94,7 @@ class TransportNearestFacade {
         //Преобразуем в строки, вычисляем оставшееся время
         return nearestEnds.map() { start, end in
             let startTimeStr = start.stopTime!
-            let endTimeStr = end.stopTime!            
+            let endTimeStr = end.stopTime!
             return NearestTransportItem(startTime: startTimeStr, endTime: endTimeStr)
         }
     }
