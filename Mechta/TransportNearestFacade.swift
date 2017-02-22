@@ -62,13 +62,29 @@ class TransportNearestFacade {
         guard let end = model.endBusStop else {
             return []
         }
+        guard let route = model.busRoute(from: start, to: end) else {
+            return []
+        }
         
-        let flights = model.flightEnds(start: start, end: end)
+        let routeFlights = route.flights?.array as! [BusRouteFlight]
+        
+        //Ищем информацию о начальных и конечных остановках для подходящих маршрутов
+        var flightEnds = [(BusRouteFlightStop, BusRouteFlightStop)]()
+        for flight in routeFlights {
+            let stops = flight.stops?.array as! [BusRouteFlightStop]
+            let startStop = stops.first(where: { $0.busStop?.id == start.id })
+            let endStop = stops.first(where: { $0.busStop?.id == end.id })
+            
+            if startStop != nil && endStop != nil {
+                flightEnds.append((startStop!, endStop!))
+            }
+        }
+        
         var nearestItems = [NearestTransportItem]()
         
         //Добавляем оставшиеся сегодняшние рейсы
         let now = Date()
-        for (startStop, endStop) in flights {
+        for (startStop, endStop) in flightEnds {
             let flight = startStop.flight!
             let startTime = Date.fromHm(startStop.stopTime!, day: now)!
             let endTime = Date.fromHm(endStop.stopTime!, day: now)!
@@ -82,7 +98,7 @@ class TransportNearestFacade {
         
         //Добавляем рейсы, которые будут завтра
         let tomorrow = 1.days.fromNow()!
-        for (startStop, endStop) in flights {
+        for (startStop, endStop) in flightEnds {
             let flight = startStop.flight!
             let startTime = Date.fromHm(startStop.stopTime!, day: tomorrow)!
             let endTime = Date.fromHm(endStop.stopTime!, day: tomorrow)!

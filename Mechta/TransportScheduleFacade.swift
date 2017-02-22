@@ -41,8 +41,20 @@ class TransportScheduleFacade {
         guard let end = model.endBusStop else {
             return []
         }
+        guard let route = model.busRoute(from: start, to: end) else {
+            return []
+        }
         
-        return model.schedule(from: start, to: end).map(){ ($0, $0.flight!) }
+        let flights = route.flights?.array as! [BusRouteFlight]
+        
+        var schedule = [BusRouteFlightStop]()
+        for flight in flights {
+            let stops = flight.stops?.array as! [BusRouteFlightStop]
+            let matched = stops.filter({$0.busStop?.id == start.id})
+            schedule.append(contentsOf: matched)
+        }
+        
+        return schedule.map(){ ($0, $0.flight!) }
     }
     
     var scheduleItems: [ScheduleItem] {

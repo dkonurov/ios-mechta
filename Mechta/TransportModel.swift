@@ -15,25 +15,25 @@ class TransportModel {
     
     let mainContext: NSManagedObjectContext
     
+    private let networkManager = NetworkManager()
+    
+    init(context: NSManagedObjectContext) {
+        self.mainContext = context
+        loadSelectedBusStops()
+    }
+    
     var startBusStop: BusStop? {
         didSet {
             NotificationCenter.default.post(name: TransportModel.selectedRouteChangedNotification, object: nil)
-            savePrefs()
+            saveSelectedBusStops()
         }
     }
     
     var endBusStop: BusStop? {
         didSet {
             NotificationCenter.default.post(name: TransportModel.selectedRouteChangedNotification, object: nil)
-            savePrefs()
+            saveSelectedBusStops()
         }
-    }
-    
-    private let networkManager = NetworkManager()
-    
-    init(context: NSManagedObjectContext) {
-        self.mainContext = context
-        loadPrefs()
     }
     
     func updateBusStopsInStorage(onError: @escaping (NetworkError) -> Void, onSuccess: @escaping () -> Void) {
@@ -86,73 +86,14 @@ class TransportModel {
         return nil
     }
     
-    func busStops(from start: BusStop, to end: BusStop) -> [BusStop] {
-        guard let route = busRoute(from: start, to: end) else {
-            return []
-        }
-        let flights = route.flights?.array as! [BusRouteFlight]
-        return stops(flight: flights.first!, from: start, to: end).map(){ $0.busStop! }
-    }
-    
-    func busStops(flight: BusRouteFlight, from start: BusStop, to end: BusStop) -> [BusStop] {
-        return stops(flight: flight, from: start, to: end).map(){ $0.busStop! }
-    }
-    
-    func stops(flight: BusRouteFlight, from start: BusStop, to end: BusStop) -> [BusRouteFlightStop] {
-        let stops = flight.stops?.array as! [BusRouteFlightStop]
-        let startStop = stops.first(where: { $0.busStop?.id == start.id })!
-        let endStop = stops.first(where: { $0.busStop?.id == end.id })!
-        
-        let startIndex = stops.index(of: startStop)!
-        let endIndex = stops.index(of: endStop)!
-        
-        let stopsSlice = stops[startIndex...endIndex]
-        return Array(stopsSlice)
-    }
-    
-    func schedule(from start: BusStop, to end: BusStop) -> [BusRouteFlightStop] {
-        guard let route = busRoute(from: start, to: end) else {
-            return []
-        }
-        var schedule = [BusRouteFlightStop]()
-        let flights = route.flights?.array as! [BusRouteFlight]
-        for flight in flights {
-            let stops = flight.stops?.array as! [BusRouteFlightStop]
-            let matched = stops.filter({$0.busStop?.id == start.id})
-            schedule.append(contentsOf: matched)
-        }
-        return schedule
-    }
-    
-    func flightEnds(start: BusStop, end: BusStop) -> [(BusRouteFlightStop, BusRouteFlightStop)] {
-        guard let route = busRoute(from: start, to: end) else {
-            return []
-        }
-        
-        var nearest = [(BusRouteFlightStop, BusRouteFlightStop)]()
-        let flights = route.flights?.array as! [BusRouteFlight]
-        
-        for flight in flights {
-            let stops = flight.stops?.array as! [BusRouteFlightStop]
-            let startStop = stops.first(where: { $0.busStop?.id == start.id })
-            let endStop = stops.first(where: { $0.busStop?.id == end.id })
-            
-            if startStop != nil && endStop != nil {
-                nearest.append((startStop!, endStop!))
-            }
-        }
-        
-        return nearest
-    }
-    
-    private func savePrefs() {
+    private func saveSelectedBusStops() {
         let prefs = PreferencesStorage.load()
         prefs.startBusStopId = startBusStop?.id
         prefs.endBusStopId = endBusStop?.id
         prefs.save()
     }
     
-    private func loadPrefs() {
+    private func loadSelectedBusStops() {
         let prefs = PreferencesStorage.load()
         let context = CoreDataManager.instance.mainContext
         
