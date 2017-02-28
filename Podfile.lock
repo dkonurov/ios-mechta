@@ -1,5 +1,5 @@
 PODS:
-  - Alamofire (4.3.0)
+  - Alamofire (4.4.0)
   - CoreDataBoilerplate (0.1.0)
   - OpenSans (1.0.3)
   - PagingMenuController (1.4.0)
@@ -33,11 +33,11 @@ CHECKOUT OPTIONS:
     :commit: 12072966dfd3afa2249049b847714051457463df
     :git: https://github.com/npu3pak/ios-lib-coredata-boilerplate.git
   YandexMapView:
-    :commit: bd523e1e3b3add3ac11f78f313c64bbfda217d0c
+    :commit: e2fb195b9eff85594b37cf8b562a2aa84d26566e
     :git: https://github.com/npu3pak/ios-yandex-map-view.git
 
 SPEC CHECKSUMS:
-  Alamofire: 856a113053a7bc9cbe5d6367a555d773fc5cfef7
+  Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
   CoreDataBoilerplate: acd829ca46ad460b1f61f1fc9dd5036cc17bb6bb
   OpenSans: 33078846463eae780aa5f82986b51cce085f970d
   PagingMenuController: 79a9ce7472839d9afd0a6b879af6132822644a47
