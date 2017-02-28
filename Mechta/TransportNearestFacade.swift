@@ -62,15 +62,15 @@ class TransportNearestFacade {
         guard let end = model.endBusStop else {
             return []
         }
-        guard let route = model.busRoute(from: start, to: end) else {
+        
+        let flights = model.busRouteFlights(from: start, to: end)
+        guard flights.count > 0 else {
             return []
         }
         
-        let routeFlights = route.flights?.array as! [BusRouteFlight]
-        
         //Ищем информацию о начальных и конечных остановках для подходящих маршрутов
         var flightEnds = [(BusRouteFlightStop, BusRouteFlightStop)]()
-        for flight in routeFlights {
+        for flight in flights {
             let stops = flight.stops?.array as! [BusRouteFlightStop]
             let startStop = stops.first(where: { $0.busStop?.id == start.id })
             let endStop = stops.first(where: { $0.busStop?.id == end.id })

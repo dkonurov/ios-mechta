@@ -41,11 +41,11 @@ class TransportScheduleFacade {
         guard let end = model.endBusStop else {
             return []
         }
-        guard let route = model.busRoute(from: start, to: end) else {
+        
+        let flights = model.busRouteFlights(from: start, to: end)
+        guard flights.count > 0 else {
             return []
         }
-        
-        let flights = route.flights?.array as! [BusRouteFlight]
         
         var schedule = [BusRouteFlightStop]()
         for flight in flights {

@@ -38,12 +38,16 @@ class TransportMapFacade {
         guard let end = model.endBusStop else {
             return []
         }
-        guard let route = model.busRoute(from: start, to: end) else {
+        
+        let flights = model.busRouteFlights(from: start, to: end)
+        guard flights.count > 0 else {
             return []
         }
         
-        let flight = route.flights!.firstObject as! BusRouteFlight
+        let flight = flights.first!
         let flightStops = flight.stops!.array as! [BusRouteFlightStop]
+        
+        
         let startFlightStop = flightStops.first(where: { $0.busStop?.id == start.id })!
         let endFlightStop = flightStops.first(where: { $0.busStop?.id == end.id })!
         let startIndex = flightStops.index(of: startFlightStop)!

@@ -26,9 +26,9 @@ class TransportMapViewController: UIViewController {
                                longitude: busStop.longitude,
                                title: busStop.title ?? "Остановка")
         }
-        if busStops.count > 0 {
+        if let startBusStop = busStops.first {
             mapView.setZoom(zoom: 15)
-            mapView.setCenter(latitude: busStops[0].latitude, longitude: busStops[0].longitude)
+            mapView.setCenter(latitude: startBusStop.latitude, longitude: startBusStop.longitude)
         }
     }
 }
