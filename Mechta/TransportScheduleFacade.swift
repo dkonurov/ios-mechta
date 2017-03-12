@@ -68,7 +68,16 @@ class TransportScheduleFacade {
                 let workingDaysOnly = stop.flight?.weekendAvailability == false
                 
                 if let i = items.index(where: {$0.hour == hour}) {
-                    items[i].minutes.append((minute, workingDaysOnly))
+                    //Если известно, что ранее добавленный рейс для этого времени доступен не только по выходным - удаляем старый вариант
+                    if workingDaysOnly == false && items[i].minutes.contains(where: {min, workingDaysOnly in min == minute && workingDaysOnly == true}) {
+                        if let index = items[i].minutes.index(where: {$0.0 == minute}) {
+                            items[i].minutes.remove(at: index)
+                        }
+                    }
+                    //Если рейса с такими минутами нет - добавляем его
+                    if !items[i].minutes.contains(where: {$0.0 == minute}) {
+                        items[i].minutes.append((minute, workingDaysOnly))
+                    }
                 } else {
                     items.append(ScheduleItem(hour: hour, minutes: [(minute, workingDaysOnly)]))
                 }
